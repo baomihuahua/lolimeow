@@ -37,6 +37,8 @@ function mobantu_paging($type,$paged,$max_page) {
 	echo '</ul>';
 }
 
+if($_POST)
+{
 if($_POST['paytype']){
 		$paytype=intval($_POST['paytype']);
 		$doo = 1;
@@ -55,7 +57,7 @@ if($_POST['paytype']){
 		}
 		elseif(isset($_POST['paytype']) && $paytype==4)
 		{
-			$url=get_bloginfo('url')."/wp-content/plugins/erphpdown/payment/weixin/example/weixin.php?ice_money=".$wpdb->escape($_POST['ice_money']);
+			$url=get_bloginfo('url')."/wp-content/plugins/erphpdown/payment/weixin.php?ice_money=".$wpdb->escape($_POST['ice_money']);
 		}
 		elseif(isset($_POST['paytype']) && $paytype==8)
 		{
@@ -67,18 +69,19 @@ if($_POST['paytype']){
 		}
 		elseif(isset($_POST['paytype']) && $paytype==9)
 	    {
-	        $url=constant("erphpdown")."payment/xhpay.php?ice_money=".esc_sql($_POST['ice_money']);
+	        $url=constant("erphpdown")."payment/xhpay.php?ice_money=".esc_sql($_POST['ice_money'])."&type=1";
 	    }
 	    elseif(isset($_POST['paytype']) && $paytype==10)
 	    {
-	        $url=constant("erphpdown")."payment/xhpay2.php?ice_money=".esc_sql($_POST['ice_money']);
-	    }elseif(isset($_POST['paytype']) && $paytype==11)
+	        $url=constant("erphpdown")."payment/xhpay.php?ice_money=".esc_sql($_POST['ice_money'])."&type=2";
+	    }
+	    elseif(isset($_POST['paytype']) && $paytype==11)
 	    {
-	        $url=constant("erphpdown")."payment/xhpay3.php?ice_money=".esc_sql($_POST['ice_money']);
+	        $url=constant("erphpdown")."payment/xhpay2.php?ice_money=".esc_sql($_POST['ice_money'])."&type=1";
 	    }
 	    elseif(isset($_POST['paytype']) && $paytype==12)
 	    {
-	        $url=constant("erphpdown")."payment/xhpay4.php?ice_money=".esc_sql($_POST['ice_money']);
+	        $url=constant("erphpdown")."payment/xhpay2.php?ice_money=".esc_sql($_POST['ice_money'])."&type=2";
 	    }elseif(isset($_POST['paytype']) && $paytype==13)
 	    {
 	        $url=constant("erphpdown")."payment/codepay.php?ice_money=".esc_sql($_POST['ice_money'])."&type=1";
@@ -100,6 +103,7 @@ if($_POST['paytype']){
 	}
 	
 	
+}
 	global $userdata, $wp_http_referer;
 					get_currentuserinfo();
 					if ( !(function_exists( 'get_user_to_edit' )) ) {
@@ -506,11 +510,12 @@ if($_POST['paytype']){
 
 <?php if($userTypeId>0){
 	
-}else{?><form action="" method="post"><ul class="user-meta zwfb_shop_table">
-<li> <input type="radio" id="userType" name="userType" value="10" checked /><span class="text-info"><strong>&nbsp;终身会员&nbsp;(<?php echo $ciphp_life_price.get_option('ice_name_alipay')?>)</strong></span>&nbsp;&nbsp;<img src="<?php echo get_template_directory_uri().'/assets/images/vip/v5.jpg' ?>"> </li>
-<li> <input type="radio" id="userType" name="userType" value="9" /><span class="text-danger"><strong>&nbsp;包年会员&nbsp;(<?php echo $ciphp_year_price.get_option('ice_name_alipay')?>)</strong></span>&nbsp;&nbsp;<img src="<?php echo get_template_directory_uri().'/assets/images/vip/v4.jpg' ?>"> </li>
-<li><input type="radio" id="userType" name="userType" value="8" /><span class="text-warning"><strong>&nbsp;包季会员&nbsp;(<?php echo $ciphp_quarter_price.get_option('ice_name_alipay')?>)</strong></span>&nbsp;&nbsp;<img src="<?php echo get_template_directory_uri().'/assets/images/vip/v3.jpg' ?>"> </li>
-<li><input type="radio" id="userType" name="userType" value="7" /><span class="text-success"><strong>&nbsp;包月会员&nbsp;(<?php echo $ciphp_month_price.get_option('ice_name_alipay')?> )</strong></span>&nbsp;&nbsp;<img src="<?php echo get_template_directory_uri().'/assets/images/vip/v2.jpg' ?>"></li>                         
+}else{?><form action="" method="post">
+<ul class="user-meta zwfb_shop_table">
+<?php if($ciphp_life_price){?><li> <input class="custom-control-input" type="radio" id="userType" name="userType" value="10" checked /><span class="text-info"><strong>&nbsp;终身会员&nbsp;(<?php echo $ciphp_life_price.get_option('ice_name_alipay')?>)</strong></span>&nbsp;&nbsp;<img src="<?php echo get_template_directory_uri().'/assets/images/vip/v5.jpg' ?>"> </li><?php }?>
+<?php if($ciphp_year_price){?><li> <input class="custom-control-input" type="radio" id="userType" name="userType" value="9" /><span class="text-danger"><strong>&nbsp;包年会员&nbsp;(<?php echo $ciphp_year_price.get_option('ice_name_alipay')?>)</strong></span>&nbsp;&nbsp;<img src="<?php echo get_template_directory_uri().'/assets/images/vip/v4.jpg' ?>"> </li><?php }?>
+<?php if($ciphp_quarter_price){?><li><input class="custom-control-input" type="radio" id="userType" name="userType" value="8" /><span class="text-warning"><strong>&nbsp;包季会员&nbsp;(<?php echo $ciphp_quarter_price.get_option('ice_name_alipay')?>)</strong></span>&nbsp;&nbsp;<img src="<?php echo get_template_directory_uri().'/assets/images/vip/v3.jpg' ?>"> </li><?php }?>
+<?php if($ciphp_month_price){?><li><input class="custom-control-input" type="radio" id="userType" name="userType" value="7"  /><span class="text-success"><strong>&nbsp;包月会员&nbsp;(<?php echo $ciphp_month_price.get_option('ice_name_alipay')?> )</strong></span>&nbsp;&nbsp;<img src="<?php echo get_template_directory_uri().'/assets/images/vip/v2.jpg' ?>"></li>   <?php }?>                      
 <li class=""><input type="submit" name="Submit" value="升级会员" class="btn btn-1 btn-outline-success mt20 mb20" onClick="return confirm('确认升级会员?');"/></li>
 <li id="viptip" class="mt10 mb10"></li>
 </ul></form><?php }?>
@@ -587,7 +592,6 @@ if($_POST['userType']){
  <h4 style="border-bottom:1px solid #999999;">账户情况</h4>
  <span class="badge badge-warning">消费<?php echo get_option('ice_name_alipay');?>：<?php echo intval($userMoney->ice_get_money)?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;剩余<?php echo get_option('ice_name_alipay');?>：<?php echo $okMoney?><?php if(plugin_check_cred() && get_option('erphp_mycred') == 'yes'){$mycred_core = get_option('mycred_pref_core');?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;剩余<?php echo $mycred_core[name][plural];?>：<?php echo mycred_get_users_cred( $user_Info->ID )?><?php }?></span>
 <div class="row mt20">
- <?php if(function_exists("checkDoCardResult")){?>
 <script type="text/javascript">
 					function checkFm(){
 						if(document.getElementById("ice_money").value=="")
@@ -596,15 +600,32 @@ if($_POST['userType']){
 							return false;
 						}
 					}
-					</script>
-					
-					
+					function checkFm2(){
+						if(document.getElementById("epdcardnum").value=="")
+						{
+							alert('请输入金额');
+							return false;
+						}
+					}
+					function checkFm3(){
+						if(document.getElementById("epdmycrednum").value=="")
+						{
+							alert('请输入兑换的金额');
+							return false;
+						}
+					}
+					</script>			
 <div class="col-md-12">
+ <div class="checklist-item checklist-item-success">
+                    <div class="checklist-info">
+                      <h5 class="checklist-title mb-0">在线充值</h5>
+                      <small>充值说明：<span class="badge badge-warning">1 元 = <?php echo get_option('ice_proportion_alipay').' '.get_option('ice_name_alipay')?></span>请根据需求充值</small>
+                    </div>
+ </div>
                 <form action="" method="post" onSubmit="return checkFm();">
-                        <h4 style="border-bottom:1px solid #999999;">在线充值</h4>
                         <table class="form-table">
                             <tr>
-                				<td><div class="col-md-12 mt10 mb10">
+                				<td><div class="col-md-6 mt10 mb10">
                 				<input type="text" id="ice_money" name="ice_money" class="form-control" placeholder="请输入一个整数金额" required="required"/>
                 				</div><?php if(get_option('ice_weixin_mchid')){?> 
                                 <input type="radio" id="paytype4" class="paytype" checked name="paytype" value="4" onclick="checkCard()" />微信&nbsp;
@@ -640,7 +661,8 @@ if($_POST['userType']){
                                 <?php if(get_option('ice_payapl_api_uid')){?> 
                                 <input type="radio" id="paytype2" class="paytype" checked name="paytype" value="2" onclick="checkCard()"/>PayPal($美元)汇率：
                                  (<?php echo get_option('ice_payapl_api_rmb')?>)&nbsp;  
-                                 <?php }?>  </td>
+                                 <?php }?> 
+								 </td>
                             </tr>
 
                     </table>
@@ -655,10 +677,17 @@ if($_POST['userType']){
                         
                         </table>
                 
-               </form> </div>					
- <div class="col-md-12 mb30">
- <h4 style="border-bottom:1px solid #999999;">充值卡充值</h4>
- <div class="alert alert-info" role="alert">充值说明：<span class="badge badge-warning">1 元 = <?php echo get_option('ice_proportion_alipay').' '.get_option('ice_name_alipay')?></span>请根据需求充值，充值卡密金额分别为<span class="badge badge-success">10元</span> <span class="badge badge-success">30元</span> <span class="badge badge-success">50元</span> <span class="badge badge-success">100元</span></div><h5>
+               </form> 
+			   </div>
+<?php if(function_exists("checkDoCardResult")){?>			   
+ <div class="col-md-12 mb30 mt30">
+ <div class="checklist-item checklist-item-success">
+                    <div class="checklist-info">
+                      <h5 class="checklist-title mb-0">充值卡充值</h5>
+                      <small>充值说明：<span class="badge badge-warning">1 元 = <?php echo get_option('ice_proportion_alipay').' '.get_option('ice_name_alipay')?></span>请根据需求充值，充值卡密金额分别为<span class="badge badge-success">10元</span> <span class="badge badge-success">30元</span> <span class="badge badge-success">50元</span> <span class="badge badge-success">100元</span></small>
+                    </div>
+ </div>
+
 
                     <ul class="user-meta mt20">
 <div id="viptip" class="mb20"></div>							
@@ -671,7 +700,7 @@ if($_POST['userType']){
 					</form>
 					</ul>
 </div>
-                <?php }?>
+   <?php }?>             
 
 				
 
