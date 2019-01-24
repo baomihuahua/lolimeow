@@ -339,7 +339,7 @@ function optionsframework_options() {
 		'name' => __('文章作者信息', 'meowdata'),
 		'desc' => __('位于文章内容标签下方', 'meowdata'),
 		'id' => 'authorinfo',
-		'std' => '一枚苦逼的理工妹纸毕业后加入电商创业群体，所谓一入电商(淘宝)深似海，好在苦尽甘来，现在在工作之余也有时间有条件研究学习web前后端开发...',
+		'std' => '文章作者信息...',
 		'type' => 'textarea');
 	/* 
 	 * 评论
