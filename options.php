@@ -148,6 +148,13 @@ function optionsframework_options() {
 		'desc' => __('开启  （需要开启伪静态/固定链接需要保存一次 Settings → 固定链接）', 'meowdataui'),);	
 
 	$options[] = array(
+		'name' => __('关闭古腾堡移除前端加载样式', 'meowdataui'),
+		'id' => 'gutenbergoff',
+		'type' => "checkbox",
+		'std' => false,
+		'desc' => __('开启 （5.0版本后使用，可关闭新编辑器和前端样式）', 'meowdataui'));	
+	
+	$options[] = array(
 		'name' => __('开启自定义CSS', 'meowdataui'),
 		'id' => 'diystyles',
 		'type' => "checkbox",

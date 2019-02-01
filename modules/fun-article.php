@@ -99,7 +99,19 @@ function _get_excerpt($limit = 90, $after = '...') {
 		return $excerpt;
 	}
 }
-
+/* 
+ * 使用默认编辑器
+ * ====================================================
+*/
+if( meowdata('gutenbergoff') )  {
+if ( version_compare( get_bloginfo('version'), '5.0', '>=' ) ) {
+    add_filter('use_block_editor_for_post', '__return_false'); // 切换回之前的编辑器
+    remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' ); // 禁止前端加载样式文件
+}else{
+    // 4.9.8 < WP < 5.0 插件形式集成Gutenberg古腾堡编辑器
+    add_filter('gutenberg_can_edit_post_type', '__return_false');
+}
+}
 /* 
  * timeago
  * ====================================================
