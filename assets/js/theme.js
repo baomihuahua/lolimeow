@@ -79,4 +79,60 @@ $('a[href="#search"]').on('click', function(event) {
                 range: {
                     'min': [parseInt(minValue)],
                     'max': [parseInt(maxValue)]
-            
+                }
+            });
+
+            c.noUiSlider.on('update', function(a, b) {
+                d.textContent = a[b];
+            });
+        })
+    }
+
+    if ($("#input-slider-range")[0]) {
+        var c = document.getElementById("input-slider-range"),
+            d = document.getElementById("input-slider-range-value-low"),
+            e = document.getElementById("input-slider-range-value-high"),
+            f = [d, e];
+
+        noUiSlider.create(c, {
+            start: [parseInt(d.getAttribute('data-range-value-low')), parseInt(e.getAttribute('data-range-value-high'))],
+            connect: !0,
+            range: {
+                min: parseInt(c.getAttribute('data-range-value-min')),
+                max: parseInt(c.getAttribute('data-range-value-max'))
+            }
+        }), c.noUiSlider.on("update", function(a, b) {
+            f[b].textContent = a[b]
+        })
+    }
+
+
+    // When in viewport
+    $('[data-toggle="on-screen"]')[0] && $('[data-toggle="on-screen"]').onScreen({
+        container: window,
+        direction: 'vertical',
+        doIn: function() {
+            //alert();
+        },
+        doOut: function() {
+            // Do something to the matched elements as they get off scren
+        },
+        tolerance: 200,
+        throttle: 50,
+        toggleClass: 'on-screen',
+        debug: false
+    });
+
+    // Scroll to anchor with scroll animation
+    $('[data-toggle="scroll"]').on('click', function(event) {
+        var hash = $(this).attr('href');
+        var offset = $(this).data('offset') ? $(this).data('offset') : 0;
+
+        // Animate scroll to the selected section
+        $('html, body').stop(true, true).animate({
+            scrollTop: $(hash).offset().top - offset
+        }, 600);
+
+        event.preventDefault();
+    });
+ });   
