@@ -7,7 +7,8 @@ while ( i <= len && got == -1){
 			got = js_url.indexOf('custom.js'); i++ ;
 }
 var edit_mode = '1', // 再编辑模式( '1'=打开; '0'=关闭 )
-		ajax_php_url = js_url.replace('custom.js','../../modules/ajax-comments.php'),
+		// 防止CDN加速后导致 ajax 请求的 url 是 cdn host
+		ajax_php_url = js_url.replace('custom.js','../../modules/ajax-comments.php').replace(/^https?:\/\/.+\/wp-content/, location.origin+"/wp-content"),
 		wp_url = js_url.substr(0, js_url.indexOf('wp-content')),
 		pic_sb = wp_url + 'wp-admin/images/wpspin_dark.gif', // 提交 icon
 		pic_no = wp_url + 'wp-admin/images/no.png',      // 错误 icon

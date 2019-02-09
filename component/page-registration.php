@@ -7,8 +7,7 @@ if( !empty($_POST['mogu_reg']) ) {
   $error = '';
   $sanitized_user_login = sanitize_user( $_POST['user_login'] );
   $user_email = apply_filters( 'user_registration_email', $_POST['user_email'] );
-  $baweic_options = get_option( 'baweic_options' );
-  $invitation_code = isset( $_POST['invitation_code'] ) ? strtoupper( $_POST['invitation_code'] ) : '';
+
   // Check the username
   if ( $sanitized_user_login == '' ) {
     $error .= '<strong>错误</strong>：请输入用户名。<br />';
@@ -28,15 +27,6 @@ if( !empty($_POST['mogu_reg']) ) {
   } elseif ( email_exists( $user_email ) ) {
     $error .= '<strong>错误</strong>：该电子邮件地址已经被注册，请换一个。<br />';
   }
-  if ( ! array_key_exists( $invitation_code, $baweic_options['codes'] ) ) {
-$error .= '<strong>错误</strong>：邀请码错误。<br />';
-	} elseif ( isset( $baweic_options['codes'][ $invitation_code ] ) && ! $baweic_options['codes'][ $invitation_code ]['leftcount'] ){
-$error .= '<strong>错误</strong>：邀请码已经过期。<br />';
-	} 
-
-
-  
-  
 	
   // Check the password
   if(strlen($_POST['user_pass']) < 6)
@@ -46,9 +36,6 @@ $error .= '<strong>错误</strong>：邀请码已经过期。<br />';
 	  
 	if($error == '') {
     $user_id = wp_create_user( $sanitized_user_login, $_POST['user_pass'], $user_email );
-	$baweic_options['codes'][ $invitation_code ]['leftcount']--;
-	$baweic_options['codes'][ $invitation_code ]['users'][] = $sanitized_user_login;
-	update_option( 'baweic_options', $baweic_options );
 	
     if ( ! $user_id ) {
       $error .= sprintf( '<strong>错误</strong>：无法完成您的注册请求... 请联系<a href="mailto:%s">管理员</a>！<br />', get_option( 'admin_email' ) );
@@ -138,7 +125,7 @@ if (!is_user_logged_in()) { get_header(); ?>
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                       </div>
-					  <input id="user_pwd1" class="form-control" tabindex="3" type="password"  size="25" value="" name="user_pass" placeholder="请输入密码至少6位"/>
+					  <input id="user_pwd1" class="form-control" tabindex="3" type="password" tabindex="21" size="25" value="" name="user_pass" placeholder="请输入密码至少6位"/>
                     </div>
                   </div>
                   <div class="form-group">
@@ -146,15 +133,7 @@ if (!is_user_logged_in()) { get_header(); ?>
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-key"></i></span>
                       </div>
-					  <input id="user_pwd2" class="form-control" tabindex="4" type="password" t size="25" value="" name="user_pass2" placeholder="再次输入密码"/>
-                    </div>
-                  </div>
-				  <div class="form-group">
-                    <div class="input-group input-group-alternative">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fa fa-key"></i></span>
-                      </div>
-					  <input id="invitation_code" class="form-control" tabindex="0" type="text"  size="25" value="" name="invitation_code" placeholder="输入注册邀请码"/>
+					  <input id="user_pwd2" class="form-control" tabindex="4" type="password" tabindex="21" size="25" value="" name="user_pass2" placeholder="再次输入密码"/>
                     </div>
                   </div>
 
