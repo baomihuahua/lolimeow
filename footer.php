@@ -49,8 +49,8 @@
   <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/headroom/headroom.min.js"></script>    
   <script src="<?php echo meowdata('style_src') ;?>/assets/js/wow.min.js"></script>
   <script src="<?php echo meowdata('style_src') ;?>/assets/js/theme.js"></script>
-  <?php if(is_single() || is_page() ) {?><script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js"></script>
-  <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/prettify/prettify.js"></script>
+ <?php if(is_single() || is_page() ) {?><script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js"></script>
+   <?php if(meowdata('codept')){?><script src="<?php echo meowdata('style_src') ;?>/assets/vendor/prettify/prettify.js"></script><?php } ?>
   <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/fancybox/fancybox.js"></script><?php } ?>
 </body>
 </html>

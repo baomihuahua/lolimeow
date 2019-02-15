@@ -219,7 +219,7 @@ function p_link( $i, $title = '', $w='' ) {
     echo "<li><a class=\"paging-link\" href='", esc_html( get_pagenum_link( $i ) ), "'>{$itext}</a></li>";
 }
 endif;
-
+if( meowdata('codept') ) {
 //防止代码转义
 function meow_prettify_esc_html($content){
     $regex = '/(<pre\s+[^>]*?class\s*?=\s*?[",\'].*?prettyprint.*?[",\'].*?>)(.*?)(<\/pre>)/sim';
@@ -238,7 +238,7 @@ function meow_prettify_replace($text){
 	$text = str_replace(array_keys($replace), $replace, $text);
 	return $text;}
 add_filter('the_content', 'meow_prettify_replace');
-
+}
 
 function md_banner() {
 $banner_no = meowdata('banner_rand_n');
