@@ -301,7 +301,13 @@ function optionsframework_options() {
 		'id' => 'target_blank',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'meowdataui'));		
+		'desc' => __('开启', 'meowdataui'));			
+	$options[] = array(
+		'name' => __('文章代码高亮开关', 'meowdataui'),
+		'id' => 'codept',
+		'type' => "checkbox",
+		'std' => true,
+		'desc' => __('开启', 'meowdataui'));			
 	$options[] = array(
 		'name' => __('分页模式', 'meowdata'),
 		'id' => 'paging_type',
