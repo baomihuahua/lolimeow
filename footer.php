@@ -43,14 +43,16 @@
         </div>
       </div>
     </div>
-  </footer> 
+  </footer>
+  <!-- <div id="lovexin0" style="position:fixed;bottom:40px;right: 15px;width:60px;height:60px;z-index:999;"><img src="https://moguos.oss-cn-shenzhen.aliyuncs.com/lolimeow/assets/images/F2hW7Q.gif" style="max-width: 100%!important;"></div>  -->
   <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/popper/popper.min.js"></script>
   <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/bootstrap/bootstrap.min.js"></script>
   <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/headroom/headroom.min.js"></script>    
   <script src="<?php echo meowdata('style_src') ;?>/assets/js/wow.min.js"></script>
   <script src="<?php echo meowdata('style_src') ;?>/assets/js/theme.js"></script>
- <?php if(is_single() || is_page() ) {?><script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js"></script>
-   <?php if(meowdata('codept')){?><script src="<?php echo meowdata('style_src') ;?>/assets/vendor/prettify/prettify.js"></script><?php } ?>
+  <?php wp_footer(); ?>
+  <?php if(is_single() || is_page() ) {?><script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js"></script>
+  <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/prettify/prettify.js"></script>
   <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/fancybox/fancybox.js"></script><?php } ?>
 </body>
 </html>
