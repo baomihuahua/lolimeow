@@ -80,7 +80,7 @@
 
 <?php if( meowdata('post_related_s') ) {?> 	
 
-                    <div class="row wow fadeInUp animated">
+                    <div class="row wow fadeInUp animated col-lg-12">
  <div class="col-lg-12">	
 <h3 class="title-normal thw-sept text-center"><?php echo meowdata('related_title')?></h3>	 </div>						
 <?php if( meowdata('post_related_s') ) md_posts_related( meowdata('related_title'), meowdata('post_related_n'), (meowdata('post_related_model') ? meowdata('post_related_model') : 'thumb') ) ?>
