@@ -44,7 +44,25 @@
       </div>
     </div>
   </footer>
-  <!-- <div id="lovexin0" style="position:fixed;bottom:40px;right: 15px;width:60px;height:60px;z-index:999;"><img src="https://moguos.oss-cn-shenzhen.aliyuncs.com/lolimeow/assets/images/F2hW7Q.gif" style="max-width: 100%!important;"></div>  -->
+  <?php if(meowdata('lolijump')){?>
+  <div id="lolijump"><img src="<?php echo meowdata('style_src') ;?>/assets/images/lolijump.gif" ></div>  
+  <script language="javascript">
+lastScrollY=0;
+function heartBeat0(){
+diffY=document.body.scrollTop;
+percent=.1*(diffY-lastScrollY);
+if(percent>0)percent=Math.ceil(percent);
+else percent=Math.floor(percent);
+document.all.lolijump.style.pixelTop+=percent;
+lastScrollY=lastScrollY+percent;}
+window.setInterval("heartBeat0()",1);
+$('#lolijump').click(function(){
+        $('html, body').animate({                
+            scrollTop: 0
+        }, 500);
+    });
+</script> 
+<?php } ?>
   <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/popper/popper.min.js"></script>
   <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/bootstrap/bootstrap.min.js"></script>
   <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/headroom/headroom.min.js"></script>    
@@ -52,7 +70,7 @@
   <script src="<?php echo meowdata('style_src') ;?>/assets/js/theme.js"></script>
   <?php wp_footer(); ?>
   <?php if(is_single() || is_page() ) {?><script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js"></script>
-  <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/prettify/prettify.js"></script>
+  <?php if(meowdata('codept')){?><script src="<?php echo meowdata('style_src') ;?>/assets/vendor/prettify/prettify.js"></script><?php } ?>
   <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/fancybox/fancybox.js"></script><?php } ?>
 </body>
 </html>

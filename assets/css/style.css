@@ -368,6 +368,8 @@ ol.linenums li {padding-left:16px;color:#bebec5;line-height:20px;text-shadow:0 1
 #search input[type="search"] {position:absolute;top:50%;left:0;margin-top:-51px;width:60%;margin-left:20%;color:rgb(255,255,255);background:transparent;border-top:1px solid rgba(255,255,255,.8);border-bottom:2px solid rgba(255,255,255,.5);border-left:0px solid transparent;border-right:0px solid transparent;font-size:40px;font-family:Roboto;font-weight:300;text-align:center;outline:none;padding:10px;}
 #search .close {position:fixed;top:15px;right:15px;opacity:1;font-size:27px;color:#fff;}
 #search .close:hover {color:#FC2121;cursor:pointer;}
+#lolijump{position:fixed;bottom:40px;right: 15px;width:60px;height:60px;z-index:999;}
+#lolijump img{max-width: 100%!important;}
 .headerpagetit {background-color:#333;}
 .members {background-color:#fff;padding:20px;padding-top:80px;border-radius:5px;margin-bottom:40px}
 .members a:hover,a:focus,a:active {color:#ff5f33}
