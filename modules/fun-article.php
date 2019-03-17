@@ -288,7 +288,7 @@ function zww_archives_list() {
 					++$i; ++$y_i;
 					$posts .= $p;
 				}
-				$y_output .= '<li><span class="al_mon biji-oth">'. $key_m .' 月 <em>( '. $i .' 篇文章 )</em>  <button class="btn btn-secondary btn-sm">展开</button></span><ul class="al_post_list biji-content">'; //输出月份
+				$y_output .= '<li><span class="al_mon biji-oth">'. $key_m .' 月 <em>( '. $i .' 篇文章 )</em>  <b class="openoff" style="color: #ff5f33;"> [ 展开 ]</b></span><ul class="al_post_list biji-content">'; //输出月份
 				$y_output .= $posts; //输出 posts
 				$y_output .= '</ul></li>';
 			}
