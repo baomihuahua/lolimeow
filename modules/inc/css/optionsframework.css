@@ -2,7 +2,7 @@
 
 body {
 	font-family:miranafont,"Hiragino Sans GB",STXihei,"Microsoft YaHei",SimSun,sans-serif;
-	background:#24ad2836 ;
+	background:#c8ceb1 ;
 	height: auto;
 }
 
@@ -13,7 +13,9 @@ body {
 }
 
 .wrap h2.nav-tab-wrapper {
-	border-bottom:none
+	border-bottom:none;
+	background-color: rgba(0, 0, 0, 0.18);
+	border-radius: 3px;
 }
 
 .metabox-holder {
@@ -40,7 +42,7 @@ body {
 	padding: 10px 20px;
 	font-weight: 300;
     font-size: 15px;
-    color: darkgoldenrod;
+    color: #eb0000;
     border-radius: 3px 3px 0 0;
 }
 
@@ -74,19 +76,19 @@ a#options-group-4-tab:before {
 
 a#options-group-5-tab:before {
     font-family: "dashicons";
-    content: "\f227";
+    content: "\f125";
     float: left;
 }
 
 a#options-group-6-tab:before {
     font-family: "dashicons";
-    content: "\f105";
+    content: "\f110";
     float: left;
 }
 
 a#options-group-7-tab:before { 
     font-family: "dashicons";
-    content: "\f110";
+    content: "\f237";
     float: left;
 }
 
@@ -95,10 +97,14 @@ a#options-group-8-tab:before {
     content: "\f109";
     float: left;
 }
-
+a#options-group-9-tab:before { 
+    font-family: "dashicons";
+    content: "\f466";
+    float: left;
+}
 a#options-group-10-tab:before { 
     font-family: "dashicons";
-    content: "\f112";
+    content: "\f226";
     float: left;
 }
 
@@ -191,10 +197,11 @@ input[type="submit" i], input[type="reset" i]{
 	padding-bottom:40px;
 }
 #optionsframework .section .heading {
-	padding:10px 0px;
-	margin:0 0 15px;
+	padding:5px;
+	margin:0 0 10px;
 	font-weight: 600;
     color: #455E8C;
+	border-left: 10px solid #7487ab;
 }
 #optionsframework .section .controls {
 	float: left;
@@ -205,9 +212,8 @@ input[type="submit" i], input[type="reset" i]{
 #optionsframework .section .explain {
 	max-width:38%;
 	float: left;
-	font-size: 12px;
 	line-height:20px;
-	color: #777;
+	color: #dc3232;
 }
 #optionsframework .section-checkbox .controls {
 	width: 98%;

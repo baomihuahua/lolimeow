@@ -1,6 +1,6 @@
 WordPress主题:Lolimeow
 
-最近版本1.5
+最近版本1.6
 详细参考
 https://mkm.st/222.html
 

@@ -88,7 +88,7 @@ class Options_Framework_Admin {
             'mode' => 'submenu',
 
             // Submenu default settings
-            'page_title' => __( 'LoLiMeow主题设置面板For website MKM.ST', 'theme-textdomain' ),
+            'page_title' => __( 'LoLiMeow主题设置面板', 'theme-textdomain' ),
 			'menu_title' => __( '主题设置', 'theme-textdomain' ),
 			'capability' => 'edit_theme_options',
 			'menu_slug' => 'options-framework',
@@ -186,8 +186,8 @@ class Options_Framework_Admin {
 		<div id="optionsframework-wrap" class="wrap">
 
 		<?php $menu = $this->menu_settings(); ?>
-		<h2 style="text-align: center;"><?php echo esc_html( $menu['page_title'] ); ?></h2>
-
+		<h2 style="text-align: center;background-image:-webkit-linear-gradient(bottom,red,#fd8403,yellow); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"><?php echo esc_html( $menu['page_title'] ); ?></h2>
+         <h4 style="text-align: center;color: #d90000;">温馨提示：主题无收费版谨防上当！如有好的建议或交流可加入喵Q群（24401689）<a href="https://jq.qq.com/?_wv=1027&amp;k=52f0L9P" rel="noopener" target="_blank">点击加群</a>，By <a href="https://mkm.st" target="_blank">mkm.st</a></h4>
 	    <h2 class="nav-tab-wrapper" style="text-align: center;">
 	        <?php echo Options_Framework_Interface::optionsframework_tabs(); ?>
 	    </h2>
@@ -207,7 +207,7 @@ class Options_Framework_Admin {
 				</form>
 			</div> <!-- / #container -->
 		</div>
-		<?php do_action( 'optionsframework_after' ); ?>
+		<?php do_action( 'optionsframework_after' ); ?>		
 		</div> <!-- / .wrap -->
 
 	<?php

@@ -30,7 +30,7 @@
 <i class="fa fa-street-view"></i>  <?php echo getPostViews(get_the_ID()) ?>
 </span>
 <span class="list-post-comment">
-<i class="fa fa-comments-o"></i>  <?php echo get_comments_number('0', '1', '%') ?> Comments
+<i class="fa fa-comments-o"></i>  评论 <?php echo get_comments_number('0', '1', '%') ?>
 </span>
                                                                               </div> 
                                                                               <div class="post-intro-text">
@@ -38,7 +38,7 @@
                                                                               </div>
 <div class="post-btn">
 <a href="<?php echo get_permalink() ?>"  <?php echo _post_target_blank() ?>  title="查看更多：<?php echo get_the_title().get_the_subtitle(false) ?>" class="btn btn-sm btn-outline-danger">
-<i class="fa fa-folder-open-o"></i> Read More </a>
+<i class="fa fa-folder-open-o"></i> 阅读更多 </a>
 </div>
                                                                         </div>                                                                  
                                                             </div>

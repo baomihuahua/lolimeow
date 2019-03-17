@@ -256,3 +256,55 @@ add_action( 'new_to_publish', 'autoset_featured_image' );
 add_action( 'pending_to_publish', 'autoset_featured_image' );
 add_action( 'future_to_publish', 'autoset_featured_image' );
 
+
+
+function zww_archives_list() {
+	if( !$output = get_option('zww_db_cache_archives_list') ){
+		$output = '<div class="timeline timeline-one-side" data-timeline-content="axis" data-timeline-axis-style="dashed" >';
+		$args = array(
+			'post_type' => array('archives', 'post', 'zsay'),
+			'posts_per_page' => -1, //全部 posts
+			'ignore_sticky_posts' => 1 //忽略 sticky posts
+
+		);
+		$the_query = new WP_Query( $args );
+		$posts_rebuild = array();
+		$year = $mon = 0;
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+			$post_year = get_the_time('Y');
+			$post_mon = get_the_time('m');
+			$post_day = get_the_time('d');
+			if ($year != $post_year) $year = $post_year;
+			if ($mon != $post_mon) $mon = $post_mon;
+			$posts_rebuild[$year][$mon][] = '<li>'. get_the_time('d日: ') .'<a href="'. get_permalink() .'">'. get_the_title() .'</a> <em>('. get_comments_number('0', '1', '%') .')</em></li>';
+		endwhile;
+		wp_reset_postdata();
+
+		foreach ($posts_rebuild as $key_y => $y) {
+			$y_i = 0; $y_output = '';
+			foreach ($y as $key_m => $m) {
+				$posts = ''; $i = 0;
+				foreach ($m as $p) {
+					++$i; ++$y_i;
+					$posts .= $p;
+				}
+				$y_output .= '<li><span class="al_mon biji-oth">'. $key_m .' 月 <em>( '. $i .' 篇文章 )</em>  <button class="btn btn-secondary btn-sm">展开</button></span><ul class="al_post_list biji-content">'; //输出月份
+				$y_output .= $posts; //输出 posts
+				$y_output .= '</ul></li>';
+			}
+			$output .= '<span class="timeline-step badge-success"><br><i class="fa fa-clock-o"></i><br></span>
+<div class="timeline-content">
+                    <small class="text-muted font-weight-bold biji-tit">'. $key_y .' 年 <em>( '. $y_i .' 篇文章 )</em></small>'; //输出年份
+			$output .= $y_output;
+			$output .= '</div>';  
+		}
+
+		$output .= '</div>';
+		update_option('zww_db_cache_archives_list', $output);
+	}
+	echo $output;
+}
+function clear_db_cache_archives_list() {
+	update_option('zww_db_cache_archives_list', ''); // 清空 zww_archives_list
+}
+add_action('save_post', 'clear_db_cache_archives_list'); // 新发表文章/修改文章时

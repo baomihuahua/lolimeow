@@ -124,14 +124,22 @@ function optionsframework_options() {
 		'std' => $style,
 		'settings' => array('rows' => 1),
 		'type' => 'textarea');
-			
-	//$options[] = array(
-		//'name' => __( '开启Gravatar头像CDN加速', 'meowdataui' ),
-		//'desc' => __( '开启', 'meowdataui' ),
-		//'id' => 'gravatar_cdn',
-		//'type' => 'checkbox'
-	//);
-
+    
+	$gravatar_array = array(
+	    'lolinet' => __('萝莉服务器（荐）', 'meowdataui'),
+		'v2excom' => __('v2ex服务器（荐）', 'meowdataui'),
+		'cn' => __('cn服务器', 'meowdataui'),
+		'ssl' => __('ssl服务器', 'meowdataui'),		
+	);
+	$options[] = array(
+		'name' => __('gravatar加速服务器', 'meowdataui'),
+		'desc' => __('通过镜像服务器可对gravatar头像进行加速', 'meowdataui'),
+		'id' => 'gravatar_url',
+		'std' => 'lolinet',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => $gravatar_array);
+	/**
 	$options[] = array(
 		'name' => __('Gravatar头像链接', 'meowdataui'),
 		'id' => 'gravatar_url',
@@ -139,13 +147,13 @@ function optionsframework_options() {
 		'desc' => __( '备用：https://cdn.v2ex.com/gravatar/', 'meowdataui' ),
 		'settings' => array('rows' => 1),
 		'type' => 'textarea');
-
+ */
 	$options[] = array(
 		'name' => __('分类去除category', 'meowdataui'),
 		'id' => 'no_categoty',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启  （需要开启伪静态/固定链接需要保存一次 Settings → 固定链接）', 'meowdataui'),);	
+		'desc' => __('开启  （需要开启伪静态/固定链接需要保存一次 wordpress的设置 → 固定链接）', 'meowdataui'),);	
 
 	$options[] = array(
 		'name' => __('网页右侧小萝莉开关，附带back to top 回到顶部功能', 'meowdata'),
@@ -153,13 +161,6 @@ function optionsframework_options() {
 		'type' => "checkbox",
 		'std' => true,
 		'desc' => __('开启', 'meowdata')); 
-		
-	$options[] = array(
-		'name' => __('关闭古腾堡移除前端加载样式', 'meowdataui'),
-		'id' => 'gutenbergoff',
-		'type' => "checkbox",
-		'std' => false,
-		'desc' => __('开启 （5.0版本后使用，可关闭新编辑器和前端样式）', 'meowdataui'));	
 	
 	$options[] = array(
 		'name' => __('开启自定义CSS', 'meowdataui'),
@@ -179,6 +180,12 @@ function optionsframework_options() {
 		'id' => 'footer_info',
 		'std' => '本站使用Wordpress创作'."\n",
 		'type' => 'textarea');	
+	$options[] = array(
+		'name' => __('统计代码隐藏', 'meowdataui'),
+		'id' => 'trackcodehidden',
+		'type' => "checkbox",
+		'std' => false,
+		'desc' => __('开启 （默认显示，开启后底部统计代码隐藏）', 'meowdataui'));		
     $options[] = array(
 		'name' => __('网站统计代码', 'meowdataui'),
 		'desc' => __('底部第三方流量数据统计代码,默认主题隐藏统计代码，具体查看前端源码', 'meowdataui'),
@@ -257,7 +264,7 @@ function optionsframework_options() {
 	$options[] = array(
 		'name' => __('首页关键字(keywords)', 'meowdata'),
 		'id' => 'keywords',
-		'std' => 'WordPress,WordPress插件,WordPress主题,whmcs主题,whmcs插件,html模板,免费资源,优惠分享,数据喵',
+		'std' => 'WordPress',
 		'desc' => __('用英文逗号隔开', 'meowdata'),
 		'settings' => array(
 			'rows' => 2
@@ -267,7 +274,7 @@ function optionsframework_options() {
 	$options[] = array(
 		'name' => __('首页描述(description)', 'meowdata'),
 		'id' => 'description',
-		'std' => '数据喵是一个基于内容分享,善于折腾WordPress,whmcs主题,html模板笔记博客',
+		'std' => '又是一个博客',
 		'desc' => __('网站描述', 'meowdata'),
 		'settings' => array(
 			'rows' => 3
@@ -308,7 +315,13 @@ function optionsframework_options() {
 		'id' => 'target_blank',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'meowdataui'));		
+		'desc' => __('开启', 'meowdataui'));	
+	$options[] = array(
+		'name' => __('文章图片灯箱开关fancybox', 'meowdataui'),
+		'id' => 'fancyboxtrue',
+		'type' => "checkbox",
+		'std' => false,
+		'desc' => __('开启 (默认关闭)', 'meowdataui'));	
 		$options[] = array(
 		'name' => __('文章代码高亮开关', 'meowdataui'),
 		'id' => 'codept',
@@ -480,6 +493,12 @@ function optionsframework_options() {
 		'desc' => __('直接输入邮箱，留空不展现。', 'meowdata'),
 		'id' => 'social_mail',
 		'type' => 'text');	
+	$options[] = array(
+		'name' => __('Github'),
+		'desc' => __('直接输入链接，留空不展现', 'meowdata'),
+		'id' => 'social_github',
+		'std' => 'https://github.com/baomihuahua/',
+		'type' => 'text');		
     /* 
 	 * 友链设置
 	 * ====================================================================================================
@@ -562,10 +581,45 @@ function optionsframework_options() {
 		'type' => 'text'
 	);
 
-
-
+	/* 
+	 * 优化性能
+	 * ====================================================================================================
+	 */	
+	$options[] = array(
+		'name' => __('优化设置', 'meowdata'),
+		'type' => 'heading');
+	$options[] = array(
+		'name' => __('关闭古腾堡移除前端加载样式', 'meowdataui'),
+		'id' => 'gutenbergoff',
+		'type' => "checkbox",
+		'std' => false,
+		'desc' => __('开启 （5.0版本后使用，可关闭新编辑器和前端样式）', 'meowdataui'));		 	
+	$options[] = array(
+		'name' => __('Wordpress头部优化', 'meowdata'),
+		'id' => 'wpheaderop',
+		'type' => "checkbox",
+		'std' => false,
+		'desc' => __('开启 （移除feed WordPress版本号等等没用东西）', 'meowdata'),);	
+	$options[] = array(
+		'name' => __('移除头部emoji表情的 dns-refresh 功能', 'meowdata'),
+		'id' => 'remove_dns_refresh',
+		'type' => "checkbox",
+		'std' => false,
+		'desc' => __('开启', 'meowdata'),);	
+	$options[] = array( 
+		'name' => __('禁用文章自动保存', 'meowdata'),
+		'id' => 'autosaveop',
+		'type' => "checkbox",
+		'std' => false,
+		'desc' => __('开启', 'meowdata'),);
+	$options[] = array(
+		'name' => __('禁用文章修订版本', 'meowdata'),
+		'id' => 'revisions_to_keepop',
+		'type' => "checkbox",
+		'std' => false,
+		'desc' => __('开启', 'meowdata'),);		
 //==============================================================================
-
+   
 
 	return $options;
 }

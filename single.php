@@ -28,7 +28,7 @@
                                                 <div class="post-meta author-box wow bounceInRight">
                                                       <div class="thw-autohr-bio-img">
                                                             <div class="thw-img-border">
-                                                                  <img src="<?php echo meowdata('gravatar_url'); ?><?php echo esc_attr(md5(get_the_author_meta('user_email'))) ;?>?s=60" class="img-fluid" alt="<?php the_author(); ?>">
+                                                                  <?php echo get_avatar(get_the_author_meta( 'user_email' ),60,'','',array('class'=>array('img-fluid'))); ?>  
                                                             </div>
                                                       </div>
                                                       <div class="post-meta-content">													  
@@ -55,7 +55,7 @@
                               <div class="thw-author-box author-box thw-sept wow rollIn"> 
                                     <div class="thw-autohr-bio-img">
                                           <div class="thw-img-border">
-                                                <img src="<?php echo meowdata('gravatar_url'); ?><?php echo esc_attr(md5(get_the_author_meta('user_email'))) ;?>?s=80" class="img-fluid" alt="<?php the_author(); ?>">
+                                                <?php echo get_avatar( get_the_author_meta( 'user_email' ), 80,'','',array('class'=>array('img-fluid'))); ?>  
                                           </div>
                                     </div>
                                     <div class="author-info">

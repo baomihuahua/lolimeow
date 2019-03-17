@@ -10,8 +10,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title><?php echo  md_title(); ?></title>
   <?php if(meowdata('favicon_src')){?><?php echo  md_favicon();?><?php } ?> 
-  <link href="<?php echo meowdata('style_src') ;?>/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link type="text/css" href="<?php echo meowdata('style_src') ;?>/assets/css/themes.min.css?ver=<?php md_version() ;?>" rel="stylesheet">
+  <link type="text/css" href="<?php echo meowdata('style_src');?>/assets/css/themes.min.css?ver=<?php md_version() ;?>" rel="stylesheet">
+    <link href="<?php echo meowdata('style_src') ;?>/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   <link type="text/css" href="<?php echo meowdata('style_src') ;?>/assets/css/animate.min.css" rel="stylesheet">
   <link type="text/css" href="<?php echo meowdata('style_src') ;?>/assets/css/style.css?ver=<?php md_version() ;?>" rel="stylesheet">   
   <?php if( meowdata('diystyles') ){ ?> <link rel="stylesheet" href="<?php echo meowdata('style_src') ;?>/assets/css/diystyle.css"><?php } ?> 
@@ -19,6 +19,7 @@
   <?php wp_head(); ?>
 </head>
 <body>
+
 <header class="header-global">
     <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
       <div class="container">

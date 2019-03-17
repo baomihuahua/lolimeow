@@ -12,7 +12,7 @@ if ( ! function_exists( 'meowdata_comments_list' ) ) :
                                                       <div class="author-box">
                                                             <div class="thw-autohr-bio-img">
                                                                   <div class="thw-img-border">
-                                                                 <img src="<?php echo meowdata('gravatar_url'); ?><?php echo esc_attr(md5($comment->comment_author_email)); ?>?s=100" class="img-fluid" alt="image">
+                                                                 <?php echo get_avatar( $comment->comment_author_email, 100,'','',array('class'=>array('img-fluid'))); ?> 
                                                                   </div>
                                                             </div>
                                                       </div><?php endif; ?>

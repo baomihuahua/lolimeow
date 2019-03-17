@@ -43,7 +43,7 @@
 <i class="fa fa-street-view"></i>  <?php echo getPostViews(get_the_ID()) ?>
 </span>
 <span class="list-post-comment">
-<i class="fa fa-comments-o"></i>  <?php echo get_comments_number('0', '1', '%') ?> Comments
+<i class="fa fa-comments-o"></i>  评论 <?php echo get_comments_number('0', '1', '%') ?>
 </span>
 </div> 
 </div>
