@@ -263,6 +263,7 @@ blockquote small {display:block;font-size:80%;line-height:1.42857143;color:#777;
 .card .card-header.card-header-image img {max-width:100%;height:190px;}
 .footerimg img{width:100%;height:100%;}
 .post-single img{width:100%;height:auto;padding-bottom: 10px;}
+.avatar {width: auto;height: auto;}
 }
 @media (min-width:767px) {
 .blog-staus { border-radius:6px;box-shadow:0 16px 24px 2px rgba(0,0,0,.14),0 6px 30px 5px rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2);background:#fff;position:relative;margin-bottom:50px;padding:20px;padding-left: 80px;margin:10px;margin-bottom:60px}
