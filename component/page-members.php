@@ -162,7 +162,7 @@ if($_POST['paytype']){
               <div class="col-lg-3 order-lg-2">
                 <div class="card-profile-image">
                   <a href="#">
-                    <img src="<?php echo meowdata('gravatar_url'); ?><?php echo esc_attr(md5($profileuser->user_email)); ?>?s=160" class="rounded-circle">
+                    <?php echo get_avatar($profileuser->user_email,160,'','',array('class'=>array('rounded-circle'))); ?>  
                   </a>
                 </div>
               </div>
