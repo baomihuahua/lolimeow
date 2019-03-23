@@ -48,7 +48,7 @@ get_header();
 </div>
 </a>	
   </div>
- <img class="card-img-bottom" id="img1" src="https://www.meowdata.com/wp-content/themes/lolimeow/assets/images/logo.png" alt="MeowData专用图床" style="max-width: 300px;">
+ <img class="card-img-bottom" id="img1" src="<?php echo meowdata('style_src') ;?>/assets/images/logo.png" alt="MeowData专用图床" style="max-width: 300px;">
  <div id="img2"></div>	
   </div>
   
