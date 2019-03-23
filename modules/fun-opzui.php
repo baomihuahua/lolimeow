@@ -84,7 +84,7 @@ function my_css_attributes_filter($var) {
 //Gravatar头像加速
 function mkm_getavatar_host(){
 	$gravatarUrl = 'gravatar.loli.net';
-	switch (meowdata('mkm_gravatar_url')){
+	switch (meowdata('gravatar_url')){
 		case 'cn':
 			$gravatarUrl = 'cn.gravatar.com';
 			break;
@@ -108,7 +108,7 @@ function mkm_getavatar_host(){
  */ 
 
 function mkm_get_avatar($avatar) {
-	$avatar = str_replace(array("www.gravatar.com","0.gravatar.com","1.gravatar.com","2.gravatar.com"), mkm_getavatar_host(), $avatar);
+	$avatar = str_replace(array("www.gravatar.com","0.gravatar.com","1.gravatar.com","2.gravatar.com","secure.gravatar.com"), mkm_getavatar_host(), $avatar);
 return $avatar;
 }
 add_filter( 'get_avatar', 'mkm_get_avatar', 10, 3 );
