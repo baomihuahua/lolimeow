@@ -382,6 +382,13 @@ function optionsframework_options() {
 		'name' => __('评论', 'meowdata'),
 		'type' => 'heading'); 
 	$options[] = array(
+		'name' => __('禁用纯英文 日语评论内容！屏蔽一些垃圾评论', 'meowdata'),
+		'id' => 'false_enjp_comment',
+		'type' => "checkbox",
+		'std' => false,
+		'desc' => __('开启', 'meowdata'),);	
+		
+	$options[] = array(
 			'name' => __('评论:管理员标志命名', 'meowdata'),
 			'id' => 'comnanes',
 			'std' => '博主',

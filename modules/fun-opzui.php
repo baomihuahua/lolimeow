@@ -112,4 +112,26 @@ function mkm_get_avatar($avatar) {
 return $avatar;
 }
 add_filter( 'get_avatar', 'mkm_get_avatar', 10, 3 );
+
+
+//屏蔽纯英文评论和纯日文
+function mkm_enjpcomment_post( $incoming_comment ) {
+$pattern = '/[一-龥]/u';
+// 禁止全英文评论
+if(!preg_match($pattern, $incoming_comment['comment_content'])) {
+wp_die( "您的评论中必须包含汉字!" );
+}
+$pattern = '/[あ-んア-ン]/u';
+// 禁止日文评论
+if(preg_match($pattern, $incoming_comment['comment_content'])) {
+wp_die( "评论禁止包含日文!" );
+}
+return( $incoming_comment );
+}
+if(!is_user_logged_in() & meowdata('false_enjp_comment')) {
+	add_filter('preprocess_comment', 'mkm_enjpcomment_post');
+}
+
+
+
 ?>
