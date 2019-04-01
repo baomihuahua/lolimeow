@@ -5,6 +5,11 @@
 $(document).ready(function() {
 new WOW().init();
 
+$('body').on('click', '.comment-reply-link', function(){
+    addComment.moveForm( "comment-"+$(this).attr('data-commentid'), $(this).attr('data-commentid'), "respond", $(this).attr('data-postid') );
+    return false; // 阻止 a tag 跳转，这句千万别漏了
+    });
+
 $('a[href="#search"]').on('click', function(event) {                    
 		$('#search').addClass('open');
 		$('#search > form > input[type="search"]').focus();
