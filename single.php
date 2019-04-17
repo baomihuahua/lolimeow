@@ -75,23 +75,18 @@
                               </nav>
 <?php endwhile;  ?>                           							  
 <?php comments_template('', true); ?>
-</div>
-
-
-<?php if( meowdata('post_related_s') ) {?> 	
-
-                    <div class="row wow fadeInUp animated">
- <div class="col-lg-12">	
-<h3 class="title-normal thw-sept text-center"><?php echo meowdata('related_title')?></h3>	 </div>						
-<?php if( meowdata('post_related_s') ) md_posts_related( meowdata('related_title'), meowdata('post_related_n'), (meowdata('post_related_model') ? meowdata('post_related_model') : 'thumb') ) ?>
-	
-                    </div>		
-			<?php }	?>
-				
-					
+</div>				
 </div>
 </div> 					  
 </div>     
 </main>	
-
+<?php if( meowdata('post_related_s') ) {?> 	
+<div class=" container">
+                    <div class="row wow fadeInUp animated">
+ <div class="col-lg-12">	
+<h3 class="title-normal thw-sept text-center"><?php echo meowdata('related_title')?></h3>	 </div>						
+<?php if( meowdata('post_related_s') ) md_posts_related( meowdata('related_title'), meowdata('post_related_n'), (meowdata('post_related_model') ? meowdata('post_related_model') : 'thumb') ) ?>
+	</div>
+                    </div>		
+			<?php }	?>
 <?php get_footer(); ?>
