@@ -120,54 +120,44 @@ endif;
 
 
 
-
 function get_the_link_items($id = null){
 	$bookmarks = get_bookmarks('orderby=date&category=' . $id);
     $output    = '';
     if (!empty($bookmarks)) {
         $output .= '<div class="btn btn-success col-md-12 ml-auto mr-auto ">
-  博主与以下 <span class="badge badge-danger">' . count($bookmarks) . '</span> 位大佬存在 <span class="badge badge-default">Jian情</span> 排名不分先后
+  博主与以下 <span class="badge badge-danger">' . count($bookmarks) . '</span> 位大佬存在 <span class="badge badge-default">PY</span> 排名不分先后
 </div><div class="userItems mt30"><div class="row">';
         foreach ($bookmarks as $bookmark) {
 			if(($bookmark->link_notes)){
-            $output .= '<div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-		  <a class="link-item-inner effect-apollo" href="' . $bookmark->link_url . '" target="_blank">
-            <div class="px-4">
-              <img src="'.get_template_directory_uri().'/assets/images/avatar.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width:80px;">
-              <div class="text-center">
-                <h5 class="title">
-                  <span class="d-block mb-1">' . $bookmark->link_name . '</span>
-                </h5>
-              </div>
-            </div>
-			</a>
-          </div>';
+            $output .= '
+			<div class="col-sm-6 col-md-3">
+                <div class="person-box">
+                    <div class="person-icon">
+                        <div class="person-img"><img src="'.get_template_directory_uri().'/assets/images/avatar.jpg" alt="' . $bookmark->link_name . '"></div>
+                    </div>
+                    <div class="person-name"> <a href="' . $bookmark->link_url . '" target="_blank"> ' . $bookmark->link_name . '</a></div>
+                </div>
+            </div>';
 			 }else if($bookmark->link_image){
-				 $output .= '<div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-		  <a class="link-item-inner effect-apollo" href="' . $bookmark->link_url . '" target="_blank">
-            <div class="px-4">
-              <img src="'. $bookmark->link_image .'" alt="' . $bookmark->link_name . '" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width:80px;">
-              <div class="text-center">
-                <h5 class="title">
-                  <span class="d-block mb-1">' . $bookmark->link_name . '</span>
-                </h5>
-              </div>
-            </div>
-			</a>
-          </div>';
+				 $output .= '
+				 <div class="col-sm-6 col-md-3">
+                <div class="person-box">
+                    <div class="person-icon">
+                        <div class="person-img"><img src="'. $bookmark->link_image .'" alt="' . $bookmark->link_name . '"></div>
+                    </div>
+                    <div class="person-name"> <a href="' . $bookmark->link_url . '" target="_blank"> ' . $bookmark->link_name . '</a></div>
+                </div>
+            </div>';
 		 }
-            else{$output .= '<div class="col-md-6 col-lg-3 mb-5 mb-lg-0">
-		  <a class="link-item-inner effect-apollo" href="' . $bookmark->link_url . '" target="_blank">
-            <div class="px-4">
-              <img src="'.get_template_directory_uri().'/assets/images/avatar.jpg" class="rounded-circle img-center img-fluid shadow shadow-lg--hover" style="width:80px;">
-              <div class="text-center">
-                <h5 class="title">
-                  <span class="d-block mb-1">' . $bookmark->link_name . '</span>
-                </h5>
-              </div>
-            </div>
-			</a>
-          </div>';
+            else{$output .= '
+			<div class="col-sm-6 col-md-3">
+                <div class="person-box">
+                    <div class="person-icon">
+                        <div class="person-img"><img src="'.get_template_directory_uri().'/assets/images/avatar.jpg" alt="' . $bookmark->link_name . '"></div>
+                    </div>
+                    <div class="person-name"> <a href="' . $bookmark->link_url . '" target="_blank"> ' . $bookmark->link_name . '</a></div>
+                </div>
+            </div>';
 		}
 
 			
