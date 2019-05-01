@@ -8,8 +8,9 @@ https://mkm.st/222.html
 
 有带会员中心,需要配合erphpdown插件https://mkm.st/87.html
 
-最近更新0423
 
+最近更新0501
+调整全屏搜索UI
 
 3.24更新
 
