@@ -45,6 +45,12 @@
       </div>
     </div>
   </footer>
+  <div id="search"> 
+	<span class="close">X</span>
+	<form role="search" id="searchform" method="get" action="<?php echo home_url( '/' ) ?>">
+		<input type="search" name="s" value="<?php echo htmlspecialchars($s) ?>" placeholder="输入搜索关键词..."/>
+	</form>
+</div>
   <?php if(meowdata('lolijump')){?>
   <div id="lolijump"><img src="<?php echo meowdata('style_src') ;?>/assets/images/lolijump.gif" ></div>  
   <script language="javascript">
