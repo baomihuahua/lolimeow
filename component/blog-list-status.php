@@ -5,7 +5,7 @@
  *
  */
 ?>
-<div class="entry-blog wow fadeInUp">
+<div class="entry-blog wow zoomIn animated">
                                                       <div class="entry-blog-listing blog-staus clearfix">
                                                             <div class="post-standard-view">
                                                                   
