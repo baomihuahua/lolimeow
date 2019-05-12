@@ -35,7 +35,8 @@ $html = sprintf ('src="'.$strResult[1][0].'"  alt="'.trim(strip_tags( $post->pos
 else
 {
 //既没有设置特色图片、文章内又没图片则取默认图片
-$temp_no = rand(1,14);
+$thumbnail_no = meowdata('thumbnail_rand_n');
+$temp_no = rand(1,$thumbnail_no);
 $html = sprintf ('src="'.$ospic.'/assets/images/rand/rand ('.$temp_no.').jpg"  alt="'.trim(strip_tags( $post->post_title )).'"');
 }
 }

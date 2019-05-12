@@ -310,6 +310,13 @@ function optionsframework_options() {
 	$options[] = array(
 		'name' => __('文章', 'meowdata'),
 		'type' => 'heading');
+	$options[] = array(
+		'name' => __('随机缩略图数', 'meowdata'),
+		'id' => 'thumbnail_rand_n',
+		'std' => 14,
+		'class' => 'mini',
+		'desc' => __('rand (N).jpg文件夹中的图片这么命名N=1-你设置的数量,图片路径\assets\images\rand\* ', 'meowdata'),
+		'type' => 'text');	
     $options[] = array(
 		'name' => __('新窗口打开文章', 'meowdataui'),
 		'id' => 'target_blank',
