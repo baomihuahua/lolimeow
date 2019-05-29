@@ -3,7 +3,8 @@
 //自动给修改网站登陆页面logo
 function customize_login_logo(){         
     echo '<style type="text/css">
-        .login{background: #add;}.login h1 a { background-image:url('.get_template_directory_uri() .'/assets/images/logo.png); width: 180px; max-height: 100px;margin: 20px auto 15px; background-size: contain;background-repeat: no-repeat;background-position: center center;}
+        .login{position: relative;width: 100%;background: rgba(0, 0, 0, 0) -webkit-linear-gradient(left, #ff5f6d 0%, #ffb270 100%) repeat scroll 0 0;background: rgba(0, 0, 0, 0) linear-gradient(to right, #ff5f6d 0%, #ffb270 100%) repeat scroll 0 0;overflow: hidden;background-size: cover;background-position: center center;z-index: 1;}.login h1 a { background-image:url('.get_template_directory_uri() .'/assets/images/logo.png); width: 180px; max-height: 100px;margin: 20px auto 15px; background-size: contain;background-repeat: no-repeat;background-position: center center;}
+		.login form{border-radius: 10px;}
         </style>';   
   
 }  
