@@ -45,8 +45,14 @@
       </div>
     </div>
   </footer>
+  <div id="search"> 
+	<span class="close">X</span>
+	<form role="search" id="searchform" method="get" action="<?php echo home_url( '/' ) ?>">
+		<input type="search" name="s" value="<?php echo htmlspecialchars($s) ?>" placeholder="输入搜索关键词..."/>
+	</form>
+</div>
   <?php if(meowdata('lolijump')){?>
-  <div id="lolijump"><img src="<?php echo meowdata('style_src') ;?>/assets/images/lolijump.gif" ></div>  
+  <div id="lolijump"><img src="<?php echo md_stylesrc();?>/assets/images/lolijump.gif" ></div>  
   <script language="javascript">
 lastScrollY=0;
 function heartBeat0(){
@@ -64,14 +70,14 @@ $('#lolijump').click(function(){
     });
 </script> 
 <?php } ?>
-  <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/popper/popper.min.js"></script>
-  <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/bootstrap/bootstrap.min.js"></script>
-  <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/headroom/headroom.min.js"></script>    
-  <script src="<?php echo meowdata('style_src') ;?>/assets/js/wow.min.js"></script>
-  <script src="<?php echo meowdata('style_src') ;?>/assets/js/theme.js"></script>
+  <script src="<?php echo md_stylesrc();?>/assets/vendor/popper/popper.min.js"></script>
+  <script src="<?php echo md_stylesrc();?>/assets/vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="<?php echo md_stylesrc();?>/assets/vendor/headroom/headroom.min.js"></script>    
+  <script src="<?php echo md_stylesrc();?>/assets/js/wow.min.js"></script>
+  <script src="<?php echo md_stylesrc();?>/assets/js/theme.js"></script>
   <?php wp_footer(); ?>
   <?php if(is_single() || is_page() ) {?><script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js"></script>
-  <?php if(meowdata('codept')){?><script src="<?php echo meowdata('style_src') ;?>/assets/vendor/prettify/prettify.js"></script><?php } ?>
-  <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/fancybox/fancybox.js"></script><?php } ?>
+  <?php if(meowdata('codept')){?><script src="<?php echo md_stylesrc();?>/assets/vendor/prettify/prettify.js"></script><?php } ?>
+  <script src="<?php echo md_stylesrc();?>/assets/vendor/fancybox/fancybox.js"></script><?php } ?>
 </body>
 </html>

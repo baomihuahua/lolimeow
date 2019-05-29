@@ -10,12 +10,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title><?php echo  md_title(); ?></title>
   <?php if(meowdata('favicon_src')){?><?php echo  md_favicon();?><?php } ?> 
-  <link type="text/css" href="<?php echo meowdata('style_src');?>/assets/css/themes.min.css?ver=<?php md_version() ;?>" rel="stylesheet">
-    <link href="<?php echo meowdata('style_src') ;?>/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link type="text/css" href="<?php echo meowdata('style_src') ;?>/assets/css/animate.min.css" rel="stylesheet">
-  <link type="text/css" href="<?php echo meowdata('style_src') ;?>/assets/css/style.css?ver=<?php md_version() ;?>" rel="stylesheet">   
-  <?php if( meowdata('diystyles') ){ ?> <link rel="stylesheet" href="<?php echo meowdata('style_src') ;?>/assets/css/diystyle.css"><?php } ?> 
-  <script src="<?php echo meowdata('style_src') ;?>/assets/vendor/jquery/jquery.min.js"></script>
+  <link type="text/css" href="<?php echo md_stylesrc();?>/assets/css/themes.min.css?ver=<?php md_version() ;?>" rel="stylesheet">
+    <link href="<?php echo md_stylesrc();?>/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link type="text/css" href="<?php echo md_stylesrc();?>/assets/css/animate.min.css" rel="stylesheet">
+  <link type="text/css" href="<?php echo md_stylesrc();?>/assets/css/style.css?ver=<?php md_version() ;?>" rel="stylesheet">   
+  <?php if( meowdata('diystyles') ){ ?> <link rel="stylesheet" href="<?php echo md_stylesrc();?>/assets/css/diystyle.css"><?php } ?> 
+  <script src="<?php echo md_stylesrc();?>/assets/vendor/jquery/jquery.min.js"></script>
   <?php wp_head(); ?>
 </head>
 <body>
@@ -64,12 +64,6 @@
  </div> <i class="up-new"></i> 
  </div> 
  </div><?php } ?>
-<div id="search"> 
-	<span class="close">X</span>
-	<form role="search" id="searchform" method="get" action="<?php echo home_url( '/' ) ?>">
-		<input type="search" name="s" value="<?php echo htmlspecialchars($s) ?>" placeholder="输入搜索关键词..."/>
-	</form>
-</div>
         </div>
       </div>	                                               
     </nav>
