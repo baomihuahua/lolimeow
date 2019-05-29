@@ -216,6 +216,11 @@ if($_POST['paytype']){
                                     </a>
                                 </li>
 								<li class="nav-item">
+                                    <a class="nav-link mb-sm-3 mb-md-0 <?php if($_GET["item"]=='comment'){?>active show<?php }?>" href="?item=comment">
+                                        <i class="fa fa-comment"></i> 我的评论
+                                    </a>
+                                </li>
+								<li class="nav-item">
                                     <a class="nav-link mb-sm-3 mb-md-0 <?php if($_GET["item"]=='pass'){?>active show<?php }?>" href="?item=pass">
                                         <i class="fa fa-pencil-square-o"></i> 修改密码
                                     </a>
@@ -811,6 +816,58 @@ if($_POST['userType']){
 
 </div></div></div> <?php //充值记录结束  
 }?>
+<?php if($_GET['item'] == 'comment'){ ///我的评论?>
+
+ <?php 
+			  	$perpage = 10;
+				if (!get_query_var('paged')) {
+					$paged = 1;
+				}else{
+					$paged = $wpdb->escape(get_query_var('paged'));
+				}
+				$total_comment = $wpdb->get_var("select count(comment_ID) from $wpdb->comments where comment_approved='1' and user_id=".$current_user->ID);
+				$pagess = ceil($total_comment / $perpage);
+				$offset = $perpage*($paged-1);
+				$results = $wpdb->get_results("select $wpdb->comments.comment_ID,$wpdb->comments.comment_post_ID,$wpdb->comments.comment_content,$wpdb->comments.comment_date,$wpdb->posts.post_title from $wpdb->comments left join $wpdb->posts on $wpdb->comments.comment_post_ID = $wpdb->posts.ID where $wpdb->comments.comment_approved='1' and $wpdb->comments.user_id=".$current_user->ID." order by $wpdb->comments.comment_date DESC limit $offset,$perpage");
+			  ?>
+
+ <div class="tab-pane active show" id="order">			
+<div class="card card-nav-tabs">
+<div class="card-header card-header-info text-center">
+    我的评论
+  </div>
+  <div class="card-body">
+			 <table class="table table-hover table-striped">
+					<thead>
+						<tr>
+							<th width="15%">评论时间</th>
+							<th width="35%">评论内容</th>
+							<th width="10%">评论文章</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							if($results) {
+								foreach($results as $result)
+								{
+									echo "<tr>\n";
+									echo "<td>$result->comment_date</td>";
+									echo "<td>$result->comment_content</td>\n";
+									echo "<td><a href='".get_permalink($result->comment_post_ID)."' target='_blank'>$result->post_title</a></td>\n";
+									echo "</tr>";
+								}
+							}
+							else
+							{
+								echo '<tr width=100%><td colspan="3" align="center"><center><strong>暂无评论！</strong></center></td></tr>';
+							}
+						?>
+					</tbody>
+				</table>
+                <?php mobantu_paging('comment',$paged,$pagess);?></div></div></div>			  
+			  
+ <?php }?>
+
  <?php if($_GET["item"]=='pass'){/////修改密码?>
 <div class="tab-pane active show" id="pass">
 <div class="card card-nav-tabs">
