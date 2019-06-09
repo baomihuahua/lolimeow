@@ -187,7 +187,7 @@ class Options_Framework_Admin {
 
 		<?php $menu = $this->menu_settings(); ?>
 		<h2 style="text-align: center;background-image:-webkit-linear-gradient(bottom,red,#fd8403,yellow); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"><?php echo esc_html( $menu['page_title'] ); ?></h2>
-         <h4 style="text-align: center;color: #d90000;">温馨提示：主题无收费版谨防上当！如有好的建议或交流可加入喵Q群（24401689）<a href="https://jq.qq.com/?_wv=1027&amp;k=52f0L9P" rel="noopener" target="_blank">点击加群</a>，By <a href="https://mkm.st" target="_blank">mkm.st</a></h4>
+         <h4 style="text-align: center;color: #d90000;">温馨提示：主题无收费版谨防上当！如有好的建议或交流可加入喵Q群（24401689）<a href="https://jq.qq.com/?_wv=1027&amp;k=52f0L9P" rel="noopener" target="_blank">点击加群</a>，By <a href="https://www.boxmoe.com" target="_blank">BoxMoe.Com</a></h4>
 	    <h2 class="nav-tab-wrapper" style="text-align: center;">
 	        <?php echo Options_Framework_Interface::optionsframework_tabs(); ?>
 	    </h2>

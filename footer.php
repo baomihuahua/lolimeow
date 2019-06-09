@@ -38,7 +38,7 @@
         </div>
         <div class="col-md-12">
           <div class="copyright text-center">
-            © <?php echo date('Y'); ?> <a href="<?php echo home_url();?>" target="_blank" ><?php echo get_bloginfo( 'name' );?> </a>. Theme by <a href="https://mkm.st"  target="_blank" >LoLiMeow</a>&nbsp;<?php echo get_num_queries(); ?> queries in <?php timer_stop(3); ?> s &nbsp;<?php echo meowdata('footer_info') ?> <div <?php if(meowdata('trackcodehidden'))echo 'style="display:none;"'?>><?php echo meowdata('trackcode') ?>
+            © <?php echo date('Y'); ?> <a href="<?php echo home_url();?>" target="_blank" ><?php echo get_bloginfo( 'name' );?> </a>. Theme by <a href="https://www.boxmoe.com"  target="_blank" >LoLiMeow</a>&nbsp;<?php echo get_num_queries(); ?> queries in <?php timer_stop(3); ?> s &nbsp;<?php echo meowdata('footer_info') ?> <div <?php if(meowdata('trackcodehidden'))echo 'style="display:none;"'?>><?php echo meowdata('trackcode') ?>
 			</div>
           </div>
         </div>
