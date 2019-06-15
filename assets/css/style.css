@@ -85,7 +85,7 @@ a:hover {color:#E12646;}
 .person-box:hover .person-name,.person-box:focus .person-name {color:#ffffff;}
 .person-box:hover .person-title,.person-box:focus .person-title {color:#ffffff;}
 .person-box:hover .person-social a [class*="fa"],.person-box:focus .person-social a [class*="fa"] {color:#fff;}
-.person-box .person-icon .person-img {position:absolute;width:100%;top:-37px;left:0;-webkit-transition:all 0.3s ease;transition:all 0.3s ease;padding-left:50px;}
+.person-box .person-icon .person-img {position:absolute;width:100%;top:-37px;left:-25px;-webkit-transition:all 0.3s ease;transition:all 0.3s ease;padding-left:50px;}
 .person-box .person-icon .person-img img {width:75px;border-radius:100px;box-shadow:0 0px 0px rgba(50,50,93,.1),0 5px 15px rgba(0,0,0,.07)!important;}
 .person-box .person-name {color:#16386F;font-size:17px;font-weight:600;margin-bottom:3px;text-align:center!important;}
 .person-box .person-title {color:#9DA9BC;font-size:15px;font-weight:300;opacity:0.7;margin-bottom:15px;}
@@ -279,7 +279,6 @@ blockquote small {display:block;font-size:80%;line-height:1.42857143;color:#777;
 .post-single img{width:100%;height:auto;}
 .avatar {width: auto;height: auto;}
 .person-box{max-width:100%;}
-.person-box .person-icon .person-img{top:30px;}
 .person-box .person-name{margin-bottom: 15px;}
 }
 @media (min-width:767px) {
