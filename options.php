@@ -117,13 +117,7 @@ function optionsframework_options() {
 		'std' => $imagepath.'favicon.ico',
 		'type' => 'upload');	
 		
-	$options[] = array(
-		'name' => __( '前端静态CSS JS链接', 'meowdataui' ),
-		'desc' => __( '不带/', 'meowdataui' ),
-		'id' => 'style_src',
-		'std' => $style,
-		'settings' => array('rows' => 1),
-		'type' => 'textarea');
+	$options[] = array(		'name' => __('使用外链加载前端资源CSS JS', 'boxmoe-com'),		'id' => 'style_src_onoff',		'type' => "checkbox",		'std' => false,		'desc' => __('开启后将外部链接填写在下方才能生效', 'boxmoe-com'),);			$options[] = array(		'desc' => __( '将主题中“assets”文件上传到七牛 OSS之类加速前端加载，链接结尾不带/', 'boxmoe-com' ),		'id' => 'style_src',		'std' => '',		'settings' => array('rows' => 2),		'class' => 'hidden',		'type' => 'textarea');
     
 	$gravatar_array = array(
 	    'lolinet' => __('萝莉服务器（荐）', 'meowdataui'),
