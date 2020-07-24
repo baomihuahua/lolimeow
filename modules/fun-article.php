@@ -11,7 +11,7 @@ set_post_thumbnail_size(380, 250, true );
 function _get_post_thumbnail( $single=true, $must=true ) {  
     global $post;
     $html = '';
-	$ospic = meowdata('style_src');
+	$ospic = boxmoe_load_style();
 //如果有特色图片则取特色图片
 if ( has_post_thumbnail() ){
 	$domsxe = get_the_post_thumbnail();

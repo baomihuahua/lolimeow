@@ -1,4 +1,16 @@
 <?php
+
+//载入前端资源
+function boxmoe_load_style(){
+$src = meowdata('style_src');	
+if( meowdata('style_src_onoff')& !empty($src) ) {
+$styleurlload = meowdata('style_src');
+}else{
+$styleurlload = get_template_directory_uri() ;
+}
+return $styleurlload;
+}
+
 // 注册导航
 if (function_exists('register_nav_menus')){
     register_nav_menus( array(
@@ -41,13 +53,6 @@ function md_favicon() {
     echo $src;
 }
 
-function md_stylesrc() {
-    $src = meowdata('style_src');
-    if(empty($src) ){
-        $src = get_template_directory_uri();
-    }    
-    echo $src;
-}
 
 //banner参数
 function md_banner() {

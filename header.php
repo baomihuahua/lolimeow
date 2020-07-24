@@ -1,6 +1,6 @@
 <?php
 /**
- * mkm.st
+ * boxmoe.com
  */
 ?>
 <!DOCTYPE html>
@@ -10,12 +10,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title><?php echo  md_title(); ?></title>
   <?php if(meowdata('favicon_src')){?><?php echo  md_favicon();?><?php } ?> 
-  <link type="text/css" href="<?php echo md_stylesrc();?>/assets/css/themes.min.css?ver=<?php md_version() ;?>" rel="stylesheet">
-    <link href="<?php echo md_stylesrc();?>/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link type="text/css" href="<?php echo md_stylesrc();?>/assets/css/animate.min.css" rel="stylesheet">
-  <link type="text/css" href="<?php echo md_stylesrc();?>/assets/css/style.css?ver=<?php md_version() ;?>" rel="stylesheet">   
-  <?php if( meowdata('diystyles') ){ ?> <link rel="stylesheet" href="<?php echo md_stylesrc();?>/assets/css/diystyle.css"><?php } ?> 
-  <script src="<?php echo md_stylesrc();?>/assets/vendor/jquery/jquery.min.js"></script>
+  <link type="text/css" href="<?php echo boxmoe_load_style();?>/assets/css/themes.min.css?ver=<?php md_version() ;?>" rel="stylesheet">
+    <link href="<?php echo boxmoe_load_style();?>/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link type="text/css" href="<?php echo boxmoe_load_style();?>/assets/css/animate.min.css" rel="stylesheet">
+  <link type="text/css" href="<?php echo boxmoe_load_style();?>/assets/css/style.css?ver=<?php md_version() ;?>" rel="stylesheet">   
+  <?php if( meowdata('diystyles') ){ ?> <link rel="stylesheet" href="<?php echo boxmoe_load_style();?>/assets/css/diystyle.css"><?php } ?> 
+  <script src="<?php echo boxmoe_load_style();?>/assets/vendor/jquery/jquery.min.js"></script>
   <?php wp_head(); ?>
 </head>
 <body>

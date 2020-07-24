@@ -52,7 +52,7 @@
 	</form>
 </div>
   <?php if(meowdata('lolijump')){?>
-  <div id="lolijump"><img src="<?php echo md_stylesrc();?>/assets/images/lolijump.gif" ></div>  
+  <div id="lolijump"><img src="<?php echo boxmoe_load_style();?>/assets/images/lolijump.gif" ></div>  
   <script language="javascript">
 lastScrollY=0;
 function heartBeat0(){
@@ -70,14 +70,14 @@ $('#lolijump').click(function(){
     });
 </script> 
 <?php } ?>
-  <script src="<?php echo md_stylesrc();?>/assets/vendor/popper/popper.min.js"></script>
-  <script src="<?php echo md_stylesrc();?>/assets/vendor/bootstrap/bootstrap.min.js"></script>
-  <script src="<?php echo md_stylesrc();?>/assets/vendor/headroom/headroom.min.js"></script>    
-  <script src="<?php echo md_stylesrc();?>/assets/js/wow.min.js"></script>
-  <script src="<?php echo md_stylesrc();?>/assets/js/theme.js"></script>
+  <script src="<?php echo boxmoe_load_style();?>/assets/vendor/popper/popper.min.js"></script>
+  <script src="<?php echo boxmoe_load_style();?>/assets/vendor/bootstrap/bootstrap.min.js"></script>
+  <script src="<?php echo boxmoe_load_style();?>/assets/vendor/headroom/headroom.min.js"></script>    
+  <script src="<?php echo boxmoe_load_style();?>/assets/js/wow.min.js"></script>
+  <script src="<?php echo boxmoe_load_style();?>/assets/js/theme.js"></script>
   <?php wp_footer(); ?>
   <?php if(is_single() || is_page() ) {?><script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js"></script>
-  <?php if(meowdata('codept')){?><script src="<?php echo md_stylesrc();?>/assets/vendor/prettify/prettify.js"></script><?php } ?>
-  <script src="<?php echo md_stylesrc();?>/assets/vendor/fancybox/fancybox.js"></script><?php } ?>
+  <?php if(meowdata('codept')){?><script src="<?php echo boxmoe_load_style();?>/assets/vendor/prettify/prettify.js"></script><?php } ?>
+  <script src="<?php echo boxmoe_load_style();?>/assets/vendor/fancybox/fancybox.js"></script><?php } ?>
 </body>
 </html>
