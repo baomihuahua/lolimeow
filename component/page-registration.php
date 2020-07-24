@@ -2,7 +2,7 @@
 /**
  * Template Name: 注册页面
  */
-  
+  error_reporting(0);
 if( !empty($_POST['mogu_reg']) ) {
   $error = '';
   $sanitized_user_login = sanitize_user( $_POST['user_login'] );
