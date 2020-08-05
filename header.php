@@ -57,10 +57,10 @@
 		<?php if( meowdata('sign_f') & !is_user_logged_in() ){ ?> <div class="my-2 meowlogin"> <div class="admin-login hidden-sm">
  <div class="ruike_user-wrapper"> 
  <span class="ruike_user-loader">
- <a href="<?php echo site_url('') ?>/login?r=<?php echo site_url('/') ?>/<?php echo meowdata('users_page') ?>" class="signin-loader z-bor">登录</a> 
+ <a href="<?php echo site_url('') ?>/<?php echo meowdata('users_login')?>?r=<?php echo site_url('/') ?>" class="signin-loader z-bor" target="_blank" >登录</a> 
  <b class="middle-text"><span class="middle-inner">or</span></b> 
- </span> <span class="ruike_user-loader">
- <a href="<?php echo site_url('/') ?><?php echo meowdata('users_reg') ?>" class="signup-loader l-bor">注册</a></span> 
+ </span> <span class="ruike_user-loader" >
+ <a target="_blank" href="<?php echo site_url('/') ?><?php echo meowdata('users_reg') ?>" class="signup-loader l-bor" target="_blank" >注册</a></span> 
  </div> <i class="up-new"></i> 
  </div> 
  </div><?php } ?>
