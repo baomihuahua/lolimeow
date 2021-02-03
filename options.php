@@ -506,7 +506,13 @@ function optionsframework_options() {
 		'desc' => __('直接输入链接，留空不展现', 'meowdata'),
 		'id' => 'social_github',
 		'std' => 'https://github.com/baomihuahua/',
-		'type' => 'text');		
+		'type' => 'text');
+	$options[] = array(
+		'name' => __('StackOverflow'),
+		'desc' => __('直接输入链接，留空不展现', 'meowdata'),
+		'id' => 'social_stackoverflow',
+		'std' => 'https://stackoverflow.com/users/13625298',
+		'type' => 'text');
     /* 
 	 * 友链设置
 	 * ====================================================================================================
