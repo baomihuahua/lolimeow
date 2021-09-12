@@ -1,6 +1,6 @@
 <?php 
 /** 
-* Template Name: meowdatago外链
+* Template Name: Boxmoe外链
 */
 $t_url = preg_replace('/^url=(.*)$/i','$1',$_SERVER["QUERY_STRING"]);
 if(!empty($t_url)) {

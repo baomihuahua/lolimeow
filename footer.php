@@ -1,83 +1,67 @@
-  <footer class="footer">
-    <div class="container">
-      <div class="row row-grid align-items-center">
-        <div class="col-lg-12 text-lg-center btn-wrapper justify-content-center">
-		<?php if(meowdata('social_qq')){?> <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo meowdata('social_qq');?>&amp;site=qq&amp;menu=yes" target="_blank" class="btn btn-neutral btn-icon-only btn-qq btn-round btn-lg wow fadeInUpBig" data-toggle="tooltip" data-original-title="博主宝宝QQ<?php echo meowdata('social_qq');?>"><i class="fa fa-qq"></i></a><?php } ?>
-		<?php if(meowdata('social_github')){?><a target="_blank" href="<?php echo meowdata('social_github');?>" class="btn btn-neutral btn-icon-only btn-github btn-round btn-lg" data-toggle="tooltip" data-original-title="Github">            <i class="fa fa-github"></i>          </a><?php } ?>
-		<?php if(meowdata('social_wechat')){?><button type="button" class="btn btn-neutral btn-icon-only btn-wechat btn-round btn-lg wow fadeInUpBig" data-toggle="modal" data-target="#modal-notification"><i class="fa fa-wechat"></i></button>		
-		<div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
-     <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
-        <div class="modal-content bg-gradient-danger">
-
-            <div class="modal-header">
-                <h6 class="modal-title" id="modal-title-notification">打开微信扫一扫二维码就可以啦</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="py-3 text-center">
-                   <img class="img img-raised" src="<?php echo meowdata('social_wechat') ;?>" width="200" height="200" alt="wechat" >
-                </div>
-
-            </div>
-        </div>
+<?php
+/**
+ * @link https://www.boxmoe.com
+ * @package lolimeow
+ */
+?>
+      </section>			  
     </div>
-</div>
-<?php } ?>
-<?php if(meowdata('social_mail')){?><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=<?php echo meowdata('social_mail');?>" target="_blank" class="btn btn-neutral btn-icon-only btn-mail btn-round btn-lg wow fadeInUpBig" data-toggle="tooltip" data-original-title="Email：<?php echo meowdata('social_mail');?>"><i class="fa fa-envelope"></i></a><?php } ?>						  
-        </div>
-      </div>
-      <hr>
-      <div class="row align-items-center justify-content-md-between">
-
-	      <div class="col-md-12 ">
-          <ul class="nav nav-footer justify-content-center">
-           <?php echo meowdata('footer_seo') ?>
-          </ul>
-        </div>
-        <div class="col-md-12">
-          <div class="copyright text-center">
-            © <?php echo date('Y'); ?> <a href="<?php echo home_url();?>" target="_blank" ><?php echo get_bloginfo( 'name' );?> </a>. Theme by <a href="https://www.boxmoe.com"  target="_blank" >LoLiMeow</a>&nbsp;<?php echo get_num_queries(); ?> queries in <?php timer_stop(3); ?> s &nbsp;<?php echo meowdata('footer_info') ?> <div <?php if(meowdata('trackcodehidden'))echo 'style="display:none;"'?>><?php echo meowdata('trackcode') ?>
+    <footer class="footer fontsom">
+      <hr class="horizontal dark">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mb-2 mx-auto text-center nav-footer">
+            <?php echo get_boxmoe('footer_seo') ;?>	
 			</div>
+          <div class="col-lg-8 mx-auto text-center mt-2 mb-2"><?php if(get_boxmoe('boxmoe_qq')){?>
+            <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo get_boxmoe('boxmoe_qq');?>&amp;site=qq&amp;menu=yes" target="_blank" class="text-secondary me-xl-4 me-4">
+              <i class="fa fa-qq"></i>
+            </a><?php } ?><?php if(get_boxmoe('boxmoe_wechat')){?>
+            <a href="<?php echo get_boxmoe('boxmoe_wechat');?>" data-fancybox="images" data-fancybox-group="button" class="text-secondary me-xl-4 me-4">
+              <i class="fa fa-wechat"></i>
+            </a><?php } ?><?php if(get_boxmoe('boxmoe_weibo')){?>
+            <a href="<?php echo get_boxmoe('boxmoe_weibo');?>" target="_blank" class="text-secondary me-xl-4 me-4">
+              <i class="fa fa-weibo"></i>
+            </a><?php } ?><?php if(get_boxmoe('boxmoe_github')){?>
+            <a href="<?php echo get_boxmoe('boxmoe_github');?>" target="_blank" class="text-secondary me-xl-4 me-4">
+              <i class="fa fa-github"></i>
+            </a><?php } ?><?php if(get_boxmoe('boxmoe_mail')){?>
+            <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=<?php echo get_boxmoe('boxmoe_mail');?>" target="_blank" class="text-secondary me-xl-4 me-4">
+              <i class="fa fa-envelope"></i>
+            </a><?php } ?>
           </div>
         </div>
+        <div class="row">
+          <div class="col-8 mx-auto text-center mt-2 mb-2">
+            <p class="mb-0 copyright">© <?php echo date('Y'); ?>
+              <a href="<?php echo home_url();?>" target="_blank"><?php echo get_bloginfo( 'name' );?></a> | Theme by
+              <a href="https://www.boxmoe.com" target="_blank">LoLiMeow</a>&nbsp; <?php echo get_boxmoe('footer_info','| 本站使用Wordpress创作') ?>
+			   <br><?php echo get_boxmoe('trackcode','网站统计') ?>
+               <br><?php if(get_boxmoe('boxmoedataquery') ){?><?php echo get_num_queries(); ?> queries in <?php timer_stop(3); ?> s <?php } ?></p>
+		  </div>
+        </div>
       </div>
-    </div>
-  </footer>
-  <div id="search"> 
-	<span class="close">X</span>
-	<form role="search" id="searchform" method="get" action="<?php echo home_url( '/' ) ?>">
-		<input type="search" name="s" value="<?php echo htmlspecialchars($s) ?>" placeholder="输入搜索关键词..."/>
-	</form>
-</div>
-  <?php if(meowdata('lolijump')){?>
-  <div id="lolijump"><img src="<?php echo boxmoe_load_style();?>/assets/images/lolijump.gif" ></div>  
-  <script language="javascript">
-lastScrollY=0;
-function heartBeat0(){
-diffY=document.body.scrollTop;
-percent=.1*(diffY-lastScrollY);
-if(percent>0)percent=Math.ceil(percent);
-else percent=Math.floor(percent);
-document.all.lolijump.style.pixelTop+=percent;
-lastScrollY=lastScrollY+percent;}
-window.setInterval("heartBeat0()",1);
-$('#lolijump').click(function(){
-        $('html, body').animate({                
-            scrollTop: 0
-        }, 500);
-    });
-</script> 
-<?php } ?>
-  <script src="<?php echo boxmoe_load_style();?>/assets/vendor/popper/popper.min.js"></script>
-  <script src="<?php echo boxmoe_load_style();?>/assets/vendor/bootstrap/bootstrap.min.js"></script>
-  <script src="<?php echo boxmoe_load_style();?>/assets/vendor/headroom/headroom.min.js"></script>    
-  <script src="<?php echo boxmoe_load_style();?>/assets/js/wow.min.js"></script>
-  <script src="<?php echo boxmoe_load_style();?>/assets/js/theme.js"></script>
-  <?php wp_footer(); ?>
-  <?php if(is_single() || is_page() ) {?><script src="<?php echo get_template_directory_uri(); ?>/assets/js/custom.js"></script>
-  <?php if(meowdata('codept')){?><script src="<?php echo boxmoe_load_style();?>/assets/vendor/prettify/prettify.js"></script><?php } ?>
-  <script src="<?php echo boxmoe_load_style();?>/assets/vendor/fancybox/fancybox.js"></script><?php } ?>
-</body>
+    </footer>
+    <div id="search">
+      <span class="close">X</span>
+      <form role="search" id="searchform" method="get" action="<?php echo home_url( '/' ) ?>">
+        <div class="search_form_inner  animate slideUp">
+          <div class="search-bar">
+            <i class="fa fa-search"></i>
+            <input type="search" name="s" value="<?php echo htmlspecialchars($s) ?>" placeholder="输入搜索关键词..." /></div>
+        </div>
+      </form>
+    </div>	
+	<?php if (get_boxmoe('lolijump') ): ?><div id="lolijump"><img src="<?php echo boxmoe_load_style(); ?>/assets/images/top/<?php echo get_boxmoe('lolijumpsister'); ?>.gif"></div><?php endif; ?>
+	<script src="<?php echo boxmoe_load_style();?>/assets/js/theme.js" type="text/javascript"></script>
+	<script src="<?php echo get_template_directory_uri();?>/assets/js/comments.js" type="text/javascript"></script>
+    <script src="<?php echo boxmoe_load_style();?>/assets/js/lolimeow.js" type="text/javascript" id="boxmoe_script"></script>
+	<?php wp_footer(); ?>
+	<?php if (get_boxmoe('music_on') ): ?>
+    <link id="APlayer" href="<?php echo boxmoe_load_style();?>/assets/css/APlayer.min.css" rel="stylesheet" />
+    <script src="<?php echo boxmoe_load_style();?>/assets/js/APlayer.min.js" type="text/javascript"></script>
+	<div class="aplayer" data-id="<?php echo get_boxmoe('163_music_id','2765798464');?>" data-fixed="true" data-server="netease" data-volume="0.4 "data-type="playlist"></div>
+    <script src="<?php echo boxmoe_load_style();?>/assets/js/Meting.min.js" type="text/javascript"></script>
+	<?php endif; ?>
+  </body>
 </html>

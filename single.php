@@ -1,92 +1,100 @@
-<?php get_header(); ?>
-<section class="section-profile-cover section-blog-cover section-shaped my-0 " <?php if( meowdata('banneron') ) {echo md_banner();} ?>>
-      <div class="shape shape-style-1 shape-primary alpha-4">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+<?php
+/**
+ * @link https://www.boxmoe.com
+ * @package lolimeow
+ */
+get_header(); ?>
+      <div class="container">
+        <div class="section-head">
+          <span>SINGLE</span></div>
       </div>
-      <div class="separator separator-bottom separator-skew" >
-        <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none">
-          <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-        </svg>
-      </div>
-    </section> 		
-<main class="meowblog">
- <div class="main-container">
-<div class="container">
-                               
-
-                        <div class="row">
-                              <div class="col-lg-10 col-md-10 ml-auto mr-auto"><?php while (have_posts()) : the_post(); ?><?php setPostViews(get_the_ID()); ?>
-                                    <div class="post-single">
-                                          <div class="entry-header single-entry-header">
-                                                <h2 class="entry-title wow swing  animated"><?php the_title(); echo get_the_subtitle(); ?></h2>
-                                                <div class="post-meta author-box wow bounceInRight">
-                                                      <div class="thw-autohr-bio-img">
-                                                            <div class="thw-img-border">
-                                                                  <?php echo get_avatar(get_the_author_meta( 'user_email' ),60,'','',array('class'=>array('img-fluid'))); ?>  
-                                                            </div>
-                                                      </div>
-                                                      <div class="post-meta-content">													  
-                                                            <span class="list-post-date"><i class="fa fa-calendar"></i> Post on <?php echo get_the_time('Y-m-d'); ?></span>
-                                                            <span class="post-author"><i class="fa fa-user-circle"></i> <?php the_author(); ?></span>
-                                                            <span class="post-author"><i class="fa fa-comments-o"></i> <a href="#comments"><?php echo get_comments_number('0', '1', '%') ?> Comments</a></span>
-															<span class="list-post-views"><i class="fa fa-street-view"></i> <?php echo getPostViews(get_the_ID()); ?></span>
-                                                            <?php edit_post_link('['.__('<span>编辑仅作者可见</span>', 'meowdata').']'); ?>
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          
-
-                                          <div class="entry-content wow bounceInLeft"> 
-										  <?php the_content(); ?>
-										  </div>
-                                    </div>
-                                    <div class="post-footer clearfix wow bounceInDown">
-                                          <div class="post-tags">
-                                            <div class="article-categories"><?php the_tags('','',''); ?></div>
-                                          </div>
-                                    </div>
-
-                              <div class="thw-author-box author-box thw-sept wow rollIn"> 
-                                    <div class="thw-autohr-bio-img">
-                                          <div class="thw-img-border">
-                                                <?php echo get_avatar( get_the_author_meta( 'user_email' ), 80,'','',array('class'=>array('img-fluid'))); ?>  
-                                          </div>
-                                    </div>
-                                    <div class="author-info">
-                                          <h4><?php the_author(); ?></h4>
-                                          <p><?php echo meowdata('authorinfo');  ?></p>
-                                    </div>
-                              </div> 
-							  <?php $categories = get_the_category();$categoryIDS = array();foreach ($categories as $category) {
-                               array_push($categoryIDS, $category->term_id);}$categoryIDS = implode(",", $categoryIDS);?>
-                              <nav class="post-navigation thw-sept wow bounceInUp">
-                                    <div class="post-previous">
-									<?php if (get_next_post($categoryIDS)) { next_post_link('%link','<span><i class="fa fa-angle-left"></i> Previous Post</span><h4>%title</h4>',true);} else { echo '<span><i class="fa fa-angle-left"></i> Previous Post </span><h4>已是最新文章';} ?>									      
-                                    </div>
-                                    <div class="post-next">
-									<?php if (get_previous_post($categoryIDS)) { previous_post_link('%link','<span>Next Post <i class="fa fa-angle-right"></i></span> <h4>%title</h4>',true);}else { echo '<span>Next Post <i class="fa fa-angle-right"></i></span> <h4>已是最后文章</h4>';} ?>
-                                    </div>       
-                              </nav>
-<?php endwhile;  ?>                           							  
-<?php comments_template('', true); ?>
-</div>				
-</div>
-</div> 					  
-</div>     
-</main>	
-<?php if( meowdata('post_related_s') ) {?> 	
-<div class=" container">
-                    <div class="row wow fadeInUp animated">
- <div class="col-lg-12">	
-<h3 class="title-normal thw-sept text-center"><?php echo meowdata('related_title')?></h3>	 </div>						
-<?php if( meowdata('post_related_s') ) md_posts_related( meowdata('related_title'), meowdata('post_related_n'), (meowdata('post_related_model') ? meowdata('post_related_model') : 'thumb') ) ?>
-	</div>
-                    </div>		
-			<?php }	?>
+        <div class="boxmoe-blog-content">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-<?php echo sidebaron($sidebar,'10 mx-auto'); ?> single">
+			  <div class="<?php echo boxmoe_border($border,'blog-card')?> single-card mb-4"><?php while (have_posts()) : the_post(); ?>
+                <div class="post-single">
+                  <div class="post-header">
+                    <p class="post-category">
+					 <?php $category = get_the_category();if($category[0]){ echo '<a href="'.get_category_link($category[0]->term_id ).'" title="查看《'.$category[0]->cat_name.'》下的所有文章 " rel="category tag" '. _post_target_blank().'><i class="fa fa-folder-o"></i>'.$category[0]->cat_name.'</a>'; };?>
+                    </p>
+                    <h3 class="post-title"><?php the_title(); echo get_the_subtitle(); ?></h3>
+                    <div class="post-meta thw-sept">
+                      <div class="post-auther-avatar">
+					  <?php echo get_avatar(get_the_author_meta( 'user_email' ),60, '', '',array( 'class'=>array('img-fluid'))); ?></div>
+                      <div class="post-meta-info">
+                        <span class="post-date">
+                          <i class="fa fa-clock-o"></i>Post on <?php echo get_the_time( 'Y-m-d'); ?></span>
+                        <span class="post-view">
+                          <i class="fa fa-street-view"></i><?php setPostViews(get_the_ID()); ?><?php echo getPostViews(get_the_ID()); ?></span>
+                        <span class="post-comment">
+                          <i class="fa fa-comments-o"></i><?php echo get_comments_number( '0', '1', '%') ?></span>
+						  <?php edit_post_link( '['.__( '<span>编辑仅作者可见</span>', 'meowdata'). ']'); ?>
+                      </div>
+                    </div>
+                  </div>	  
+                  <div class="post-content">	  
+	                <?php the_content(); ?>
+                  </div>	
+				  <?php wp_link_pages(array('before' => '<div class="fenye pagination justify-content-center">', 'after' => '</div>', 'next_or_number' => 'number','link_before' =>'<span>', 'link_after'=>'</span>')); ?>  
+                  <div class="post-footer">
+                    <div class="post-tags">
+                      <div class="article-categories">
+                        <?php the_tags( '', '', ''); ?></div>
+                    </div>
+                  </div>	  
+                </div><?php if (get_boxmoe('open_author_info')){?>
+			<div class="block_auther_post mb-4">
+                <div class="row">
+                  <div class="col-lg-9">
+					<div class="author align-items-center mb-2">
+					    <?php echo get_avatar( get_the_author_meta( 'user_email' ), 60, '', '',array( 'class'=>array('shadow'))); ?>
+						 <div class="name ps-3">
+						 <span><?php the_author(); ?></span>
+						  <div class="stats">
+						     <?php echo get_boxmoe( 'authorinfo'); ?>
+						  </div>
+						 </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 my-auto ml-auto text-lg-right"><?php if(get_boxmoe('boxmoe_qq')){?>
+				   <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=<?php echo get_boxmoe('social_qq');?>&amp;site=qq&amp;menu=yes" target="_blank" class="btn-social color-qq border-0  mr-2">
+                   <i class="fa fa-qq"></i></a><?php } ?><?php if(get_boxmoe('boxmoe_wechat')){?>                    
+				   <a href="<?php echo get_boxmoe('boxmoe_wechat');?>" data-fancybox="images" data-fancybox-group="button" target="_blank" class="btn-social color-weixin border-0  mr-2">
+                   <i class="fa fa-weixin"></i></a> <?php } ?><?php if(get_boxmoe('boxmoe_github')){?>
+                   <a href="<?php echo get_boxmoe('social_github');?>" target="_blank" class="btn-social color-github border-0  mr-2">
+                   <i class="fa fa-github"></i></a><?php } ?>                 
+				  </div>
+                </div>
+            </div><?php } ?>	<?php endwhile; ?>			
+				<?php $categories=get_the_category();$categoryIDS=array();foreach ($categories as $category) { array_push($categoryIDS, $category->term_id);}$categoryIDS = implode(",", $categoryIDS);?>	  
+                <nav class="post-navigation thw-sept">
+                  <div class="row no-gutters">
+                    <div class="col-12 col-md-6">
+                      <div class="post-previous">
+					  <?php if (get_next_post($categoryIDS)) { next_post_link('%link','<span><i class="fa fa-angle-left"></i> Previous Post</span><h4>%title</h4>',true);} else { echo '<span><i class="fa fa-angle-left"></i> Previous Post </span><h4>本文分类下已经是最后一篇文章了哦！';} ?>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div class="post-next">
+                        <?php if (get_previous_post($categoryIDS)) { previous_post_link( '%link', '<span>Next Post <i class="fa fa-angle-right"></i></span> <h4>%title</h4>',true);}else { echo '<span>Next Post <i class="fa fa-angle-right"></i></span> <h4>本文分类下已经是最新一篇文章了哦！</h4>';} ?>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+                <div class="thw-sept"> </div>
+	<?php if( get_boxmoe('post_related_s') ) {?> 			
+      <div class="container postrelated">       
+	   <div class="row">
+     <?php if( get_boxmoe('post_related_s') ) boxmoe_posts_related( get_boxmoe('related_title'), get_boxmoe('post_related_n'), (get_boxmoe('post_related_model') ? get_boxmoe('post_related_model') : 'thumb') ) ?>
+	   </div>
+     </div>	  
+	 <div class="thw-sept"> </div><?php }	?>	 
+                <?php if (get_boxmoe('comments_off')==''):?><?php comments_template( '', true); ?><?php endif; ?> 					 			 
+            </div>
+			</div>
+<?php if(get_boxmoe('sidebar_on') == 'col-1' ){} else {get_sidebar();} ?>						
+          </div>
+        </div>
+      </div>			  
 <?php get_footer(); ?>

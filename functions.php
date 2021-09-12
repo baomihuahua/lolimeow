@@ -1,23 +1,17 @@
 <?php
-
-define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/modules/inc/' );
-require_once dirname( __FILE__ ) . '/modules/inc/options-framework.php';
-$optionsfile = locate_template( 'options.php' );
-load_template( $optionsfile );
-add_action( 'optionsframework_custom_scripts', 'optionsframework_custom_scripts' );
-require_once get_stylesheet_directory() . '/modules/fun-panel.php';  
-require_once get_stylesheet_directory() . '/modules/fun-opzui.php';    
-require_once get_stylesheet_directory() . '/modules/fun-bootstrap.php'; 
-require_once get_stylesheet_directory() . '/modules/fun-comments.php';
-require_once get_stylesheet_directory() . '/modules/fun-admin.php';
-require_once get_stylesheet_directory() . '/modules/fun-article.php';
-require_once get_stylesheet_directory() . '/modules/fun-user.php';
-require_once get_stylesheet_directory() . '/modules/fun-seo.php';
-require_once get_stylesheet_directory() . '/modules/fun-mail.php';
-require_once get_stylesheet_directory() . '/modules/fun-global.php';
-if( meowdata('no_categoty') ) require_once get_stylesheet_directory() . '/modules/fun-no-category.php';
-function md_version() {$versions = '1.6';   echo  $versions;}
-
-//以下可以自定义fun函数
-
-
+define( 'THEME_VERSION'  , '5.0' );
+define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/module/theme_panel_set/' );
+require_once dirname( __FILE__ ) . '/module/theme_panel_set/options-framework.php';
+require_once dirname( __FILE__ ) . '/module/theme_panel_set/panel-js.php';
+$optionsfile = locate_template( 'options.php' );load_template( $optionsfile );
+require_once get_stylesheet_directory() . '/module/config/fun-navwalker.php';
+require_once get_stylesheet_directory() . '/module/config/fun-optimize.php';
+require_once get_stylesheet_directory() . '/module/config/fun-global.php';
+require_once get_stylesheet_directory() . '/module/config/fun-mail.php';
+require_once get_stylesheet_directory() . '/module/config/fun-user.php';
+require_once get_stylesheet_directory() . '/module/config/fun-seo.php';
+require_once get_stylesheet_directory() . '/module/config/fun-comments.php';
+require_once get_stylesheet_directory() . '/module/config/fun-admin.php';
+require_once get_stylesheet_directory() . '/module/config/fun-article.php';
+require_once get_stylesheet_directory() . '/module/config/fun-shortcode.php';
+if( get_boxmoe('no_categoty') ) require_once get_stylesheet_directory() . '/module//config/fun-no-category.php';
