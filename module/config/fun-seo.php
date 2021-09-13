@@ -1,7 +1,7 @@
 <?php
 //全站链接字符
 function boxmoe_connector() {
-	return get_boxmoe('connector') ? get_boxmoe('connector') : '-';
+	return get_boxmoe('connector') ? ' ' . get_boxmoe('connector'). ' ' : ' - ';
 }
 //全站标题
 function boxmoe_title() {
