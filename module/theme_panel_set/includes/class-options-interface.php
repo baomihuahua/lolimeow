@@ -69,6 +69,9 @@ class Options_Framework_Interface {
 				}
 
 				$output .= '<div id="' . esc_attr( $id ) .'" class="' . esc_attr( $class ) . '">'."\n";
+				if ( !array_key_exists('instructions', $value) ){
+					$value['instructions'] = null;
+				}
 				if ( isset( $value['name'] ) ) {
 					$output .= '<h4 class="heading">' . esc_html( $value['name'] ) . '<span class="instructions">' . esc_html( $value['instructions'] ) . '</span></h4>' . "\n";
 				}
@@ -397,6 +400,9 @@ class Options_Framework_Interface {
 				$class = ! empty( $value['id'] ) ? $value['id'] : $value['name'];
 				$class = preg_replace('/[^a-zA-Z0-9._\-]/', '', strtolower($class) );
 				$output .= '<div id="options-group-' . $counter . '" class="group ' . $class . '">';
+				if ( !array_key_exists('desc', $value) ){
+					$value['desc'] = null;
+				}
 				$output .= '<h3>' . esc_html( $value['name'] ) . '' . esc_html( $value['desc'] ) . ' - Boxmoe.Com</h3>' . "\n";
 				break;
 			}
