@@ -71,6 +71,7 @@ if( get_boxmoe('sidebar_on') !== 'col-1' ){
             'postsidebar' => __('文章页侧栏', 'boxmoe-com'),
             'pagesidebar' => __('页面侧栏', 'boxmoe-com'),
         );
+		$boxmoeborder='';
 		if(get_boxmoe('blog_border') == 'border1' ){$boxmoeborder='blog-border';}
 		if(get_boxmoe('blog_border') == 'border2'){$boxmoeborder='blog-card';}
 		if(get_boxmoe('blog_border') == 'border3'){$boxmoeborder='';}
