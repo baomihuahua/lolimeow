@@ -12,7 +12,7 @@ get_header();
         <div class="boxmoe-blog-content">
           <div class="container">
             <div class="row">
-              <div class="col-lg-<?php echo sidebaron($sidebar,'10 mx-auto'); ?>">
+              <div class="col-lg-<?php echo sidebaron(); ?>">
 <?php while ( have_posts() ) : the_post(); get_template_part( 'component/blog-list' );endwhile; ?>	             
                 <?php boxmoe_paging(); ?>
               </div>

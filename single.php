@@ -11,8 +11,8 @@ get_header(); ?>
         <div class="boxmoe-blog-content">
           <div class="container">
             <div class="row">
-              <div class="col-lg-<?php echo sidebaron($sidebar,'10 mx-auto'); ?> single">
-			  <div class="<?php echo boxmoe_border($border,'blog-card')?> single-card mb-4"><?php while (have_posts()) : the_post(); ?>
+              <div class="col-lg-<?php echo sidebaron(); ?> single">
+			  <div class="<?php echo boxmoe_border()?> single-card mb-4"><?php while (have_posts()) : the_post(); ?>
                 <div class="post-single">
                   <div class="post-header">
                     <p class="post-category">
@@ -62,7 +62,7 @@ get_header(); ?>
                    <i class="fa fa-qq"></i></a><?php } ?><?php if(get_boxmoe('boxmoe_wechat')){?>                    
 				   <a href="<?php echo get_boxmoe('boxmoe_wechat');?>" data-fancybox="images" data-fancybox-group="button" target="_blank" class="btn-social color-weixin border-0  mr-2">
                    <i class="fa fa-weixin"></i></a> <?php } ?><?php if(get_boxmoe('boxmoe_github')){?>
-                   <a href="<?php echo get_boxmoe('boxmoe_github');?>" target="_blank" class="btn-social color-github border-0  mr-2">
+                   <a href="<?php echo get_boxmoe('social_github');?>" target="_blank" class="btn-social color-github border-0  mr-2">
                    <i class="fa fa-github"></i></a><?php } ?>                 
 				  </div>
                 </div>

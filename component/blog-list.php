@@ -4,7 +4,7 @@
  * @package lolimeow
  */
 ?>
-                <div class="post-list-view <?php echo boxmoe_border($border,'blog-card')?> <?php boxmoe_wow_set()?>">
+                <div class="post-list-view <?php echo boxmoe_border()?> <?php boxmoe_wow_set()?>">
                   <i class="post-hello-cat"></i>
                   <div class="post-thumbnail featured-image">
                     <a <?php echo _post_target_blank() ?> href="<?php echo get_permalink() ?>" title="<?php echo get_the_title().get_the_subtitle(false).boxmoe_connector().get_bloginfo('name')?>"  class="post-overlay">

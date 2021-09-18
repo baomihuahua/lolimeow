@@ -11,8 +11,8 @@
         <div class="boxmoe-blog-content">
           <div class="container">
             <div class="row">
-              <div class="col-lg-<?php echo sidebaron($sidebar,'10 mx-auto'); ?>">
-			  <div class="<?php echo boxmoe_border($border,'blog-card')?> single-card mb-4"><?php while (have_posts()) : the_post(); ?>
+              <div class="col-lg-<?php echo sidebaron(); ?>">
+			  <div class="<?php echo boxmoe_border()?> single-card mb-4"><?php while (have_posts()) : the_post(); ?>
                 <div class="post-single">
                   <div class="post-header">
                     <h3 class="post-title"><?php the_title(); echo get_the_subtitle(); ?></h3>
