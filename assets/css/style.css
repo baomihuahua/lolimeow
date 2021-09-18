@@ -137,7 +137,7 @@ h1.main-title {text-align:center;color:#4c6280;font-size:13px;font-weight:400;pa
 .post-single .ol ol {position:relative;padding-left:15px;border-bottom:1px #53689a dashed;}
 .post-single .ol ol:before {content:'';position:absolute;left:0;top:18px;height:6px;width:6px;border-radius:20px;background-color:#888cdc;}
 .post-single .section-title {position:relative;margin:1em 0;font-size:12px;letter-spacing:1px;font-weight:700;letter-spacing:1px;}
-.post-single .section-title:before {content:"";position:absolute;top:50%;left:0;width:100%;border-bottom:3px solid #d4e0e6;}
+.post-single .section-title:before {content:"";position:absolute;top:50%;left:0;width:100%;}
 .post-single .section-title span {position:relative;display:inline-block;padding-right:1.4em;background:#fff;color:#32325d;}
 .post-single .row + .section-title {margin-top:3em;}
 .post-single .section-title + p {margin-top:1em;}
@@ -352,7 +352,9 @@ a.comment-reply-link_a {color:#efff00;text-shadow:none;}
 .comment-body i,.comment-content .badge-pill {margin-right:5px;}
 .tourists,.blogger,.members {display:block;width:80px;position:relative;top:-12px;text-align:center;}
 .comment-reply-link {font-size:14px;}
-.comt-addsmilies {border-radius:4px;display:inline;border-radius:4px;-webkit-transition:.15s;transition:.15s;border:1px solid var(--this-border);vertical-align:middle;padding:.3em .5em;text-align:center;box-shadow:var(--this-shadow);background:var(--this-bg);color:var(--this-color);--main-color:var(--this-color);--this-bg:rgba(136,136,136,.1);--this-border:transparent;--this-shadow:none;--this-color:#888;line-height:1.44;}
+.comt-addsmilies,#respond .upload_img {border-radius:4px;display:inline;border-radius:4px;-webkit-transition:.15s;transition:.15s;border:1px solid var(--this-border);vertical-align:middle;padding:.3em .5em;text-align:center;box-shadow:var(--this-shadow);background:var(--this-bg);color:var(--this-color);--main-color:var(--this-color);--this-bg:rgba(136,136,136,.1);--this-border:transparent;--this-shadow:none;--this-color:#888;line-height:1.44;}
+.upload_img input{display: none;}
+.upload_img label{font-size:15px;font-weight:100;color:#888;margin-bottom: 0;}
 .comt-smilies {display:none;}
 .dropdown-smilie {width:258px;height:auto;padding:8px 10px;white-space:inherit;text-align:center;}
 .scroll-y {overflow-x:hidden;overflow-y:auto;}
@@ -360,7 +362,7 @@ a.comment-reply-link_a {color:#efff00;text-shadow:none;}
 #edita .alert-info {background-image:none;}
 #commentform .avatar-lg {margin-right:5px;}
 #commentform #error i {padding-right:5px;color:#fd6900;}
-#respond .dropup {display:inline-block;}
+#respond .dropup,#respond .upload_img {display:inline-block;}
 #respond {background:#eee4ef14;padding:20px 25px 10px;border-radius:10px;border:1px solid #dcbce770;}
 #respond textarea.form-control {line-height:2.8;padding:0 20px 0 20px;resize:none;background:url(../images/comment.png) right bottom no-repeat;background-color:#fff;}
 #respond .btn-comment {margin:0 5px;line-height:0.8;}
