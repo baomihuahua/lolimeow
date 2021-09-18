@@ -53,22 +53,14 @@ $images = count($strResult[1]);
 //没有设置特色图片则取文章第一张图片
 if($images > 0)
 {
-if( get_boxmoe('blog_list_style') == 'list_style_2' ) { 	
-$html = sprintf (''.$strResult[1][0].'');
- }else{
 $html = sprintf ('src="'.$strResult[1][0].'"  alt="'.trim(strip_tags( $post->post_title )).'"');
-}
 }
 else
 {
 //既没有设置特色图片、文章内又没图片则取默认图片
 $thumbnail_no =boxmoe_rand_picnum();
 $temp_no = mt_rand(1,$thumbnail_no);
-if( get_boxmoe('blog_list_style') == 'list_style_2' ) { 
-$html = sprintf (''.$ospic.'/assets/images/rand/'.$temp_no.'.jpg');
-} else{
-$html = sprintf ('src="'.$ospic.'/assets/images/rand/'.$temp_no.'.jpg"  alt="'.trim(strip_tags( $post->post_title )).'"');	
-}	
+$html = sprintf ('src="'.$ospic.'/assets/images/rand/'.$temp_no.'.jpg"  alt="'.trim(strip_tags( $post->post_title )).'"');
 }
 }
 return $html;
