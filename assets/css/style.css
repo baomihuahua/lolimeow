@@ -43,7 +43,6 @@ blockquote:before {color:#ac9bd7;content:open-quote;font-size:4em;line-height:0.
 .header-global .dropdown-menu i {margin-right:5px;}
 .section-blog-cover {height:500px;background-size:cover;background-position:30% 30%;}
 .section-shaped {position:relative;overflow:hidden;}
-.section-shaped:after,.section-shaped:before {position:absolute;width:100%;height:100%;display:block;left:0;top:0;content:"";}
 .separator-skew {height:80px;}
 .separator-bottom {top:auto;bottom:0;}
 .separator,.separator svg {position:absolute;pointer-events:none;}
@@ -155,7 +154,9 @@ h1.main-title {text-align:center;color:#4c6280;font-size:13px;font-weight:400;pa
 .post-single .post-content img.alignright {display:inline;float:right;}
 .post-single .post-content img.alignleft {display:inline;float:left;}
 .post-single .post-meta-info {padding:5px 0;}
+.post-single .post-category a{background-color:#f9fbfc;width:auto;padding:0 5px;border-radius:5px;}
 .post-single .post-category i {padding-right:5px;}
+.post-single .post-category a{position:relative;color:#fe637b;display:inline-block;font-size:15px;letter-spacing:3px;text-transform:uppercase;font-weight:500;}
 .post-list-info .post-list-avatar {width:50px;height:50px;z-index:0;float:left;margin-right:20px;position:relative;text-align:right;display:inline-block;}
 .post-list-info .post-list-avatar img {-webkit-clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);border:1px solid transparent;}
 .post-list-info .post-list-avatar:after {width:71%;height:71%;content:"";position:absolute;top:27px;left:34px;transform:rotate(45deg);z-index:-1;border-radius:4px;border:2px solid #ff00009c;}
@@ -320,7 +321,7 @@ a.toggle-theme-panel {background:#5a5381b8;border-radius:5px;}
 .comments-form form textarea {border-radius:4;border-color:#e5e5e5;resize:none;font-size:14px;padding:12px 16px;}
 a.comment-reply-link_a {color:#efff00;text-shadow:none;}
 .comments-form .col-md-4 .form-group {margin-bottom:30px;}
-.comments-list .comment .comment-body {margin-left:70px;padding:0 15px 10px;border-radius:10px;border:1px solid #dcbce770;}
+.comments-list .comment .comment-body {margin-left:70px;padding:0 15px 10px;border-radius:10px;border:1px solid #f2f3f3;}
 .comments-list .comment .comment-body .meta-data span a i {font-size:14px;color:#252a37;margin-right:5px;}
 .comments-list .comments-reply,.comments-list .children {list-style:none;margin:0;}
 .comments-form .form-control:focus {color:#666;}
@@ -363,7 +364,7 @@ a.comment-reply-link_a {color:#efff00;text-shadow:none;}
 #commentform .avatar-lg {margin-right:5px;}
 #commentform #error i {padding-right:5px;color:#fd6900;}
 #respond .dropup,#respond .upload_img {display:inline-block;}
-#respond {background:#eee4ef14;padding:20px 25px 10px;border-radius:10px;border:1px solid #dcbce770;}
+#respond {background:#f9fbfc;padding:20px 25px 10px;border-radius:10px;}
 #respond textarea.form-control {line-height:2.8;padding:0 20px 0 20px;resize:none;background:url(../images/comment.png) right bottom no-repeat;background-color:#fff;}
 #respond .btn-comment {margin:0 5px;line-height:0.8;}
 #respond .title-normal i {padding-right:5px;}
