@@ -184,3 +184,45 @@ function alert_shortcode( $atts , $content = '') {
 	}	
     return $out;  
 }
+//文章密码保护
+add_shortcode('pwd_protected_post','password_protected_post');
+function password_protected_post($atts, $content=null){
+    extract(shortcode_atts(array('key'=>null), $atts));
+    if(isset($_POST['password_key']) && $_POST['password_key']==$key){
+        return '
+		    <div class="alert alert-default" role="alert"><strong>温馨提示！</strong>以下是密码保护的内容！</div> 
+			<div class="password_protected_post_content">'.$content.'</div>
+		';
+    }elseif(isset($_POST['password_key']) && $_POST['password_key']!=$key){
+        return '
+			<script>
+				alert("密码错误，请仔细核对密码后重试！！！");
+				window.location.href="'.get_permalink().'";
+			</script>
+		';
+	
+	}else{
+        return '
+		<div class="container">
+		    <div class="row">
+		    <div class="alert alert-warning alert-dismissible text-white fade show" role="alert">
+		    <strong>注意！</strong>以下部分内容需要输入密码后才能查看！
+		    <button type="button" class="btn-close text-lg py-3 opacity-10" data-bs-dismiss="alert" aria-label="Close">
+		    <span aria-hidden="true">&times;</span>
+		    </button>
+		    </div>
+		    </div>
+		    </div>
+		    <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">		
+			<form class="mt20" action="'.get_permalink().'" method="post">
+			<div class="input-group mb-3">
+			<input type="password" id="password_key" name="password_key" class="form-control" placeholder="请输入密码查看隐藏内容" aria-label="请输入密码查看隐藏内容" aria-describedby="button-password_key">
+			<button class="btn btn-outline-primary mb-0" type="submit" id="button-password_key">确  定</button>
+			</div>
+			</form>
+			</div>
+			</div>
+		';
+    }
+}

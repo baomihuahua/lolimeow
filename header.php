@@ -14,7 +14,7 @@
 	<?php echo boxmoe_keywords()?>
     <?php echo boxmoe_description()?>
     <link id="pagestyle" href="<?php echo boxmoe_load_style();?>/assets/css/themes.css" rel="stylesheet" />
-    <link id="pagestyle" href="<?php echo boxmoe_load_style();?>/assets/css/style.css" rel="stylesheet" />
+    <link id="pagestyle" href="<?php echo boxmoe_load_style();?>/assets/css/style.css?<?php echo THEME_VERSION ?>" rel="stylesheet" />
     <script src="<?php echo boxmoe_load_style();?>/assets/js/jquery.min.js"></script>
     <script src="<?php echo boxmoe_load_style();?>/assets/js/jquery.pjax.js"></script>
 	<?php wp_head(); ?>

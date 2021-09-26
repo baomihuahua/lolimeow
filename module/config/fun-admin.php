@@ -75,6 +75,7 @@ echo '
 	<option value="[iframe link=\'链接\']内容[/iframe]">Iframe</option>
 	<option value="[userreading]隐藏内容[/userreading]">登录查看一</option>
 	<option value="[userreading notice=\'未登录时候显示的内容\']隐藏内容[/userreading]">登录查看二</option>
+	<option value="[pwd_protected_post key=\'保护密码\']文章密码保护内容[/pwd_protected_post]">文章密码保护</option>
 	<option value="<!--nextpage-->">文章分页</option>
 	<option value="<div class=\'timeline timeline-one-side\' data-timeline-content=\'axis\' data-timeline-axis-style=\'dashed\'>
 <div class=\'timeline-block\'>
@@ -138,7 +139,9 @@ function html_code_button() {
 		QTags.addButton( 'linksbtn', '链接按钮', '<a href=\'链接地址\' rel=\'noopener\' target=\'_blank\' class=\'links_btn\' >链接按钮</a>', '','','linksbtn' );
 		QTags.addButton( 'flybtn', '飞来模块', '<div class=\'link-title wow rollIn\'>内容段</div>', '','','flybtn' );
 		QTags.addButton( 'ollist', 'OL列表', '<ul class=\'ol\'><ol>ol内容段</ol></ul>', '','','ollist' );
-		
+		QTags.addButton( 'userreading1', '会员查看模式一', '[userreading]', '隐藏内容[/userreading]','','userreading1' );  
+		QTags.addButton( 'userreading2', '会员查看模式二', '[userreading notice="未登录时候显示的内容"]', '隐藏内容[/userreading]','','userreading2' ); 
+		QTags.addButton( 'pwd_protected_post', '文章密码保护', '[pwd_protected_post key="保护密码"]文章密码保护内容','[/pwd_protected_post]' ); 
     </script>
 <?php
     } 
