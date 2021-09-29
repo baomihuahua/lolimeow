@@ -22,7 +22,7 @@ class widget_ads extends WP_Widget {
 			'code' => '                    <div class="widget-pic">
                       <a href="https://www.boxmoe.com" tabindex="0">
                         <div class="inner">
-                          <img src="https://moguos.oss-cn-shenzhen.aliyuncs.com/lolimeow/assets/images/rand/11.jpg" alt="标题"></div>
+                          <img src="https://cdn.jsdelivr.net/gh/baomihuahua/boxmoeimg@490aaab75e7a15aafad22ea834b812e07bcb99f0/2021/09/20/ca111ff00ec6ae56e3ba8987855a6fbe.png" alt="标题"></div>
                       </a>
                     </div>' 
 		);
