@@ -1,5 +1,5 @@
 <?php
-define( 'THEME_VERSION'  , '5.1' );
+define( 'THEME_VERSION'  , '6.0' );
 define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/module/theme_panel_set/' );
 require_once dirname( __FILE__ ) . '/module/theme_panel_set/options-framework.php';
 require_once dirname( __FILE__ ) . '/module/theme_panel_set/panel-js.php';

@@ -341,10 +341,10 @@ function p_link( $i, $title = '', $w='' ) {
     if ( $title == '' ) $title = __('页', 'boxmoe-com')." {$i}";
     $itext = $i;
     if( $i == 0 ){
-        $itext = __('首页', 'boxmoe-com');
+        $itext = __('<i class="fa fa-angle-double-left"></i>', 'boxmoe-com');
     }
     if( $w ){
-        $itext = __('尾页', 'boxmoe-com');
+        $itext = __('<i class="fa fa-angle-double-right"></i>', 'boxmoe-com');
     }
     echo "<li class=\"page-item\"><a class=\"page-link\" href='", esc_html( get_pagenum_link( $i ) ), "'>{$itext}</a></li>";
 }

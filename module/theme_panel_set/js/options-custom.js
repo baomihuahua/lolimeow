@@ -8,7 +8,7 @@ $('#versionss').click(function(){
 	$("#versionss").val("检测版本中...");	
          $.ajax({
              type: "GET", 
-             url: "https://api.jsmoe.com/themeversion/lolimeow2021.txt", 
+             url: "https://api.boxmoe.com/themeversion/lolimeow2021.txt", 
              data: {}, 
              dataType: "json", 
              success: function(result){ 
