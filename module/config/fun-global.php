@@ -54,7 +54,13 @@
 		}	
 	return  $single_border;	
 	}
-	
+//随机字符串
+function boxmoe_token($length){
+		$str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+		$randStr = str_shuffle($str);
+		$rands= substr($randStr,0,$length);
+		return $rands;
+}	
 //前端资源路径选择
 function boxmoe_load_style() {
 	if(get_boxmoe('ui_cdn')){
@@ -113,6 +119,7 @@ function boxmoe_load_footer() {?>
 <?php if (get_boxmoe('lolijump') ){?><div id="lolijump"><img src="<?php echo boxmoe_load_style(); ?>/assets/images/top/<?php echo get_boxmoe('lolijumpsister'); ?>.gif"></div><?php } ?>
 	
 	<script src="<?php echo boxmoe_load_style();?>/assets/js/theme.js" type="text/javascript"></script>
+	<script src="<?php echo boxmoe_load_style();?>/assets/js/jquery.lazyload.min.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri();?>/assets/js/comments.js" type="text/javascript"></script>
     <script src="<?php echo boxmoe_load_style();?>/assets/js/lolimeow.js" type="text/javascript" id="boxmoe_script"></script>	
 <?php if (get_boxmoe('music_on') ){?>
@@ -145,12 +152,13 @@ function boxmoe_favicon() {
 	}
 	echo $src;
 }
+
 //banner参数
 function boxmoe_banner() {
 	$banner_rand = get_boxmoe('banner_rand');
 	$banner_api_on =  get_boxmoe('banner_api_on');
-	if( !empty($banner_api_on)) {
-	$banner_dir = 'style="background-image: url(\''.get_boxmoe('banner_api_url').'\');"';
+	if( !empty($banner_api_on)) {	
+	$banner_dir = 'style="background-image: url(\''.get_boxmoe('banner_api_url').'?'.boxmoe_token(6).'\');"';
 	}	
 	else if( !empty($banner_rand) ) {
 	$banner_no = get_boxmoe('banner_rand_n');

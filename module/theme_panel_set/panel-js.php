@@ -98,7 +98,13 @@ jQuery(document).ready(function() {
 	if (jQuery('#smtpmail:checked').val() !== undefined) {
 		jQuery('#section-fromnames,#section-smtphost,#section-smtpprot, #section-smtpusername, #section-smtppassword').show();
 	}		
-	
+	jQuery('#thumbnail_api').click(function() {
+  		jQuery('#section-thumbnail_api_url').fadeToggle(400);
+	});
+
+	if (jQuery('#thumbnail_api:checked').val() !== undefined) {
+		jQuery('#section-thumbnail_api_url').show();
+	}
 
 	
 	

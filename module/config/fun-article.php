@@ -12,51 +12,46 @@ add_theme_support( 'post-formats', array( 'aside','status') );
 //缩略图设置
 add_theme_support('post-thumbnails');
 set_post_thumbnail_size(380, 220, true );
-//随机缩略图
-function boxmoe_rand_picnum(){
-if( get_boxmoe('thumbnail_rand_n')) {
-$styleurlload = get_boxmoe('thumbnail_rand_n')	;
-}else{
-$styleurlload ='8' ;
-}
-return $styleurlload;
+
+//缩略图逻辑
+function boxmoe_rand_thumbnail(){
+	if( get_boxmoe('thumbnail_api')&& !empty(get_boxmoe('thumbnail_api_url'))) {
+		$return_thumbnail	=	get_boxmoe('thumbnail_api_url').'?'.boxmoe_token(5);
+	}elseif( get_boxmoe('thumbnail_rand_n')) {
+		$thumbnail_num=get_boxmoe('thumbnail_rand_n');
+		$thumbnail_rand_num=mt_rand(1,$thumbnail_num).'.jpg?'.boxmoe_token($thumbnail_num);
+		$return_thumbnail = boxmoe_pic_src().'/assets/images/rand/'.$thumbnail_rand_num;
+	}else{
+		$return_thumbnail = boxmoe_pic_src().'/assets/images/rand/'.mt_rand(1,8).'.jpg';
+	}
+	return $return_thumbnail;	
 }
 
 //缩略图获取post_thumbnail
 function _get_post_thumbnail( $single=true, $must=true ) {  
     global $post;
-    $html = '';
-	$ospic = boxmoe_pic_src();
-//如果有特色图片则取特色图片
-if ( has_post_thumbnail() ){
-	$domsxe = get_the_post_thumbnail();
+    $html = '';	
+	//如果有特色图片则取特色图片
+	if ( has_post_thumbnail() ){
+		$domsxe = get_the_post_thumbnail();
         preg_match_all('/<img.*?(?: |\\t|\\r|\\n)?src=[\'"]?(.+?)[\'"]?(?:(?: |\\t|\\r|\\n)+.*?)?>/sim', $domsxe, $strResult, PREG_PATTERN_ORDER);  
         $images = $strResult[1];
         foreach($images as $src){
 			$html = sprintf('src="%s"', $src);
             break;
-}
-}
-else
-{
-$content = $post->post_content;
-preg_match_all('/<img.*?(?: |\\t|\\r|\\n)?src=[\'"]?(.+?)[\'"]?(?:(?: |\\t|\\r|\\n)+.*?)?>/sim', $content, $strResult, PREG_PATTERN_ORDER);
-$images = count($strResult[1]);
-//没有设置特色图片则取文章第一张图片
-if($images > 0)
-{
-$html = sprintf ('src="'.$strResult[1][0].'"  alt="'.trim(strip_tags( $post->post_title )).'"');
-}
-else
-{
-//既没有设置特色图片、文章内又没图片则取默认图片
-$thumbnail_no =boxmoe_rand_picnum();
-$temp_no = mt_rand(1,$thumbnail_no);
-$html = sprintf ('src="'.$ospic.'/assets/images/rand/'.$temp_no.'.jpg"  alt="'.trim(strip_tags( $post->post_title )).'"');
-}
-}
-return $html;
-}
+		}
+	}else{		
+		$content = $post->post_content;
+		preg_match_all('/<img.*?(?: |\\t|\\r|\\n)?src=[\'"]?(.+?)[\'"]?(?:(?: |\\t|\\r|\\n)+.*?)?>/sim', $content, $strResult, PREG_PATTERN_ORDER);
+		$images = count($strResult[1]);
+		if($images > 0){//没有设置特色图片则取文章第一张图片		
+			$html = sprintf ('src="'.$strResult[1][0].'"  alt="'.trim(strip_tags( $post->post_title )).'"');
+		}else{//既没有设置特色图片、文章内又没图片则取默认图片
+		$html = sprintf ('src="'.boxmoe_rand_thumbnail().'"  alt="'.trim(strip_tags( $post->post_title )).'"');
+		}
+	}
+	return $html;
+	}
 
 //随机图片
 function randpic(){

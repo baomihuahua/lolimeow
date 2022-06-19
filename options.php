@@ -423,10 +423,22 @@ function optionsframework_options() {
 	$options[] = array(
 		'name' => __('★ 文章随机缩略图数量', 'ui_boxmoe_com'),
 		'id' => 'thumbnail_rand_n',
-		'std' => 5,
+		'std' => 10,
 		'class' => 'mini',
 		'instructions' => __('（图片放在在主题boxmoe/assets/images/rand/N.jpg，N=1-你设置的数量）', 'ui_boxmoe_com'),
-		'type' => 'text');	
+		'type' => 'text');
+	$options[] = array(
+		'name' => __('★ 开启API随机缩略图', 'ui_boxmoe_com'),
+		'id' => 'thumbnail_api',
+		'type' => "checkbox",
+		'std' => false,
+		'desc' => __('开启', 'ui_boxmoe_com'));		
+	$options[] = array(
+		'name' => __('★ 自定义api随机缩图URL', 'ui_boxmoe_com'),
+		'id' => 'thumbnail_api_url',
+		'std' => '',
+		'class' => 'hidden',
+		'type' => 'text');			
     $options[] = array(
 		'name' => __('★ 新窗口打开文章', 'ui_boxmoe_com'),
 		'instructions' => __('（开启后文章链接都是新窗口打开）', 'ui_boxmoe_com'),
@@ -541,7 +553,7 @@ function optionsframework_options() {
 	);	
 	$options[] = array(
 		'name' => __('★ 开启导航会员注册链接', 'ui_boxmoe_com'),
-		'instructions' => __( '（需要配合erphpdown插件）', 'ui_boxmoe_com' ),
+		'instructions' => __( '（如果使用会员中心需要配合erphpdown插件）', 'ui_boxmoe_com' ),
 		'id' => 'sign_f',
 		'type' => "checkbox",
 		'std' => false,
