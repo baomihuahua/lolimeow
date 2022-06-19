@@ -4,24 +4,7 @@ add_action( 'optionsframework_custom_scripts', 'optionsframework_custom_scripts'
 function optionsframework_custom_scripts() { ?>
 <script type="text/javascript">
 jQuery(document).ready(function() {
-		jQuery('#music_on').click(function() {
-  		jQuery('#section-music_id').fadeToggle(400);
-	});
-	if (jQuery('#music_on:checked').val() !== undefined) {
-		jQuery('#section-music_id').show();
-	}
-		jQuery('#music_on').click(function() {
-  		jQuery('#section-music_server').fadeToggle(400);
-	});
-	if (jQuery('#music_on:checked').val() !== undefined) {
-		jQuery('#section-music_server').show();
-	}
-		jQuery('#music_on').click(function() {
-  		jQuery('#section-music_order').fadeToggle(400);
-	});
-	if (jQuery('#music_on:checked').val() !== undefined) {
-		jQuery('#section-music_order').show();
-	}	
+
 	jQuery('#example_showhidden').click(function() {
   		jQuery('#section-example_text_hidden').fadeToggle(400);
 	});

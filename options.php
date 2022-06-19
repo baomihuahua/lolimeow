@@ -904,7 +904,6 @@ function optionsframework_options() {
 		'instructions' => __('（歌单尽量不要那种超过100首的,API服务器可能会500）', 'ui_boxmoe_com'),		
 		'id' => 'music_id',
 		'std' => '2765798464',
-		'class' => 'mini hidden',
 		'type' => 'text'
 	);
 	$options[] = array(
