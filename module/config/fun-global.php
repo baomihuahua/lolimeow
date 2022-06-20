@@ -119,7 +119,6 @@ function boxmoe_load_footer() {?>
 <?php if (get_boxmoe('lolijump') ){?><div id="lolijump"><img src="<?php echo boxmoe_load_style(); ?>/assets/images/top/<?php echo get_boxmoe('lolijumpsister'); ?>.gif"></div><?php } ?>
 	
 	<script src="<?php echo boxmoe_load_style();?>/assets/js/theme.js" type="text/javascript"></script>
-	<script src="<?php echo boxmoe_load_style();?>/assets/js/jquery.lazyload.min.js" type="text/javascript"></script>
 	<script src="<?php echo get_template_directory_uri();?>/assets/js/comments.js" type="text/javascript"></script>
     <script src="<?php echo boxmoe_load_style();?>/assets/js/lolimeow.js" type="text/javascript" id="boxmoe_script"></script>	
 <?php if (get_boxmoe('music_on') ){?>
