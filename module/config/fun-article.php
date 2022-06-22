@@ -56,7 +56,7 @@ function _get_post_thumbnail( $single=true, $must=true ) {
 //随机图片
 function randpic(){
 $ospic = boxmoe_load_style();	
-$thumbnail_no = boxmoe_rand_picnum();	
+$thumbnail_no = get_boxmoe('thumbnail_rand_n','8');	
 $temp_no = mt_rand(1,$thumbnail_no);
 return $html = ''.$ospic.'/assets/images/rand/'.$temp_no.'.jpg';
 }

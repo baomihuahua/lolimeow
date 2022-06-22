@@ -553,7 +553,6 @@ function optionsframework_options() {
 	);	
 	$options[] = array(
 		'name' => __('★ 开启导航会员注册链接', 'ui_boxmoe_com'),
-		'instructions' => __( '（如果使用会员中心需要配合erphpdown插件）', 'ui_boxmoe_com' ),
 		'id' => 'sign_f',
 		'type' => "checkbox",
 		'std' => false,
@@ -584,6 +583,7 @@ function optionsframework_options() {
 	);
 	$options[] = array(
 		'name' => __( '★ 会员登录页面', 'ui_boxmoe_com' ),
+		'instructions' => __( '（如果使用会员中心需要配合erphpdown插件）', 'ui_boxmoe_com' ),
 		'desc' => __( '选择前端会员登录页面，新建一个页面选择会员登录模板', 'ui_boxmoe_com' ),
 		'id' => 'users_login',
 		'type' => 'select',
