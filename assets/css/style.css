@@ -1,7 +1,4 @@
 @charset "UTF-8";
-@import "https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css";
-@import "https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css";
-@import "themes.css";
 @font-face {font-family:'Play';font-style:normal;font-weight:400;src:url(../fonts/play.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215}
 @font-face {font-family:'oxaniumregular';font-weight:400;font-style:normal;src:url(../fonts/oxanium-regular-webfont.woff2) format("woff2"),url(../fonts/oxanium-regular-webfont.woff) format("woff");}
 body {font-family:"Play","MArima Madurai",Microsoft JhengHei,Georgia,Times,serif,Microsoft Yahei,Open Sans,sans-serif;color:#67748e;font-size:15px;background-color:#fff;cursor:url(../images/cur/background.cur),default;}
