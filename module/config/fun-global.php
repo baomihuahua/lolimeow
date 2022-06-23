@@ -108,7 +108,7 @@ function boxmoe_pic_src() {
 
 //载入主题前端头部静态资源
 function boxmoe_load_header() {?>
-	<link id="theme-style" href="<?php echo boxmoe_load_style();?>/assets/css/style.css?<?php echo THEME_VERSION ?>" rel="stylesheet" />
+	<link id="theme-style" href="<?php echo boxmoe_load_style();?>/assets/css/themes.css?<?php echo THEME_VERSION ?>" rel="stylesheet" />
 	<link id="theme-style" href="<?php echo boxmoe_load_style();?>/assets/css/style.css?<?php echo THEME_VERSION ?>" rel="stylesheet" />
 	<script type="text/javascript" src="<?php echo boxmoe_load_style();?>/assets/js/jquery.min.js"></script>
 	<script type="text/javascript" src="<?php echo boxmoe_load_style();?>/assets/js/jquery.pjax.min.js"></script>
