@@ -12,7 +12,7 @@ if (is_user_logged_in()){
 	
 //获取注册页面提交时候的表单数据
 
-if( !empty($_POST['csyor_reg']) ) {
+if( !empty($_POST['csyor_reg']) ) { 
   $error = '';
   $redirect_to = sanitize_user( $_REQUEST['redirect_to'] );
   $sanitized_user_login = sanitize_user( $_POST['user_login'] );
@@ -22,7 +22,33 @@ if( !empty($_POST['csyor_reg']) ) {
   $comment_aaa      	  = ( isset($_POST['aaa']) ) ? trim($_POST['aaa']) : '0';
   $comment_bbb          = ( isset($_POST['bbb']) ) ? trim($_POST['bbb']) : '0';
   $comment_subab        = ( isset($_POST['subab']) ) ? trim($_POST['subab']) : '0';
+if (get_boxmoe('sign_zhcn')){
+  // 验证邮箱
+  if ( $user_email == '' ) {
+    $error .= '错误：请填写电子邮件地址。';
+  } elseif ( ! is_email( $user_email ) ) {
+    $error .= '错误：电子邮件地址不正确。';
+    $user_email = '';
+  } elseif ( email_exists( $user_email ) ) {
+    $error .= '错误：该电子邮件地址已经被注册，请换一个。';
+  }
 	
+  // 验证用户名
+  elseif ( $sanitized_user_login == '' ) {
+    $error .= '错误：请输入登陆账号。';
+  }elseif ( username_exists( $sanitized_user_login ) ) {
+    $error .= '错误：该用户名已被注册，请再选择一个。';
+  }
+	
+  //验证密码
+  elseif(strlen($_POST['user_pass']) < 6){
+    $error .= '错误：密码长度至少6位。';
+  }elseif($_POST['user_pass'] != $_POST['user_pass2']){
+    $error .= '错误：两次输入的密码必须一致。';
+  }elseif(((int)$comment_subab)!=(((int)$comment_aaa)+((int)$comment_bbb))){
+    $error .= '错误：请输入正确的计算结果验证码。';	
+  }
+}else{
   // 验证邮箱
   if ( $user_email == '' ) {
     $error .= '错误：请填写电子邮件地址。';
@@ -51,7 +77,7 @@ if( !empty($_POST['csyor_reg']) ) {
   }elseif(((int)$comment_subab)!=(((int)$comment_aaa)+((int)$comment_bbb))){
     $error .= '错误：请输入正确的计算结果验证码。';	
   }
-	
+}	
   if($error == '') {
     //验证全部通过进入注册信息添加
     $display_name = empty($user_nickname)?$sanitized_user_login:$user_nickname;
