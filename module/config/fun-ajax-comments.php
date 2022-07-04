@@ -105,7 +105,7 @@ err( __('评论禁止包含日文!', 'Nana') );
 return( $incoming_comment );
 }
 
-if(!is_user_logged_in() || get_boxmoe('false_enjp_comment')) {
+if(!is_user_logged_in() && get_boxmoe('false_enjp_comment')) {
 	add_filter('preprocess_comment', 'boxmoe_enjpcomment_post');
 }
 
