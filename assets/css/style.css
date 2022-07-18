@@ -426,7 +426,7 @@ a.comment-reply-link_a {color:#efff00;text-shadow:none;}
 #respond .dropup,#respond .upload_img {display:inline-block;}
 #respond {padding:20px 25px 10px;border-radius:10px;}
 #respond textarea.form-control {line-height:2.8;padding:0 20px 0 20px;resize:none;background:url(../images/comment.png) right bottom no-repeat;background-color:#fff;}
-#respond .btn-comment {margin:0 5px;line-height:0.2;}
+#respond .btn-comment {margin:0 5px;line-height:0.2;box-shadow:none;}
 #respond .title-normal i {padding-right:5px;}
 #respond h5.title-normal {font-size:1rem;font-weight:500;margin-bottom:10px;}
 #respond .input-group-text {background-color:#fff;}

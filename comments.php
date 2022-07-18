@@ -122,7 +122,7 @@ if(!isset($user_ID)) {
                                 </div>
                               </div>
                               <?php comment_id_fields(); do_action('comment_form', $post->ID); ?>
-                              <button class="btn bg-gradient-dark btn-comment" name="submit" type="submit" id="submit" tabindex="5"><?php echo get_boxmoe('diy_comment_btn','发送评论') ?></button>
+                              <button class="btn btn-outline-dark btn-comment" name="submit" type="submit" id="submit" tabindex="5"><?php echo get_boxmoe('diy_comment_btn','发送评论') ?></button>
 							  </div>
                           </div>
                           </form>
