@@ -73,7 +73,12 @@ if ( $user->ID ) {
 }
 
 $comment_type = '';
-
+if ( '' != $comment_content ) {
+    $codetext = '/<(iframe|script)/i';
+    if (preg_match($codetext,$comment_content,$matches)) {
+    $comment_content = htmlspecialchars($comment_content).'<br />（<font color="red">温馨提示:你的评论含代码内容,已强制转义。</font>）';
+ }
+}
 if ( get_option('require_name_email') && !$user->ID ) {
 	if ( 6 > strlen($comment_author_email) || '' == $comment_author )
 		err( __('提示：必须填写昵称及邮件。', 'Nana') ); // 将 wp_die 改为错误提示
