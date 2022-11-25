@@ -18,7 +18,7 @@
                         <i class="fa fa-folder-o"></i>'.$category[0]->cat_name.'</a>'; };?>
                       </span>
                       <h2 class="post-list-title">
-                        <a <?php echo _post_target_blank() ?> href="<?php echo get_permalink() ?>"><?php echo get_the_title().get_the_subtitle() ?></a></h2>
+                        <a <?php echo _post_target_blank() ?> href="<?php echo get_permalink() ?>" title="<?php echo get_the_title().get_the_subtitle(false).boxmoe_connector().get_bloginfo('name')?>"><?php echo get_the_title().get_the_subtitle() ?></a></h2>
                     </div>
                     <div class="post-list-text"><?php echo _get_excerpt() ?></div>
                     <div class="post-list-info">
