@@ -63,6 +63,7 @@ function boxmoe_token($length){
 }	
 //前端资源路径选择
 function boxmoe_load_style() {
+	$styleurlload = get_template_directory_uri();
 	if(get_boxmoe('ui_cdn')){
 		if(get_boxmoe('ui_cdn') == 'local'){
 			$styleurlload = get_template_directory_uri();
@@ -84,6 +85,7 @@ function boxmoe_load_style() {
 
 //前端主题图片路径
 function boxmoe_pic_src() {
+	$picurlload=get_template_directory_uri();
 	if(get_boxmoe('ui_cdn') == 'local'){
 		$picurlload=get_template_directory_uri();
 	}
