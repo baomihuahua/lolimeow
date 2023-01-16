@@ -81,30 +81,6 @@ function boxmoe_msg_reguser($user_id='',$user_email=''){
 }
 
 
-//新文章通知通知	
-function newPostNotify($post_ID) {
-    if( wp_is_post_revision($post_ID) ) return;
-    global $wpdb;
-    $site_name = get_bloginfo('name');
-    $post_contents = get_post($post_ID)->post_content;
-    $get_post_info = get_post($post_ID);
-    if ( $get_post_info->post_status == 'publish' && $_POST['original_post_status'] != 'publish' ) {
-        // 标题
-        $message = "Wow!".$site_name."发布新文章啦! \n 文章标题:\n".get_the_title($post_ID);
-			$postdata = http_build_query(array('message' => $message));
-			$opts = array('http' =>array(
-										'method' => 'POST',
-										'header' => 'Content-type: application/x-www-form-urlencoded',
-										'content' => $postdata));
-			$context = stream_context_create($opts);  
-			return $result = file_get_contents('https://botapi.luoli.pub:10086/send_group_msg?group_id=24401689', false, $context);
-			
- 
-
-    }
-}
-add_action('publish_post', 'newPostNotify');	
-
  
 
 
