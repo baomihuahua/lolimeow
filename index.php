@@ -5,19 +5,19 @@
  */
 get_header();
 ?>
-        <div class="container">
+        <div class="container"><?php if(get_boxmoe('hitokoto_on')){?>
 		<div class="site-main">
           <h1 class="main-title">
             <i class="fa fa-heartbeat"></i>
             <span id="hitokoto"></span></h1>
         </div>
+        		<script>$.get("https://v1.hitokoto.cn/?c=<?php echo get_boxmoe('hitokoto_text','b'); ?>", {},
+        function(data) {
+          document.getElementById("hitokoto").innerHTML = data.hitokoto;
+        });</script><?php }?>
           <div class="section-head">
             <span><?php if(is_home()) {echo'Home';}else{echo'category';}  ?></span></div>		
         </div>
-		<script>$.get("https://v1.hitokoto.cn/?c=<?php echo get_boxmoe('hitokoto_text','b'); ?>", {},
-        function(data) {
-          document.getElementById("hitokoto").innerHTML = data.hitokoto;
-        });</script>
         <div class="boxmoe-blog-content">
           <div class="container-full">
             <div class="row">

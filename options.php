@@ -82,6 +82,7 @@ function optionsframework_options() {
 	// If using image radio buttons, define a directory path
 	$imagepath =  get_template_directory_uri() . '/assets/images/';
 	$webhome = 'http://www.boxmoe.com';
+	$VERSION = THEME_VERSION;
 	$options = array();
 //==========================================================================================
 	$options[] = array(
@@ -113,42 +114,46 @@ function optionsframework_options() {
 		'id' => 'body_grey',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));	
+		);	
 	$options[] = array(
 		'name' => __('★ 开启网页彩色背景色', 'ui_boxmoe_com'),
 		'id' => 'body_background',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));
+		//
+		);
 	$options[] = array(
 		'name' => __('★ 开启网页樱花飘落', 'ui_boxmoe_com'),
 		'id' => 'sakura',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));
+		);
 	$options[] = array(
 		'name' => __('★ 节日红灯笼', 'ui_boxmoe_com'),
 		'id' => 'lantern',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));
+		);
 	$options[] = array(
-		'name' => __( '4个灯笼上的文字', 'ui_boxmoe_com' ),
+		'name' => __( '灯笼文字(1)', 'ui_boxmoe_com' ),
 		'id' => 'lanternfont1',
 		'std' => '新',
 		'class' => 'mini hidden',
 		'type' => 'text');
 	$options[] = array(
+		'name' => __( '灯笼文字(2)', 'ui_boxmoe_com' ),
 		'id' => 'lanternfont2',
 		'std' => '春',
 		'class' => 'mini hidden',
 		'type' => 'text');
 	$options[] = array(
+		'name' => __( '灯笼文字(3)', 'ui_boxmoe_com' ),
 		'id' => 'lanternfont3',
 		'std' => '快',
 		'class' => 'mini hidden',
 		'type' => 'text');
 	$options[] = array(
+		'name' => __( '灯笼文字(4)', 'ui_boxmoe_com' ),
 		'id' => 'lanternfont4',
 		'std' => '乐',
 		'class' => 'mini hidden',
@@ -164,56 +169,25 @@ function optionsframework_options() {
 		'id' => 'favicon_src',
 		'std' => $imagepath.'favicon.ico',
 		'type' => 'upload');	
-	$gravatar_array = array(
-		'cravatar' => __('cravatar服务器', 'ui_boxmoe_com'),
-	    'lolinet' => __('萝莉服务器', 'ui_boxmoe_com'),
-		'qiniu' => __('七牛服务器', 'ui_boxmoe_com'),
-		'geekzu' => __('极客服务器', 'ui_boxmoe_com'),
-		//'v2excom' => __('v2ex服务器', 'ui_boxmoe_com'),
-		'cn' => __('官方CN服务器', 'ui_boxmoe_com'),
-		'ssl' => __('官方SSL服务器', 'ui_boxmoe_com'),		
-	);
-	$options[] = array(
-		'name' => __('★ Gravatar头像加速服务器', 'ui_boxmoe_com'),
-		'instructions' => __('（通过镜像服务器可对gravatar头像进行加速）', 'ui_boxmoe_com'),
-		'id' => 'gravatar_url',
-		'std' => 'lolinet',
-		'type' => 'select',
-		'class' => 'mini', //mini, tiny, small
-		'options' => $gravatar_array);
-	$qqravatar_array = array(
-	    'Q1' => __('QQ官方服务器1', 'ui_boxmoe_com'),
-		'Q2' => __('QQ官方服务器2', 'ui_boxmoe_com'),
-		'Q3' => __('QQ官方服务器3', 'ui_boxmoe_com'),
-		'Q4' => __('QQ官方服务器4', 'ui_boxmoe_com'),	
-	);
-	$options[] = array(
-		'name' => __('★ QQ头像服务器节点', 'ui_boxmoe_com'),
-		'instructions' => __('（如果用户是QQ邮箱则调用QQ头像）', 'ui_boxmoe_com'),
-		'id' => 'qqavatar_url',
-		'std' => 'Q2',
-		'type' => 'select',
-		'class' => 'mini', //mini, tiny, small
-		'options' => $qqravatar_array);		
 	$options[] = array(
 		'name' => __('★ 分类链接去除category标识', 'ui_boxmoe_com'),
-		'instructions' => __('（需要开启伪静态/固定链接需要保存一次 wordpress的设置 → 固定链接）', 'ui_boxmoe_com'),
+		'desc' => __('（需主机伪静态，开关都需要 后台导航的 设置>固定链接 点保存一次）', 'ui_boxmoe_com'),
 		'id' => 'no_categoty',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);	
+		);	
     $options[] = array(
 		'name' => __('★ 导航搜索功能开启', 'ui_boxmoe_com'),
 		'id' => 'sousuo',
 		'type' => "checkbox",
-		'std' => true,
-		'desc' => __('开启', 'ui_boxmoe_com')); 
+		'std' => false,
+		); 
 	$options[] = array(
 		'name' => __('★ 网页右侧看板开关，附带点击回到顶部功能', 'ui_boxmoe_com'),
 		'id' => 'lolijump',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com')); 
+		); 
 	$options[] = array(
 		'name' => __('★ 选择前端看板形象', 'ui_boxmoe_com'),
 		'id' => 'lolijumpsister',
@@ -227,7 +201,14 @@ function optionsframework_options() {
 			'meow' => __(' 看板娘-喵小娘', 'ui_boxmoe_com'),
 			'lemon' => __(' 看板妹-柠檬妹', 'ui_boxmoe_com'),			
 			'bear' => __(' 看板熊-熊宝宝', 'ui_boxmoe_com')
-		));			
+		));
+	$options[] = array(
+		'name' => __('★ 首页一言开关', 'ui_boxmoe_com'),
+		'instructions' => __('（首页博客文章上方）', 'ui_boxmoe_com'),
+		'id' => 'hitokoto_on',
+		'type' => "checkbox",
+		'std' => false,
+		);	
 	$hitokoto_array = array(
 	    'a' => __('动画', 'ui_boxmoe_com'),
 		'b' => __('漫画', 'ui_boxmoe_com'),
@@ -243,13 +224,26 @@ function optionsframework_options() {
 	);
 	$options[] = array(
 		'name' => __('★ 首页一言句子分类', 'ui_boxmoe_com'),
-		'instructions' => __('（首页博客文章上方）', 'ui_boxmoe_com'),
 		'id' => 'hitokoto_text',
 		'std' => 'lolinet',
 		'type' => 'select',
 		'class' => 'mini', //mini, tiny, small
 		'options' => $hitokoto_array);	
 
+
+//==========================================================================================
+	$options[] = array(
+		'name' => __( '底部设置', 'ui_boxmoe_com' ),
+		'desc' => __( '（导航下的图片设置）', 'ui_boxmoe_com' ),
+		'type' => 'heading'
+	);
+	$options[] = array(
+		'name' => __('★ 底部显示页面执行时间', 'ui_boxmoe_com'),
+		'instructions' => __('（默认关闭，开启后底部显示页面执行时间）', 'ui_boxmoe_com'),
+		'id' => 'boxmoedataquery',
+		'type' => "checkbox",
+		'std' => false,
+		);	
 	$options[] = array(
 		'name' => __('★ 网站底部导航链接', 'ui_boxmoe_com'),
 		'id' => 'footer_seo',
@@ -258,18 +252,11 @@ function optionsframework_options() {
 		'settings' => array('rows' => 3),
 		'type' => 'textarea');
 	$options[] = array(
-		'name' => __('★ （10）网站底部版权后自定义信息（支持HTML）', 'ui_boxmoe_com'),
+		'name' => __('★ 网站底部自定义信息（如备案号支持HTML代码）', 'ui_boxmoe_com'),
 		'id' => 'footer_info',
 		'std' => '本站使用Wordpress创作'."\n",
 		'settings' => array('rows' => 3),
 		'type' => 'textarea');	
-	$options[] = array(
-		'name' => __('★ 底部显示页面执行时间', 'ui_boxmoe_com'),
-		'instructions' => __('（默认关闭，开启后底部显示页面执行时间）', 'ui_boxmoe_com'),
-		'id' => 'boxmoedataquery',
-		'type' => "checkbox",
-		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));	
     $options[] = array(
 		'name' => __('★ 统计代码', 'ui_boxmoe_com'),
 		'instructions' => __('（底部第三方流量数据统计代码）', 'ui_boxmoe_com'),
@@ -315,7 +302,7 @@ function optionsframework_options() {
 		'id' => 'banner_rand',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);	 
+		);	 
 	$options[] = array(
 		'name' => __('★ Banner随机图片数量', 'ui_boxmoe_com'),
 		'id' => 'banner_rand_n',
@@ -329,7 +316,7 @@ function optionsframework_options() {
 		'id' => 'banner_api_on',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);
+		);
 	$options[] = array(
 		'name' => __('★ 图片外链APi链接', 'ui_boxmoe_com'),
 		'id' => 'banner_api_url',
@@ -355,7 +342,7 @@ function optionsframework_options() {
 		'id' => 'baidutuisong',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com')); 
+		); 
 	 
 	$options[] = array(
 		'name' => __( '百度文章发布主动推送key', 'ui_boxmoe_com' ),
@@ -390,7 +377,7 @@ function optionsframework_options() {
 		'id' => 'cat_keyworks_s',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com')
+		
 		);
 
 	$options[] = array(
@@ -399,7 +386,7 @@ function optionsframework_options() {
 		'id' => 'site_keywords_description_s',
 		'type' => "checkbox",
 		'std' => true,
-		'desc' => __('开启', 'ui_boxmoe_com'));
+		);
 
 	$options[] = array(
 		'name' => __('★ 自定义文章关键字和描述', 'ui_boxmoe_com'),
@@ -407,7 +394,7 @@ function optionsframework_options() {
 		'id' => 'post_keywords_description_s',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));	
+		);	
 //==========================================================================================
 	$options[] = array(
 		'name' => __( '文章设置', 'ui_boxmoe_com' ),
@@ -419,7 +406,7 @@ function optionsframework_options() {
 		'id' => 'wow_on',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));		
+		);		
 	$options[] = array(
 		'name' => __('★ 文章随机缩略图数量', 'ui_boxmoe_com'),
 		'id' => 'thumbnail_rand_n',
@@ -432,7 +419,7 @@ function optionsframework_options() {
 		'id' => 'thumbnail_api',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));		
+		);		
 	$options[] = array(
 		'name' => __('★ 自定义api随机缩图URL', 'ui_boxmoe_com'),
 		'id' => 'thumbnail_api_url',
@@ -445,7 +432,7 @@ function optionsframework_options() {
 		'id' => 'target_blank',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));	
+		);	
 	$options[] = array(
 		'name' => __('★ 文章列表分页模式', 'ui_boxmoe_com'),
 		'id' => 'paging_type',
@@ -460,7 +447,7 @@ function optionsframework_options() {
 		'id' => 'post_related_s',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));
+		);
     $options[] = array(
 		'name' => __('★ 相关文章显示方式', 'ui_boxmoe_com'),
 		'id' => 'post_related_model',
@@ -483,7 +470,7 @@ function optionsframework_options() {
 		'id' => 'open_author_info',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));	
+		);	
 	$options[] = array(
 		'name' => __('★ 文章作者信息', 'ui_boxmoe_com'),
 		'instructions' => __('（关于联系图标在社交设置里填写就可以）', 'ui_boxmoe_com'),	
@@ -504,7 +491,7 @@ function optionsframework_options() {
 		'id' => 'comments_off',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));
+		);
 	$options[] = array(
 			'name' => __('★ 自定义发送评论按钮文字', 'ui_boxmoe_com'),
 			'id' => 'diy_comment_btn',
@@ -523,7 +510,7 @@ function optionsframework_options() {
 		'id' => 'false_enjp_comment',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'));	
+		);	
 	$options[] = array(
 			'name' => __('★ 评论:管理员标志命名', 'ui_boxmoe_com'),
 			'id' => 'comnanes',
@@ -556,7 +543,7 @@ function optionsframework_options() {
 		'id' => 'sign_f',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com')
+		
 	);
 	//$options[] = array(
 	//	'name' => __( '添加注册验证答案', 'ui_boxmoe_com' ),
@@ -579,7 +566,7 @@ function optionsframework_options() {
 		'type' => "checkbox",
 		'std' => false,
 		'class' => 'hidden',
-		'desc' => __('开启', 'ui_boxmoe_com')
+		
 	);
 	$options[] = array(
 		'name' => __( '★ 会员登录页面', 'ui_boxmoe_com' ),
@@ -686,15 +673,16 @@ function optionsframework_options() {
 		'id' => 'bot_api',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);
+		);
 	$options[] = array(
 		'name' => __('★ 1.选择机器人通道', 'ui_boxmoe_com'),
+		'desc' => __('QQ机器人仅支持go-cqhttp需要自建，建议使用钉钉机器人无需自建', 'ui_boxmoe_com'),
 		'id' => 'bot_api_server',
 		'std' => "boe_api_qq",
 		'type' => "radio",
 		'options' => array(
-			'boe_api_qq' => __('QQ机器人(仅支持go-cqhttp)自建', 'ui_boxmoe_com'),
-			'boe_api_dd' => __('钉钉机器人(钉钉群机器人)', 'ui_boxmoe_com'),
+			'boe_api_qq' => __('QQ机器人', 'ui_boxmoe_com'),
+			'boe_api_dd' => __('钉钉机器人', 'ui_boxmoe_com'),
 		));
 	$options[] = array(
 		'name' => __('★ 2.配置机器人API地址'),
@@ -715,12 +703,13 @@ function optionsframework_options() {
 		'std' => '',
 		'type' => 'text');	
 	$options[] = array(
-		'name' => __('★ 机器人通知项', 'ui_boxmoe_com'),
+		'name' => __('★ 新评论消息推送', 'ui_boxmoe_com'),
 		'id' => 'bot_api_comment',
 		'type' => "checkbox",
 		'std' => false,
 		'desc' => __('开启新评论消息推送', 'ui_boxmoe_com'),);
 	$options[] = array(
+		'name' => __('★ 新会员注册通知', 'ui_boxmoe_com'),
 		'id' => 'bot_api_reguser',
 		'type' => "checkbox",
 		'std' => false,
@@ -733,11 +722,11 @@ function optionsframework_options() {
 	);
 	$options[] = array(
 		'name' => __('★ 开启SMTP发件功能', 'ui_boxmoe_com'),
-		'instructions' => __('（开启后下面也要设置好才生效）', 'ui_boxmoe_com'),
+		//'instructions' => __('（开启后下面也要设置好才生效）', 'ui_boxmoe_com'),
 		'id' => 'smtpmail',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);	
+		);	
 	$options[] = array(
 		'name' => __( '发件人', 'ui_boxmoe_com' ),
 		'id' => 'fromnames',
@@ -790,96 +779,119 @@ function optionsframework_options() {
 		'id' => 'gutenberg_off',
 		'type' => "checkbox",
 		'std' => true,
-		'desc' => __('开启', 'ui_boxmoe_com'));		 	
+		);		 	
 	$options[] = array(
 		'name' => __('★ Wordpress头部优化', 'ui_boxmoe_com'),
 		'id' => 'wpheader_on',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启 （移除feed WordPress版本号等等没用东西）', 'ui_boxmoe_com'),);	
+		'desc' => __('移除Head头部没用的代码', 'ui_boxmoe_com'),);	
 	$options[] = array(
 		'name' => __('★ 禁止乱加载脚本', 'ui_boxmoe_com'),
 		'id' => 'wpheader_on_1',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启 （如果你不安装和主题无关的任何前端类插件）', 'ui_boxmoe_com'),);
+		'desc' => __('如果你不安装任何前端类插件,建议开启', 'ui_boxmoe_com'),);
 	$options[] = array(
-		'name' => __('★ 移除头部feed', 'ui_boxmoe_com'),
+		'name' => __('★ 移除头部feed防采集', 'ui_boxmoe_com'),
 		'id' => 'feed_off',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);
+		'desc' => __('移除头部的Feed输出和关闭的Feed防采集', 'ui_boxmoe_com'),);
 	$options[] = array(
 		'name' => __('★ 移除Emoji', 'ui_boxmoe_com'),
 		'id' => 'emoji_off',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);	
+		);	
 	$options[] = array(
-		'name' => __('★ 移除头部emoji表情的dns-refresh', 'ui_boxmoe_com'),
+		'name' => __('★ 移除dns-refresh', 'ui_boxmoe_com'),
 		'id' => 'remove_dns_refresh',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);	
+		'desc' => __('WP系统默认的DNS预加载，看自己需求', 'ui_boxmoe_com'),);	
 	$options[] = array( 
 		'name' => __('★ 禁用文章自动保存', 'ui_boxmoe_com'),
 		'id' => 'autosaveop',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);
+		);
 	$options[] = array(
 		'name' => __('★ 禁用文章修订版本', 'ui_boxmoe_com'),
 		'id' => 'revisions_to_keepop',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);			
+		);			
 	$options[] = array(
 		'name' => __('★ 移除RSS订阅', 'ui_boxmoe_com'),
 		'id' => 'rss_off',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);		
+		);		
 	$options[] = array(
-		'name' => __('★ 禁止Pingback', 'ui_boxmoe_com'),
+		'name' => __('★ 禁止Pingback屏蔽一些垃圾评论', 'ui_boxmoe_com'),
 		'id' => 'Pingback_off',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);		
+		);		
 	$options[] = array(
-		'name' => __('★ 关闭embeds', 'ui_boxmoe_com'),
+		'name' => __('★ 关闭embeds加速加载', 'ui_boxmoe_com'),
 		'id' => 'embeds_off',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);	
+		);	
 //==========================================================================================
 	$options[] = array(
 		'name' => __('前端加速', 'ui_boxmoe_com'),
-		'desc' => __( '（提高JS CSS加载速度）', 'ui_boxmoe_com' ),
+		'desc' => __( '（提高JS CSS 头像加载速度）', 'ui_boxmoe_com' ),
 		'type' => 'heading');
+	$gravatar_array = array(
+		'cravatar' => __('cravatar服务器', 'ui_boxmoe_com'),
+	    'lolinet' => __('萝莉服务器', 'ui_boxmoe_com'),
+		'qiniu' => __('七牛服务器', 'ui_boxmoe_com'),
+		'geekzu' => __('极客服务器', 'ui_boxmoe_com'),
+		//'v2excom' => __('v2ex服务器', 'ui_boxmoe_com'),
+		'cn' => __('官方CN服务器', 'ui_boxmoe_com'),
+		'ssl' => __('官方SSL服务器', 'ui_boxmoe_com'),		
+	);
 	$options[] = array(
-		'name' => __('★选择前端外链CSS JS 图片加载节点', 'ui_boxmoe_com'),
+		'name' => __('★ Gravatar头像加速服务器', 'ui_boxmoe_com'),
+		'instructions' => __('（通过镜像服务器可对gravatar头像进行加速）', 'ui_boxmoe_com'),
+		'id' => 'gravatar_url',
+		'std' => 'lolinet',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => $gravatar_array);
+	$qqravatar_array = array(
+	    'Q1' => __('QQ官方服务器1', 'ui_boxmoe_com'),
+		'Q2' => __('QQ官方服务器2', 'ui_boxmoe_com'),
+		'Q3' => __('QQ官方服务器3', 'ui_boxmoe_com'),
+		'Q4' => __('QQ官方服务器4', 'ui_boxmoe_com'),	
+	);
+	$options[] = array(
+		'name' => __('★ QQ头像服务器节点', 'ui_boxmoe_com'),
+		'instructions' => __('（如果用户是QQ邮箱则调用QQ头像）', 'ui_boxmoe_com'),
+		'id' => 'qqavatar_url',
+		'std' => 'Q2',
+		'type' => 'select',
+		'class' => 'mini', //mini, tiny, small
+		'options' => $qqravatar_array);				
+	$options[] = array(
+		'name' => __('★ 选择前端外链CSS JS 图片加载节点', 'ui_boxmoe_com'),
 		'id' => 'ui_cdn',
 		'std' => "local",
 		'type' => "radio",
-		'desc' => __('注：如果你主机网络够快带宽页不小默认是可以的,如果慢并且你都是国内用户推荐选择[2]UFile ( ym68.cc 提供的CDN加速)', 'ui_boxmoe_com'),
+		//'desc' => __('注：如果你主机网络够快,带宽也不小默认是可以的', 'ui_boxmoe_com'),
 		'options' => array(
-			'local' => __('1.本地默认加载（默认）', 'ui_boxmoe_com'),
-			'ym68_cdn' => __('2.闲云UFile国内CDN（节点由 ym68.cc 闲云赞助提供）', 'ui_boxmoe_com'),			
-			'diy_cdn' => __('3.自建节点（assets文件夹自定义链接）', 'ui_boxmoe_com')
+			'local' => __('本地（默认）', 'ui_boxmoe_com'),
+			'diy_cdn' => __('自建节点', 'ui_boxmoe_com')
 		));
 	$options[] = array(
-	    'name' => __('★ 选择[2] 闲云CDN 随机图是节点上默认的,下面可自定义自己的随机图存储位置', 'ui_boxmoe_com'), 
-		'id' => 'ym68_cdn_pic_src',
-		'std' => get_template_directory_uri(),
-		'settings' => array('rows' => 1),
-		'desc' => __('默认则留空，节点上有200张Banner图和文章缩略图！！如自定义链接结尾不要带“/”', 'ui_boxmoe_com'),
-		'type' => 'textarea');
-	$options[] = array(
-	    'name' => __('★ 选择 [3]自建节点 请输入自定义节点链接,如https://domain.com/lolimeow/assets', 'ui_boxmoe_com'), 
+	    'name' => __('★ 自建节点链接', 'ui_boxmoe_com'), 
 		'id' => 'diy_cdn_src',
 		'std' => '',
 		'settings' => array('rows' => 1),
-		'desc' => __('把主题下的assets文件夹传到你自建的加速节点上填写上，链接结尾不要带“/”', 'ui_boxmoe_com'),
+		'desc' => __('把主题下的assets文件夹传到你自建的加速节点上填写上(如https://domain.com/lolimeow/assets)，链接结尾不要带“/”  ', 'ui_boxmoe_com'),
 		'type' => 'textarea');	
 
 
@@ -894,11 +906,10 @@ function optionsframework_options() {
 		'type' => 'heading');
 	$options[] = array(
 		'name' => __('★ 全站底部音乐播放器开关', 'ui_boxmoe_com'),
-
 		'id' => 'music_on',
 		'type' => "checkbox",
 		'std' => false,
-		'desc' => __('开启', 'ui_boxmoe_com'),);
+		);
 	$options[] = array(
 		'name' => __('★选择运营商', 'ui_boxmoe_com'),
 		'id' => 'music_server',
@@ -929,9 +940,40 @@ function optionsframework_options() {
 		));
 
 
+	$options[] = array(
+		'name' => __('关于主题', 'ui_boxmoe_com'),
+		'type' => 'heading');
 
-
-
+	$options[] = array(
+	    'name' => __('★ 开源协议', 'ui_boxmoe_com'), 
+		'id' => 'banquan',
+		'desc' => __('
+		 <p>1.主题依托于开源协议 GPL V3.0，如果不接受本协议，请立即删除</p>
+		 <p>2.请遵循开源协议，保留主题底部版权信息，如果不接受本协议，请立即删除；</p>		
+		', 'ui_boxmoe_com'),
+		'type' => 'info');
+	$options[] = array(
+	    'name' => __('★ 使用协议/注意事项', 'ui_boxmoe_com'), 
+		'id' => 'shiyong',
+		'desc' => __('
+		 <p>1.主题仅供博客爱好者合法建站交流！禁止使用于违法用途！如如主题使用者不能遵守此规定，请立即删除；</p>
+		 <p>2.严禁利用本主题严重侵犯他人隐私权，如主题使用者不能遵守此规定，请立即删除；</p>
+		 <p>3.使用主题请遵守网站服务器当地相关法律和站长当地相关法律，如不能遵守请立即删除；</p>
+		 <p>4.主题不支持任何作为非法违规用途站点！如不能遵守请立即删除；</p>
+		 <p>5.主题开源无任何加密文件，对于因用户使用本主题而造成自身或他人隐私泄露，等任何不良后果，均由用户自行承担，主题作者不负任何责任；</p>
+		 <p>6.本主题共享下载，如果用户自行下载使用，即表明用户自愿并接受本协议所有条款。 如果用户不接受本协议，请立即删除；</p>
+		', 'ui_boxmoe_com'),
+		'type' => 'info');		
+	$options[] = array(
+	    'name' => __('★ 主题信息', 'ui_boxmoe_com'), 
+		'id' => 'banquan',
+		'desc' => __('
+		 <p>当前版本：'.$VERSION.'</p>
+		 <p>查看主题：<a href="https://www.boxmoe.com/468.html" target="_blank" rel="external nofollow" class="url themes-inf">更新日志</a></p>		
+		 <p>主题QQ群：<a href="https://jq.qq.com/?_wv=1027&amp;k=52f0L9P" target="_blank" rel="external nofollow" class="url themes-inf">24401689</a></p>
+		 <p>最新版本：<span id="versionss">点击检测更新</span></p>
+		', 'ui_boxmoe_com'),
+		'type' => 'info');			
 
 //拓展区结束=====================================================================================
 	return $options;

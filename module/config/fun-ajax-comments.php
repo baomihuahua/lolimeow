@@ -73,6 +73,7 @@ if ( $user->ID ) {
 }
 
 $comment_type = '';
+
 if ( '' != $comment_content ) {
     $codetext = '/<(iframe|script)/i';
     if (preg_match($codetext,$comment_content,$matches)) {

@@ -2,6 +2,7 @@
 /*
 Template Name: Boxmoe会员中心
 */
+error_reporting(0);
 if(!is_user_logged_in()){
 	if( get_boxmoe('users_login') ) {
 		$redirect_to = ''.site_url().'?page_id='.get_boxmoe('users_login').'';	
@@ -411,8 +412,8 @@ if(isset($_POST['action']) && $_POST['action'] == 'card'){
 
 get_header(); 
 ?>
-<link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css" type='text/css' media='all' />
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.js"></script>
+<link rel='stylesheet' href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/limonte-sweetalert2/11.4.4/sweetalert2.min.css" type='text/css' media='all' />
+<script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/limonte-sweetalert2/11.4.4/sweetalert2.all.min.js"></script>
       <div class="boxmoe-user-page mb30">
         <div class="container-full">
           <div class="section-head"><span>User</span></div>

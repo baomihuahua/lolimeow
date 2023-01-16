@@ -179,8 +179,9 @@ class Options_Framework_Interface {
 
 			// Checkbox
 			case "checkbox":
-				$output .= '<input id="' . esc_attr( $value['id'] ) . '" class="checkbox of-input" type="checkbox" name="' . esc_attr( $option_name . '[' . $value['id'] . ']' ) . '" '. checked( $val, 1, false) .' />';
-				$output .= '<label class="explain" for="' . esc_attr( $value['id'] ) . '">' . wp_kses( $explain_value, $allowedtags) . '</label>';
+				$output .= '<input id="' . esc_attr( $value['id'] ) . '" class="toggle" type="checkbox" name="' . esc_attr( $option_name . '[' . $value['id'] . ']' ) . '" '. checked( $val, 1, false) .' />';
+				$output .= '<div class="explain">' . wp_kses( $explain_value, $allowedtags) . '</div>';
+				
 				break;
 
 			// Multicheck

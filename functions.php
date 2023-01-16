@@ -15,7 +15,7 @@
 *        ´.▒▒▒´´▓▓▓▓▓▓▓▓▒´´´´´              主题仅供博客爱好者建站交流！！
 *        ´.▒▒´´´´▓▓▓▓▓▓▓▒                   请勿使用于非法用途！！
 *        ..▒▒.´´´´▓▓▓▓▓▓▓▒                  请遵守当地相关法律！！
-*        ´▒▒▒▒▒▒▒▒▒▒▒▒                      主题属于开源分享，不支持任何作为非法违规用途站点！！
+*        ´▒▒▒▒▒▒▒▒▒▒▒▒                      主题不支持任何作为非法违规用途站点！！
 *        ´´´´´´´´´███████´´´´´              
 *        ´´´´´´´´████████´´´´´´´
 *        ´´´´´´´█████████´´´´´´
@@ -37,11 +37,11 @@
 *        _████____███
 *        _█ _███_ _█_███
 *——————————————————————————女神保佑，代码无bug——————————————————————*/
-$themedata = wp_get_theme();$themeversion = $themedata['Version'];
-define('THEME_VERSION', $themeversion);
-define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/module/theme_panel_set/' );
-require_once dirname( __FILE__ ) . '/module/theme_panel_set/options-framework.php';
-require_once dirname( __FILE__ ) . '/module/theme_panel_set/panel-js.php';
+defined( 'ABSPATH' ) || exit;
+$themedata = wp_get_theme();$themeversion = $themedata['Version'];define('THEME_VERSION', $themeversion);
+define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/module/theme_panel/' );
+require_once dirname( __FILE__ ) . '/module/theme_panel/options-framework.php';
+require_once dirname( __FILE__ ) . '/module/theme_panel/panel-js.php';
 $optionsfile = locate_template( 'options.php' );load_template( $optionsfile );
 require_once get_stylesheet_directory() . '/module/config/fun-navwalker.php';
 require_once get_stylesheet_directory() . '/module/config/fun-optimize.php';

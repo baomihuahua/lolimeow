@@ -4,6 +4,7 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
+error_reporting(0);
 global $wpdb, $user_ID;
 function tg_validate_url() {   
 	global $post;   

@@ -75,13 +75,33 @@ code,kbd,pre,samp {font-family:none;}
 .sign_f i {padding-right:5px;}
 .boxmoe_blog {max-width:1350px;position:relative;padding-left:2em;padding-right:2em;margin:0 auto;}
 .boxmoe_blog:after,.boxmoe_blog:before {content:"";display:table;}
-.section-head {position:relative;}
+.section-head {position:relative;margin-bottom: 1rem!important;margin-top: 1rem!important;}
 .section-head h2 {font-size:30px;z-index:1;text-transform:uppercase;display:block;width:100%;font-weight:500;}
 .section-head span {color:#4c6280;font-family:"Play";padding-bottom:20px;font-size:12px;/*text-transform:uppercase;*/letter-spacing:2px;position:relative;padding-left:80px;display:block;}
 .section-head span:before {content:"";position:absolute;left:0;top:8px;width:50px;height:1px;background:#4c6280;}
 .section-head span:after {content:"";position:absolute;left:50px;height:5px;width:5px;top:6px;border-radius:50%;}
 .section-head.text-center {display:flex;flex-wrap:wrap;justify-content:center;}
 .section-head.text-center span {margin-left:-80px;}
+.header_banner {
+    position: absolute;
+    z-index: 41;
+    left: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 1.5vh;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+    text-transform: uppercase;
+    line-height: 30px;
+    margin: auto;
+}
+
 .site-main {padding:10px 0 0}
 .site-main i {color:#f20d0d;padding-right:5px;}
 h1.main-title {letter-spacing:0.5px;text-align:center;color:#4c6280;font-size:13px;font-weight:400;padding-top:20px;padding-bottom:5px;/*margin-bottom:30px;border-bottom:1px dashed #ECECEC*/}

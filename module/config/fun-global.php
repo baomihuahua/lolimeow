@@ -63,7 +63,6 @@ function boxmoe_token($length){
 }	
 //前端资源路径选择
 function boxmoe_load_style() {
-	$styleurlload = get_template_directory_uri();
 	if(get_boxmoe('ui_cdn')){
 		if(get_boxmoe('ui_cdn') == 'local'){
 			$styleurlload = get_template_directory_uri();
@@ -85,28 +84,22 @@ function boxmoe_load_style() {
 
 //前端主题图片路径
 function boxmoe_pic_src() {
-	$picurlload=get_template_directory_uri();
+	$picurlload='';
 	if(get_boxmoe('ui_cdn') == 'local'){
 		$picurlload=get_template_directory_uri();
-	}
-	$ym68_cdn_pic_src=get_boxmoe('ym68_cdn_pic_src','');
-	if(get_boxmoe('ui_cdn') == 'ym68_cdn'){
-		if(!empty($ym68_cdn_pic_src)){
-			$picurlload=$ym68_cdn_pic_src;		
-		}else{
-			$picurlload='https://file.api.ym68.cc/boxmoe/lolimeow';
-		}
-	}	
-	$diy_cdn_src=get_boxmoe('diy_cdn_src','');
-	if(get_boxmoe('ui_cdn') == 'diy_cdn'){
+	}elseif (get_boxmoe('ui_cdn') == 'diy_cdn'){
+		$diy_cdn_src=get_boxmoe('diy_cdn_src','');
 		if(!empty($diy_cdn_src)){
 			$picurlload=$diy_cdn_src;	
 		}else{
 			$picurlload=get_template_directory_uri();
 		}
-	}		
-	return $picurlload;
+	}else{
+		$picurlload=get_template_directory_uri();
 	}
+	return $picurlload;
+}
+
 
 //载入主题前端头部静态资源
 function boxmoe_load_header() {?>
