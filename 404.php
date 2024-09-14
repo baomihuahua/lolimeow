@@ -1,19 +1,25 @@
-<?php get_header(); ?>
-        <div class="container">
-          <div class="section-head">
-            <span>404 not found</span></div>
-        </div>
-        <div class="boxmoe-blog-content">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-			    <div class="alert alert-warning text-center" role="alert">
-			    <span class="alert-icon"><i class="fa fa-bell"></i></span>
-			    <span class="alert-text"><strong>哦豁！😂</strong> 你访问的页面不存在勒！</span>
-			    </div>
-              </div>
-            </div>
-          </div>
-        </div>
-<?php get_footer(); ?>
+<?php
+/**
+ * The template for displaying 404 pages (not found)
+ *
+ * @link https://codex.wordpress.org/Creating_an_Error_404_Page
+ *
+ * @package boxmoe
+ */
 
+get_header();
+?>
+<main class="w-100">
+         <!--404 error start-->
+         <div class="container d-flex flex-column overflow-hidden">
+            <div class="row align-items-center justify-content-center py-md-8 text-center">
+               <div class="col-lg-6 col-12">
+                  <h2>Oops page not found</h2>
+                  <p>你访问页面不存在！</p>
+                  <a href="./index.html" class="btn btn-primary">Go back to home</a>
+               </div>
+            </div>
+         </div>
+      </main>
+<?php
+get_footer();

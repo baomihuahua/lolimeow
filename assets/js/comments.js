@@ -11,14 +11,14 @@ while ( i <= len && got == -1){
 			got = js_url.indexOf('comments.js'); i++ ;
 }
 var edit_mode = '1', // 再编辑模式( '1'=打开; '0'=关闭 )
-		ajax_php_url = js_url.replace('comments.js','../../module/config/fun-ajax-comments.php').replace(/^https?:\/\/.+\/wp-content/, location.origin+"/wp-content"),
+		ajax_php_url = js_url.replace('comments.js','../../module/core/comments-ajax.php').replace(/^https?:\/\/.+\/wp-content/, location.origin+"/wp-content"),
 		wp_url = js_url.substr(0, js_url.indexOf('wp-content')),
 		pic_sb = wp_url + 'wp-admin/images/wpspin_light.gif', // 提交 icon
 		pic_no = '<i class="fa fa-meh-o"></i>',      // 错误 icon
 		pic_ys = '<i class="fa fa-smile-o"></i>',     // 成功 icon
 		txt1 = '<div id="comment_loading"><i class="fa fa-spinner fa-spin"></i> 正在提交, 请稍候...</div>',
 		txt2 = '<div id="error">#</div>',
-		txt3 = '"> <div id="edita" class="badge bg-gradient-info">提交成功！',
+		txt3 = '"> <div id="edita" class="alert alert-info"><strong>提交成功！</strong>',
 		edt1 = '刷新页面之前您可以<a rel="nofollow" class="comment-reply-link_a" href="#edit" onclick=\'return addComment.moveForm("',
 		edt2 = ')\'>&nbsp;&nbsp;重新编辑</a></div> ',
 		cancel_edit = '取消编辑',
@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
 		$comments = $('#comments-title'); // 评论数据的 ID
 		$cancel = $('#cancel-comment-reply-link'); cancel_text = $cancel.text();
 		$submit = $('#commentform #submit'); $submit.attr('disabled', false);
-		$('#comment').after( txt1 + txt2 ); $('#comment_loading').hide(); $('#error').hide();
+		$('.comment-text-form').after( txt1 + txt2 ); $('#comment_loading').hide(); $('#error').hide();
 		$body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
 
 /** submit */
