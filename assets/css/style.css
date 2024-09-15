@@ -1,3 +1,10 @@
+/*
+Theme Name:LoliMeow
+Theme URI:https://www.boxmoe.com
+Description:LoliMeow（洛丽喵）是盒子萌的一款主题.
+Author:专收爆米花
+Author URI:https://www.boxmoe.com
+*/
 @charset "UTF-8";
 @import url(theme.min.css);
 @import url(https://lf9-cdn-tos.bytecdntp.com/cdn/expire-2-M/font-awesome/4.7.0/css/font-awesome.min.css);
@@ -113,7 +120,7 @@ div.tags a:hover{color:var(--box-333) !important;-webkit-transform:translate(-1p
 .blog-sidebar .widget-post .title{font-size:0.8rem;margin-bottom:5px;letter-spacing:0.25px;font-weight:600}
 .blog-sidebar .widget-post .title a{color:#333}
 .blog-sidebar .widget-post time{font-size:12px}
-.blog-sidebar .widget-post .number{position:absolute;left:-10px;top:-10px;z-index:3;width:30px;height:30px;text-align:center;line-height:30px;font-family:var(--epcl-title-font-family);font-weight:700;color:#000;background:url(../images/number.svg) no-repeat center center}
+.blog-sidebar .widget-post .number{position:absolute;left:-10px;top:-10px;z-index:3;width:30px;height:30px;text-align:center;line-height:30px;font-weight:700;color:#000;background:url(../images/number.svg) no-repeat center center}
 .blog-sidebar .widget-post .thumb:hover,.pagenav .page-item .page-link:hover{-webkit-box-shadow:2px 2px 0px 0px #333;box-shadow:2px 2px 0px 0px #333}
 .blog-sidebar .widget-post .title a:not(.widget-button),.post-list .post-title a:not(.widget-button),.cat-item a:not(.widget-button){padding-bottom:5px;background-image:-webkit-gradient(linear,left top,right top,from(#333),to(#333));background-image:-o-linear-gradient(left,#333 0%,#333 100%);background-image:linear-gradient(to right,#333 0%,#333 100%);background-size:0% 5%;background-repeat:no-repeat;background-position:left 80%;-webkit-transition:all 400ms ease;-o-transition:all 400ms ease;transition:all 400ms ease}
 .blog-sidebar .widget-post .title a:not(.widget-button):after,.blog-sidebar .widget-post .title a:not(.widget-button):before,.post-list .post-title a:not(.widget-button):before,.post-list .post-title a:not(.widget-button):after{display:none}
