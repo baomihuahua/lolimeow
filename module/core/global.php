@@ -267,6 +267,7 @@ function boxmoe_load_footer() {?>
                     };
                     if ($("#hitokoto").length) {
                     hitokoto();
+                    $(document).on("pjax:complete", function () {hitokoto();});
                     }
                 </script>
     <?php endif; ?>
