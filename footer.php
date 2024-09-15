@@ -33,7 +33,7 @@
     <div id="search">
       <span class="close">X</span>
       <form role="search" id="searchform" method="get" action="<?php echo home_url( '/' ) ?>">
-        <div class="search_form_inner  animate slideUp">
+        <div class="search_form_inner">
           <div class="search-bar">
             <i class="fa fa-search"></i>
             <input type="search" name="s" value="<?php echo htmlspecialchars($s) ?>" placeholder="输入搜索关键词..." /></div>

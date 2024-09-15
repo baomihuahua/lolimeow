@@ -74,11 +74,6 @@ if (get_boxmoe('wpheader_on')) {
     }
     }
 
-if (get_boxmoe('wpheader_on_1')) {
-    remove_action('wp_head', 'wp_enqueue_scripts', 1);
-    remove_action('wp_footer', 'wp_print_footer_scripts');
-}
-
 //移除dns-prefetch
 if (get_boxmoe('remove_dns_refresh')) {
     function remove_dns_prefetch($hints, $relation_type) {
