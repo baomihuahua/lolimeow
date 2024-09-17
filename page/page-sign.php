@@ -115,7 +115,7 @@ elseif ( $sanitized_user_login == '' ) {
 	  if(get_boxmoe('bot_api_reguser')){
 		boxmoe_msg_reguser($sanitized_user_login,$user_email);		  
 		}  			
-      $user = get_user_by($sanitized_user_login);
+      $user = get_user_by('login', $sanitized_user_login);
       $user_id = $user->ID;
 			
       // 自动登录
