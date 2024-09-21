@@ -92,16 +92,16 @@ get_header();
               <div class="post-related container">
                 <div class="row">
                   <div class="col-lg-6">
-                    <h3 class="mb-4">相关阅读</h3></div>
+                    <h3 class="mb-4">相关阅读</h3>
+					</div>
                 </div>
                 <div class="row g-5">
                   <?php boxmoe_posts_related( get_boxmoe('related_title'), get_boxmoe('post_related_n'), (get_boxmoe('post_related_model') ? get_boxmoe('post_related_model') : 'thumb') ) ?>
                 </div>
-              </div>
-              </div>
+              </div>            
               <?php endif; ?>	
             </div>
-            
+          </div>  
             <?php if (get_boxmoe('blog_layout')== 'two' ): ?>
               <?php get_sidebar();?>
               <?php endif; ?>	      
