@@ -62,12 +62,12 @@ if(!isset($user_ID)) {
                     <div class="user-wrapper">
                       <div class="user-no-login">
                         <span class="user-login">
-                          <a href="https://www.boxmoe.com/login?r=https://www.boxmoe.com/user" class="signin-loader z-bor">登录</a>
+                          <a href="<?php echo home_url('/login?r='); echo home_url('/user'); ?>" class="signin-loader z-bor">登录</a>
                           <b class="middle-text">
                             <span class="middle-inner">or</span></b>
                         </span>
                         <span class="user-reg">
-                          <a href="https://www.boxmoe.com/reg" class="signup-loader l-bor">注册</a></span>
+                          <a href="<?php echo home_url('/reg'); ?>" class="signup-loader l-bor">注册</a></span>
                       </div>
                     </div>				
 				</div>
