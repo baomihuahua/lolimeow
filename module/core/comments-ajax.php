@@ -181,7 +181,7 @@ $tmp_c = get_comment($tmp_c->comment_parent);
                                 <?php echo get_avatar( $comment->comment_author_email, 60,); ?> </div>
                             </div>
                             <span class="commentsbadge tourists">
-                              <i class="fa fa-globe"></i>游客</span>
+                              <i class="fa fa-comment-o"></i> <?php echo $comment->comment_author;?></span>
                           </div>
                           <div class="comment-body">
                             <div class="meta-data">
