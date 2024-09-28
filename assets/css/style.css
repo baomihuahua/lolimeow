@@ -578,3 +578,9 @@ a.btn-social:hover{background-color:#e0ecfc;color:var(--box-fff)}
 .position-sticky.top {top: 0;padding-bottom: 0;position: absolute !important;}
 }@media (max-width:1200px){.body-background{display:none}
 }
+/* 
+Description:新版友情链接单页样式部分
+Author:阿珏酱
+Author URI:https://MoeJue.cn
+*/
+.MoeJuelinks{margin-bottom:80px}.MoeJuelinks ul{margin-left:0;list-style:none;padding:0;display:flex;flex-wrap:wrap;justify-content:space-between}.MoeJuelinks ul li{width:100%;max-width:24%;border:1px solid#ececec;padding:8px 14px;position:sticky;overflow:hidden;transition:all 0.3s;border-radius:10px;height:110px;margin:5px 0;box-sizing:border-box}.MoeJuelinks ul li img{margin:15px auto;float:right;box-shadow:inset 0 0 10px#000;opacity:1;transform:rotate(0deg);transition:all ease 1s;width:65px;height:65px;padding:2px}.MoeJuelinks ul li:hover img{transform:rotate(360deg)}.MoeJuelinks ul li:before{content:"";background-color:rgba(255,165,0,0.75);transform:skew(45deg,0);width:0;height:100%;position:absolute;top:0;left:-60px;z-index:-1;transition:all 0.5s}.MoeJuelinks ul li:hover{color:#27323a;border:1px solid orange}.MoeJuelinks ul li:hover:before{width:180%}.MoeJuelinks ul li:hover.linkdes{border-top:1px dashed#fff}@media(max-width:992px){.MoeJuelinks ul li{max-width:48%}}@media(max-width:768px){.MoeJuelinks ul li{max-width:100%}}
