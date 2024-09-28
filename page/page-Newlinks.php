@@ -8,9 +8,6 @@
  */
 get_header();
 ?>
-<style>
-    
-</style>
 <section class="section-blog-breadcrumb container">
     <div class="breadcrumb-head">
         <span><i class="fa fa-home"></i> Page</span>
@@ -44,19 +41,19 @@ get_header();
                             // 设置标题和描述
                             $index += 1; // 索引从1开始
                             $category_title = $index . '. ' . $category->name;
-                            $category_description = term_description($category->term_id, 'link_category') ?: '此分类下的描述信息';
+                            $category_description = term_description($category->term_id, 'link_category') ?: '';
 
                             echo '<h3 id="toc-head-' . $index . '" class="link-title">';
                             echo '<span class="fake-title">' . esc_html($category_title) . '</span>';
                             echo '</h3>';
-                            echo '<p>' . esc_html($category_description) . '</p>';
+                            echo '<p>' . $category_description . '</p>';
                             echo '<ul class="link-items fontSmooth">';
 
                             // 获取该分类下的所有链接
                             $links = get_bookmarks(array('category' => $category->term_id));					  
                             foreach ($links as $link) {
                                 $desc = !empty($link->link_description) ? $link->link_description : '这站长太懒了什么也没留下';
-                                $webimg = !empty($link->link_image) ? $link->link_image : boxmoe_themes_dir().'/assets/images/linkspic.jpg';
+                                $webimg = !empty($link->link_image) ? $link->link_image : boxmoe_themes_dir().'/assets/images/profile.jpg';
 
                                 // 单个链接项的结构
                                 echo '<li class="link-item">';
