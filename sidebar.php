@@ -25,6 +25,12 @@ else if (is_page()){
 else if (is_home()){
 	if (function_exists('dynamic_sidebar') && dynamic_sidebar('widget_sidebar')) : endif; 
 }
+else if(is_category()){
+    if (function_exists('dynamic_sidebar') && dynamic_sidebar('widget_sidebar')) : endif; 
+}
+else if(is_search()){
+    if (function_exists('dynamic_sidebar') && dynamic_sidebar('widget_sidebar')) : endif; 
+}
 ?>
 </div>
 </div>
