@@ -9,7 +9,8 @@ $widgets = array(
 	'postlist',
 	'category',
 	'archive',
-	'tags'
+	'tags',
+	'links'
 );
 
 if( !get_boxmoe('comments_off') ){
