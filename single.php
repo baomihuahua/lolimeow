@@ -15,7 +15,10 @@ get_header();
         <div class="container">
           <div class="row">
             <div class="blog-single  <?php echo boxmoe_blog_layout() ?>  fadein-bottom">
-              <div class="post-single <?php echo boxmoe_border()?>"><?php while (have_posts()) : the_post(); ?>
+              <div class="post-single <?php echo boxmoe_border()?>  <?php if (is_sticky()) { echo 'sticky-post'; } ?>"><?php while (have_posts()) : the_post(); ?>
+                  <?php if (is_sticky()) : ?>
+                    <div class="ribbon">置顶</div>
+                  <?php endif; ?>
                 <div class="single-category">
 				 <?php $category = get_the_category();if($category[0]){ echo '<a href="'.get_category_link($category[0]->term_id ).'" title="查看《'.$category[0]->cat_name.'》下的所有文章 " class="tag-cloud" rel="category tag" '. _post_target_blank().'><i class="fa fa-folder-o"></i>'.$category[0]->cat_name.'</a>'; };?>
                 </div>
