@@ -245,6 +245,7 @@ function boxmoe_logo(){
 // 前端载入
 function boxmoe_load_scripts_and_styles() {
     wp_enqueue_style('theme-style', boxmoe_themes_dir() . '/assets/css/style.css', array(), null, false);
+    wp_enqueue_style('theme-emoji-style', boxmoe_themes_dir() . '/assets/emoji/src/css/jquery.emoji.css', array(), null, false);
     wp_enqueue_script('custom-jquery', boxmoe_themes_dir() . '/assets/js/lib/jquery.min.js', array(), null, false);
     wp_enqueue_script('pjax', boxmoe_themes_dir() . '/assets/js/lib/jquery.pjax.min.js', array('custom-jquery'), null, false);
 }
@@ -252,6 +253,8 @@ add_action('wp_enqueue_scripts', 'boxmoe_load_scripts_and_styles', 100);
 
 function boxmoe_load_footer() {?>       
         <script src="<?php echo boxmoe_themes_dir();?>/assets/js/lib/theme.min.js" type="text/javascript"></script>
+        <script src="<?php echo boxmoe_themes_dir();?>/assets/emoji/src/js/jquery.emoji.js" type="text/javascript"></script>
+        <script src="<?php echo boxmoe_themes_dir();?>/assets/emoji/src/js/emoji.list.js" type="text/javascript"></script>
         <script src="<?php echo get_template_directory_uri();?>/assets/js/comments.js" type="text/javascript"></script>
         <script src="<?php echo boxmoe_themes_dir();?>/assets/js/boxmoe.js" type="text/javascript" id="boxmoe_script"></script>	
         <?php if (get_boxmoe('sakura')): ?>
@@ -269,6 +272,18 @@ function boxmoe_load_footer() {?>
                     hitokoto();
                     $(document).on("pjax:complete", function () {hitokoto();});
                     }
+                    var boot = false;
+                    $("#btn").click(function () {
+                		if(boot) return;
+                        $("#comment").emoji({
+                			button:'#btn',
+                            showTab: true,
+                            animation: 'fade',
+                            basePath: '<?php echo boxmoe_themes_dir();?>/assets/images/emoji',
+                            icons: emojiLists
+                        });
+                		boot = true;
+                    });
                 </script>
     <?php endif; ?>
     <?php }   
@@ -312,10 +327,10 @@ function boxmoe_load_footerlogo() {?>
 //底部信息输出
 function boxmoe_footer_info() {
 	echo '<p class="mb-0 copyright">';
-	echo 'Copyright © '.date('Y').' <a href="'.home_url().'" target="_blank">'.get_bloginfo( 'name' ).'</a> | Theme by
+	echo 'Copyright © 2016 <a href="'.home_url().'" target="_blank">'.get_bloginfo( 'name' ).'</a>. All Rights Reserved. <br> Powered by Wordpress | Theme by
                 <a href="https://www.boxmoe.com" target="_blank">LoLiMeow</a>';				
 	if( get_boxmoe('footer_info') ) {
-	echo '<br>'.get_boxmoe('footer_info','本站使用Wordpress创作');	
+	echo '<br>'.get_boxmoe('footer_info','');	
 	}
 	if( get_boxmoe('boxmoedataquery') ) {
 	echo '<br>'.get_num_queries().' queries in '.timer_stop().' s';	

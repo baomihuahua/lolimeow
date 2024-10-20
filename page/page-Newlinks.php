@@ -30,9 +30,6 @@ get_header();
                             'hide_empty' => false,
                         ));
 
-                        // 获取后台设置是否在新标签页中打开
-                        $target_blank = get_option('links_target_blank') ? 'target="_blank"' : '';
-
                         // 新样式结构
                         echo '<div class="MoeJuelinks">';
 
@@ -54,6 +51,9 @@ get_header();
                             foreach ($links as $link) {
                                 $desc = !empty($link->link_description) ? $link->link_description : '这站长太懒了什么也没留下';
                                 $webimg = !empty($link->link_image) ? $link->link_image : boxmoe_themes_dir().'/assets/images/profile.jpg';
+
+                                // 获取后台设置是否在新标签页中打开
+                                $target_blank = $link->link_target=='_blank' ? 'target="_blank"' : '';
 
                                 // 单个链接项的结构
                                 echo '<li class="link-item">';

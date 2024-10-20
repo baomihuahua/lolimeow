@@ -170,14 +170,14 @@ function lightbox_gall_replace ($content) {
 }
 
 // fancybox comment_text
-add_filter( 'comment_text' , 'lightbox_comment', 20, 2);  
-function lightbox_comment ($content) {
-	global $post;
-	$pattern = "/<img(.*?)src=('|\")([A-Za-z0-9\/_\.\~\:-]*?)(\.bmp|\.gif|\.jpg|\.jpeg|\.png)('|\")([^\>]*?)>/i";
-	$replacement = '<a$1href=$2$3$4$5$6 class="fancybox" data-fancybox="images" data-fancybox-group="button"><img$1src=$2$3$4$5$6 alt="评论图片">';
-	$content = preg_replace($pattern, $replacement, $content);
-	return $content;
-}
+// add_filter( 'comment_text' , 'lightbox_comment', 20, 2);  
+// function lightbox_comment ($content) {
+// 	global $post;
+// 	$pattern = "/<img(.*?)src=('|\")([A-Za-z0-9\/_\.\~\:-]*?)(\.bmp|\.gif|\.jpg|\.jpeg|\.png)('|\")([^\>]*?)>/i";
+// 	$replacement = '<a$1href=$2$3$4$5$6 class="fancybox" data-fancybox="images" data-fancybox-group="button"><img$1src=$2$3$4$5$6 alt="评论图片">';
+// 	$content = preg_replace($pattern, $replacement, $content);
+// 	return $content;
+// }
 // fancybox-erphpdown
 //add_filter('the_content', 'erphpdownbuy_replace', 99);
 function erphpdownbuy_replace ($content) {

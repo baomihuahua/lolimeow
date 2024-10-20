@@ -106,18 +106,14 @@ if(!isset($user_ID)) {
                                        <div class="comment-submit-btn">
                                           <div class="comment-submit-btn-l">
                                              <div class="dropup">
-                                                <div class="comt-addsmilies" href="javascript:;" id="boxmoe_smilies" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <div class="comt-addsmilies" href="javascript:;" role="button">
                                                    <span>
-                                                   <i class="fa fa-smile-o"></i></span>
+                                                   <span class="comment_face_btn" id="btn"><i class="fa fa-smile-o"></i> OωO表情</span>
                                                 </div>
-                                                <div class="dropdown-menu" aria-labelledby="boxmoe_smilies">
-                                                  <div class="dropdown-smilie scroll-y">
-                                                  <?php boxmoe_smilies() ?>
-                                                  </div>                               
-                                                </div>
-                                                <div class="img-up"></div>
                                              </div>
                                           </div>
+                                          
+                                                   
                                           <div class="comment-submit-btn-r">
                                             <?php if ( ! $user_ID  && !is_user_logged_in()&& '' != $comment_author ) : ?>
                                               <span type="button" data-bs-toggle="tooltip" data-bs-placement="top"
