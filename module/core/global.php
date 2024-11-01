@@ -264,26 +264,25 @@ function boxmoe_load_footer() {?>
 <script type="text/javascript">
                     var hitokoto = function () {
                     $.get("https://v1.hitokoto.cn/?c=<?php echo get_boxmoe('hitokoto_text')?>", {},
-                    function(data) {
-                    document.getElementById("hitokoto").innerHTML = data.hitokoto;
-                    });
+                        function (data) {
+                            document.getElementById("hitokoto").innerHTML = data.hitokoto;
+                        });
                     };
                     if ($("#hitokoto").length) {
-                    hitokoto();
-                    $(document).on("pjax:complete", function () {hitokoto();});
+                        hitokoto();
+                        $(document).on("pjax:complete", function () { hitokoto();initEmoji(); });
                     }
-                    var boot = false;
-                    $("#btn").click(function () {
-                		if(boot) return;
-                        $("#comment").emoji({
-                			button:'#btn',
-                            showTab: true,
-                            animation: 'fade',
-                            basePath: '<?php echo boxmoe_themes_dir();?>/assets/images/emoji',
-                            icons: emojiLists
+                    var initEmoji = function () {
+                        $("#btn").click(function () {
+                            $("#comment").emoji({
+                                button: '#btn',
+                                showTab: true,
+                                animation: 'fade',
+                                basePath: '<?php echo boxmoe_themes_dir();?>/assets/images/emoji',
+                                icons: emojiLists
+                            });
                         });
-                		boot = true;
-                    });
+                    };initEmoji();
                 </script>
     <?php endif; ?>
     <?php }   
