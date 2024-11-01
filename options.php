@@ -422,6 +422,18 @@ $options[] = array(
 	'std' => false,
 	);	
 $options[] = array(
+	'name' => __('★ 文章头部广告位', 'ui_boxmoe_com'),
+	'id' => 'ads_top',
+	'std' => '<a href="https://moekoe.cn/" target="_blank"><img src="https://cloudflare.cdnjson.com/images/2024/11/01/3333.png" style="border-radius: 10px;"></a>',
+	'type' => 'textarea'
+	);	
+$options[] = array(
+	'name' => __('★ 文章底部广告位', 'ui_boxmoe_com'),
+	'id' => 'ads_bottom',
+	'std' => '<a href="https://moekoe.cn/" target="_blank"><img src="https://cloudflare.cdnjson.com/images/2024/11/01/3333.png" style="border-radius: 10px;"></a>',
+	'type' => 'textarea'
+	);
+$options[] = array(
 	'name' => __('★ 文章作者信息', 'ui_boxmoe_com'),
 	'desc' => __('（关于联系图标在社交设置里填写就可以）', 'ui_boxmoe_com'),	
 	'id' => 'authorinfo',
