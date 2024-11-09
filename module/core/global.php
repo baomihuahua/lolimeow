@@ -283,6 +283,8 @@ function boxmoe_load_footer() {?>
                             });
                         });
                     };initEmoji();
+                    <?php if( get_boxmoe('footer_time') ) {
+                    echo 'displayRunningTime("'.get_boxmoe('footer_time','').'")';}?>
                 </script>
     <?php endif; ?>
     <?php }   
@@ -331,6 +333,9 @@ function boxmoe_footer_info() {
 	if( get_boxmoe('footer_info') ) {
 	echo '<br>'.get_boxmoe('footer_info','');	
 	}
+    if( get_boxmoe('footer_time') ) {
+    echo '<br><span id="runningTime"></span>';	
+    }
 	if( get_boxmoe('boxmoedataquery') ) {
 	echo '<br>'.get_num_queries().' queries in '.timer_stop().' s';	
 	}

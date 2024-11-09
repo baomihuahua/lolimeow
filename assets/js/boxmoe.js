@@ -278,4 +278,22 @@
         },
     };
 })(window.jQuery);
-  
+function displayRunningTime(text) {
+    const startDateStr = text.match(/{{(.*?)}}/)[1];
+    const start = new Date(startDateStr);
+    function updateRunningTime() {
+        const now = new Date();
+        const diff = now - start;
+        const years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365));
+        const days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        const displayText = text.replace(
+            /{{.*?}}/,
+            `${years} 年 ${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`
+        );
+        document.getElementById('runningTime').innerText = displayText;
+    }
+    setInterval(updateRunningTime, 1000);
+}

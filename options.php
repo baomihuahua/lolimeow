@@ -159,7 +159,14 @@ $options[] = array(
 		'id' => 'boxmoedataquery',
 		'type' => "checkbox",
 		'std' => false,
-		);	
+		);
+	$options[] = array(
+		'name' => __('★ 建站统计', 'ui_boxmoe_com'),
+		'id' => 'footer_time',
+		'std' => "本博客已萌萌哒运行 {{2016-9-19}} (●'◡'●)ﾉ♥",
+		'desc' => __('（留空则不显示,请按示例格式填写时间. {{2016-9-19}}）', 'ui_boxmoe_com'),
+		'settings' => array('rows' => 3),
+		'type' => 'text');
 	$options[] = array(
 		'name' => __('★ 网站底部导航链接', 'ui_boxmoe_com'),
 		'id' => 'footer_seo',
