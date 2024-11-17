@@ -13,15 +13,13 @@ function boxmoe_token($length){
 
 //主题资源路径
 function boxmoe_themes_dir() {
-    $themes_dir='';
-    $ui_cdn = get_boxmoe('ui_cdn');
     $diy_cdn_src = get_boxmoe('diy_cdn_src');
-    if ( !empty($src) && !empty($diy_cdn_src) ){
-        $themes_dir =  $diy_cdn_src;
-    }else{
-        $themes_dir = get_template_directory_uri();
+    $ui_cdn = get_boxmoe('ui_cdn');
+    if ($ui_cdn === "diy_cdn" && !empty($diy_cdn_src)) {
+        return $diy_cdn_src;
+    } else {
+        return get_template_directory_uri();
     }
-    return $themes_dir;
 }
 
 //全站链接字符
