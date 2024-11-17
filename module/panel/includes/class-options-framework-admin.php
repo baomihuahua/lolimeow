@@ -195,7 +195,7 @@ class Options_Framework_Admin {
 		<div class="set-main-plane">
 			<div class="set-main-menu">
 				<a class="navbar-brand" href="./index.html">
-				<img src="https://www.boxmoe.com/wp-content/themes/lolimeow/assets/images/logo.png" class="navbar-brand-img logo-dark logo-large" alt="..." width="125" height="25">
+				<img src="<?php echo get_template_directory_uri(); ?>/module/panel/images/panel_logo.png" class="navbar-brand-img logo-dark logo-large" alt="..." width="125" height="25">
 				</a>
 				<h2 class="nav-tab-wrapper">
 				<?php echo Options_Framework_Interface::optionsframework_tabs(); ?>
