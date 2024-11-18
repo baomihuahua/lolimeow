@@ -16,7 +16,7 @@ get_header();
                <div class="col-lg-6 col-12">
                   <h2>Oops page not found</h2>
                   <p>你访问页面不存在！</p>
-                  <a href="./index.html" class="btn btn-primary">Go back to home</a>
+                  <a href="/" class="btn btn-primary">Go back to home</a>
                </div>
             </div>
          </div>

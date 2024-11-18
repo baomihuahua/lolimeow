@@ -15,7 +15,11 @@ get_header();
         <div class="container">
           <div class="row">
             <div class="blog-single  <?php echo boxmoe_blog_layout() ?>  fadein-bottom">
-              <div class="post-single <?php echo boxmoe_border()?>"><?php while (have_posts()) : the_post(); ?>
+          <?php echo get_boxmoe('ads_top');?>
+              <div class="post-single <?php echo boxmoe_border()?>  <?php if (is_sticky()) { echo 'sticky-post'; } ?>"><?php while (have_posts()) : the_post(); ?>
+                  <?php if (is_sticky()) : ?>
+                    <div class="ribbon">置顶</div>
+                  <?php endif; ?>
                 <div class="single-category">
 				 <?php $category = get_the_category();if($category[0]){ echo '<a href="'.get_category_link($category[0]->term_id ).'" title="查看《'.$category[0]->cat_name.'》下的所有文章 " class="tag-cloud" rel="category tag" '. _post_target_blank().'><i class="fa fa-folder-o"></i>'.$category[0]->cat_name.'</a>'; };?>
                 </div>
@@ -96,10 +100,14 @@ get_header();
 					</div>
                 </div>
                 <div class="row g-5">
-                  <?php boxmoe_posts_related( get_boxmoe('related_title'), get_boxmoe('post_related_n'), (get_boxmoe('post_related_model') ? get_boxmoe('post_related_model') : 'thumb') ) ?>
+                  <?php boxmoe_posts_related( get_boxmoe('related_title'), get_boxmoe('post_related_n'), (get_boxmoe('post_related_model') ? get_boxmoe('post_related_model') : 'thumb') );
+                  ?>
                 </div>
+                
               </div>            
               <?php endif; ?>	
+              
+                  <?php echo get_boxmoe('ads_bottom');?>
             </div>
           </div>  
             <?php if (get_boxmoe('blog_layout')== 'two' ): ?>

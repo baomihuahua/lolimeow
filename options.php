@@ -159,7 +159,14 @@ $options[] = array(
 		'id' => 'boxmoedataquery',
 		'type' => "checkbox",
 		'std' => false,
-		);	
+		);
+	$options[] = array(
+		'name' => __('★ 建站统计', 'ui_boxmoe_com'),
+		'id' => 'footer_time',
+		'std' => "本博客已萌萌哒运行 {{2016-9-19}} (●'◡'●)ﾉ♥",
+		'desc' => __('（留空则不显示,请按示例格式填写时间. {{2016-9-19}}）', 'ui_boxmoe_com'),
+		'settings' => array('rows' => 3),
+		'type' => 'text');
 	$options[] = array(
 		'name' => __('★ 网站底部导航链接', 'ui_boxmoe_com'),
 		'id' => 'footer_seo',
@@ -421,6 +428,18 @@ $options[] = array(
 	'type' => "checkbox",
 	'std' => false,
 	);	
+$options[] = array(
+	'name' => __('★ 文章头部广告位', 'ui_boxmoe_com'),
+	'id' => 'ads_top',
+	'std' => '<a href="https://moekoe.cn/" target="_blank"><img src="https://cloudflare.cdnjson.com/images/2024/11/01/3333.png" style="border-radius: 10px;"></a>',
+	'type' => 'textarea'
+	);	
+$options[] = array(
+	'name' => __('★ 文章底部广告位', 'ui_boxmoe_com'),
+	'id' => 'ads_bottom',
+	'std' => '<a href="https://moekoe.cn/" target="_blank"><img src="https://cloudflare.cdnjson.com/images/2024/11/01/3333.png" style="border-radius: 10px;"></a>',
+	'type' => 'textarea'
+	);
 $options[] = array(
 	'name' => __('★ 文章作者信息', 'ui_boxmoe_com'),
 	'desc' => __('（关于联系图标在社交设置里填写就可以）', 'ui_boxmoe_com'),	

@@ -62,12 +62,12 @@ if(!isset($user_ID)) {
                     <div class="user-wrapper">
                       <div class="user-no-login">
                         <span class="user-login">
-                          <a href="https://www.boxmoe.com/login?r=https://www.boxmoe.com/user" class="signin-loader z-bor">登录</a>
+                          <a href="<?php echo home_url('/login?r='); echo home_url('/user'); ?>" class="signin-loader z-bor">登录</a>
                           <b class="middle-text">
                             <span class="middle-inner">or</span></b>
                         </span>
                         <span class="user-reg">
-                          <a href="https://www.boxmoe.com/reg" class="signup-loader l-bor">注册</a></span>
+                          <a href="<?php echo home_url('/reg'); ?>" class="signup-loader l-bor">注册</a></span>
                       </div>
                     </div>				
 				</div>
@@ -106,18 +106,14 @@ if(!isset($user_ID)) {
                                        <div class="comment-submit-btn">
                                           <div class="comment-submit-btn-l">
                                              <div class="dropup">
-                                                <div class="comt-addsmilies" href="javascript:;" id="boxmoe_smilies" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <div class="comt-addsmilies" href="javascript:;" role="button">
                                                    <span>
-                                                   <i class="fa fa-smile-o"></i></span>
+                                                   <span class="comment_face_btn" id="btn"><i class="fa fa-smile-o"></i> OωO表情</span>
                                                 </div>
-                                                <div class="dropdown-menu" aria-labelledby="boxmoe_smilies">
-                                                  <div class="dropdown-smilie scroll-y">
-                                                  <?php boxmoe_smilies() ?>
-                                                  </div>                               
-                                                </div>
-                                                <div class="img-up"></div>
                                              </div>
                                           </div>
+                                          
+                                                   
                                           <div class="comment-submit-btn-r">
                                             <?php if ( ! $user_ID  && !is_user_logged_in()&& '' != $comment_author ) : ?>
                                               <span type="button" data-bs-toggle="tooltip" data-bs-placement="top"

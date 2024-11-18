@@ -84,6 +84,9 @@ if ( get_option('require_name_email') && !$user->ID ) {
 		err( __('提示：必须填写昵称及邮件。', 'Nana') ); // 将 wp_die 改为错误提示
 	elseif ( !is_email($comment_author_email))
 		err( __('提示：请输入一个有效的电子邮件地址。', 'Nana') );// 将 wp_die 改为错误提示
+	elseif ( mb_strlen($comment_author, 'UTF-8') > 10 ) {
+        err( __('提示：昵称长度不能超过10个字符。', 'Nana') );
+    }
 }
 
 if ( '' == $comment_content )
@@ -181,7 +184,7 @@ $tmp_c = get_comment($tmp_c->comment_parent);
                                 <?php echo get_avatar( $comment->comment_author_email, 60,); ?> </div>
                             </div>
                             <span class="commentsbadge tourists">
-                              <i class="fa fa-globe"></i>游客</span>
+                              <i class="fa fa-comment-o"></i> <?php echo $comment->comment_author;?></span>
                           </div>
                           <div class="comment-body">
                             <div class="meta-data">
