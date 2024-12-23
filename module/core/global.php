@@ -3,6 +3,10 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
+
 //随机字符串
 function boxmoe_token($length){
     $str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
@@ -245,6 +249,9 @@ function boxmoe_load_scripts_and_styles() {
     wp_enqueue_style('theme-style', boxmoe_themes_dir() . '/assets/css/style.css', array(), null, false);
     wp_enqueue_script('custom-jquery', boxmoe_themes_dir() . '/assets/js/lib/jquery.min.js', array(), null, false);
     wp_enqueue_script('pjax', boxmoe_themes_dir() . '/assets/js/lib/jquery.pjax.min.js', array('custom-jquery'), null, false);
+    if (get_boxmoe('boxmoe_body_grey')): ?>
+    <style type="text/css">html{ filter: grayscale(100%); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%); -ms-filter: grayscale(100%); -o-filter: grayscale(100%); filter: url("data:image/svg+xml;utf8,#grayscale"); filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); -webkit-filter: grayscale(1);} </style>
+    <?php endif;
 }
 add_action('wp_enqueue_scripts', 'boxmoe_load_scripts_and_styles', 100);
 

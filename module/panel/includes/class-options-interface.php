@@ -15,21 +15,30 @@ class Options_Framework_Interface {
 	static function optionsframework_tabs() {
 		$counter = 0;
 		$options = & Options_Framework::_optionsframework_options();
-		$menu = '';
-
+		$menu = '<ul>'; 
 		foreach ( $options as $value ) {
-			// Heading for Navigation
 			if ( $value['type'] == "heading" ) {
 				$counter++;
 				$class = '';
 				$class = ! empty( $value['id'] ) ? $value['id'] : $value['name'];
-				$class = preg_replace( '/[^a-zA-Z0-9._\-]/', '', strtolower($class) ) . '-tab';
-				$menu .= '<a id="options-group-'.  $counter . '-tab" class="nav-tab ' . $class .'" title="' . esc_attr( $value['name'] ) . '" href="' . esc_attr( '#options-group-'.  $counter ) . '">' . esc_html( $value['name'] ) . '</a>';
+				$class = preg_replace( '/[^a-zA-Z0-9._\-]/', '', strtolower($class) ) . '-tab';			
+				$active_class = ($counter === 1) ? ' active' : '';
+				$default_icon = 'dashicons-admin-generic';
+				$icon = isset($value['icon']) ? $value['icon'] : $default_icon;
+				
+				$menu .= '<li class="tab-item' . $active_class . '">';
+				$menu .= '<a id="options-group-' . $counter . '-tab" class="' . $class . '" 
+							title="' . esc_attr( $value['name'] ) . '" 
+							href="' . esc_attr( '#options-group-' . $counter ) . '">
+							<span class="dashicons ' . esc_attr($icon) . '"></span>' 
+							. esc_html( $value['name'] ) . '</a>';
+				$menu .= '</li>';
 			}
 		}
-
+		$menu .= '</ul>';
 		return $menu;
 	}
+
 
 	/**
 	 * Generates the options fields that are used in the form.
@@ -45,6 +54,9 @@ class Options_Framework_Interface {
 
 		$counter = 0;
 		$menu = '';
+
+		$group_opened = false;
+		$group_section_id = '';
 
 		foreach ( $options as $value ) {
 
@@ -68,12 +80,28 @@ class Options_Framework_Interface {
 					$class .= ' ' . $value['class'];
 				}
 
-				$output .= '<div id="' . esc_attr( $id ) .'" class="' . esc_attr( $class ) . '">'."\n";
+				if (isset($value['group']) && $value['group'] == 'start') {
+					$group_opened = true;
+					$group_section_id = 'section-' . $value['id'];
+					$output .= '<div id="' . esc_attr($group_section_id) .'" class="' . esc_attr( $class ) . ' mini col">' . "\n";
+					
+					if (isset($value['group_title'])) {
+						$output .= '<div class="boxmoe_tab_header">' . esc_html($value['group_title']) . '</div>' . "\n";
+					}
+				}
+				
+				if (!$group_opened) {
+					$output .= '<div id="' . esc_attr( $id ) .'" class="' . esc_attr( $class ) . ' col">' . "\n";
+				}
+
+				if ($group_opened) {
+				$output .= '<div class="boxmoe_group_opened">' . "\n";
+				}		
 				if ( isset( $value['name'] ) ) {
-					$output .= '<h4 class="heading">' . esc_html( $value['name'] ) . '</h4>' . "\n";
+					$output .= '<h4 class="heading"><span class="dashicons dashicons-star-empty"></span> ' . esc_html( $value['name'] ) . '</h4>' . "\n";
 				}
 				if ( $value['type'] != 'editor' ) {
-					$output .= '<div class="option">' . "\n" . '<div class="controls">' . "\n";
+					$output .= '<div class="option">' . "\n" . '<div id="'.$value['id'].'-controls" class="controls">' . "\n";
 				}
 				else {
 					$output .= '<div class="option">' . "\n" . '<div>' . "\n";
@@ -280,15 +308,11 @@ class Options_Framework_Interface {
 					}
 					$font_color = '<input name="' . esc_attr( $option_name . '[' . $value['id'] . '][color]' ) . '" id="' . esc_attr( $value['id'] . '_color' ) . '" class="of-color of-typography-color  type="text" value="' . esc_attr( $typography_stored['color'] ) . '"' . $default_color .' />';
 				}
-				$font_size = 12;
-				$font_face = 'Arial';
-				$font_style = 'normal';
-				$font_color = '#000000';
-				// Allow modification/injection of typography fields
-				$typography_fields = compact('font_size', 'font_face', 'font_style', 'font_color');
-				$typography_fields = apply_filters('of_typography_fields', $typography_fields, $typography_stored, $option_name, $value);
-				$output .= implode('', $typography_fields);
 
+				// Allow modification/injection of typography fields
+				$typography_fields = compact( 'font_size', 'font_face', 'font_style', 'font_color' );
+				$typography_fields = apply_filters( 'of_typography_fields', $typography_fields, $typography_stored, $option_name, $value );
+				$output .= implode( '', $typography_fields );
 
 				break;
 
@@ -401,7 +425,7 @@ class Options_Framework_Interface {
 				$class = ! empty( $value['id'] ) ? $value['id'] : $value['name'];
 				$class = preg_replace('/[^a-zA-Z0-9._\-]/', '', strtolower($class) );
 				$output .= '<div id="options-group-' . $counter . '" class="group ' . $class . '">';
-				$output .= '<h3>' . esc_html( $value['name'] ) . '</h3>' . "\n";
+				$output .= '<div class="boxmoe_tab_header">' . esc_html( $value['name'] ) . '</div>' . "\n";
 				break;
 			}
 
@@ -410,7 +434,16 @@ class Options_Framework_Interface {
 				if ( ( $value['type'] != "checkbox" ) && ( $value['type'] != "editor" ) ) {
 					$output .= '<div class="explain">' . wp_kses( $explain_value, $allowedtags) . '</div>'."\n";
 				}
-				$output .= '</div></div>'."\n";
+				$output .= '</div>';
+				if ($group_opened) {$output .= '</div>'; }
+
+				// 检查是否需要结束分组
+				if (isset($value['group']) && $value['group'] == 'end') {
+					$output .= '</div>'."\n";
+					$group_opened = false;
+				} else if (!$group_opened) {
+					$output .= '</div>'."\n";
+				}
 			}
 
 			echo $output;

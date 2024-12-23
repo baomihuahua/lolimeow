@@ -3,6 +3,10 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
+
 function custom_admin_styles() {
     echo '<style>
         .avatar{width: 60px;height: 60px;}

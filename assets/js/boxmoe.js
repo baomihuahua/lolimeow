@@ -76,17 +76,13 @@
         });
         // blog-post
         const colors1 = [
-            "#83ea6c",
-            "#1dd7c2",
-            "#85b2f4",
-            "#ffcf00",
-            "#f4c8c6",
-            "#e6f2e4",
-            "#83ea6c",
-            "#1dd7c2",
-            "#85b2f4",
-            "#0dcaf0",
-            "#e8d8ff",
+            "#83ea6c", "#1dd7c2", "#85b2f4", "#ffcf00", "#f4c8c6", "#e6f2e4", 
+            "#83ea6c", "#1dd7c2", "#85b2f4", "#0dcaf0", "#e8d8ff", "#ffd700", 
+            "#ff7f50", "#6495ed", "#b0e0e6", "#ff6347", "#98fb98", "#dda0dd", 
+            "#add8e6", "#ff4500", "#d3d3d3", "#00bfff", "#ff1493", "#ff6347", 
+            "#8a2be2", "#7fff00", "#d2691e", "#a52a2a", "#9acd32", "#ff8c00", 
+            "#dcdcdc", "#dc143c", "#f0e68c", "#ff00ff", "#4b0082", "#8b0000", 
+            "#e9967a", "#ff00ff", "#2e8b57", "#3cb371", "#f5deb3", "#ff69b4"
         ];
 
         const tagElements1 = $(".blog-post .tagfa");
@@ -98,17 +94,13 @@
         });
         // tag-cloud
         const colors2 = [
-            "#83ea6c",
-            "#1dd7c2",
-            "#85b2f4",
-            "#ffcf00",
-            "#f4c8c6",
-            "#e6f2e4",
-            "#83ea6c",
-            "#1dd7c2",
-            "#85b2f4",
-            "#0dcaf0",
-            "#e8d8ff",
+            "#83ea6c", "#1dd7c2", "#85b2f4", "#ffcf00", "#f4c8c6", "#e6f2e4", 
+            "#83ea6c", "#1dd7c2", "#85b2f4", "#0dcaf0", "#e8d8ff", "#ffd700", 
+            "#ff7f50", "#6495ed", "#b0e0e6", "#ff6347", "#98fb98", "#dda0dd", 
+            "#add8e6", "#ff4500", "#d3d3d3", "#00bfff", "#ff1493", "#ff6347", 
+            "#8a2be2", "#7fff00", "#d2691e", "#a52a2a", "#9acd32", "#ff8c00", 
+            "#dcdcdc", "#dc143c", "#f0e68c", "#ff00ff", "#4b0082", "#8b0000", 
+            "#e9967a", "#ff00ff", "#2e8b57", "#3cb371", "#f5deb3", "#ff69b4"
         ];
 
         const tagElements2 = $(".tag-cloud .tagfa");

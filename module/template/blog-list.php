@@ -3,6 +3,9 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
 ?>
               <article class="post-list list-one row boxmoe-bg <?php echo boxmoe_border()?>">
                 <div class="post-list-img col-lg-5 col-xl-5 col-md-12 col-12">

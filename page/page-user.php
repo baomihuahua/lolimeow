@@ -4,6 +4,10 @@ Template Name: Boxmoe会员中心
 @link https://www.boxmoe.com
 @package lolimeow
 */
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
+
 //error_reporting(0);
 if (session_status() == PHP_SESSION_NONE) {
    session_start();
@@ -103,27 +107,53 @@ function boxmoe_vip_time() {
       echo '永久';
    }
    }
-   function mobantu_paging($type,$paged,$max_page) {
-      if ( $max_page <= 1 ) return;
-      if ( empty( $paged ) ) $paged = 1;
-      echo '<nav aria-label="Page navigation example"><ul class="pagination pagination-info pagination-sm m-4">';
-      if($paged > 1) {
-         echo '<li class="page-item"><a class="page-link" href="?items='.$type.'&pp='.($paged-1).'" aria-label="Previous"><i class="fa fa-angle-left"></i><span class="sr-only">Previous</span></a></li>';
-      }
-      if ( $paged > 2 ) echo "<li><span> ... </span></li>";
-      for ( $i = $paged - 1; $i <= $paged + 3; $i++ ) {
-         if ( $i > 0 && $i <= $max_page ) {
-            if($i == $paged) 
-                        print "<li class=\"page-item active\"><a class=\"page-link\">{$i}</a></li>"; else
-                        print "<li class=\"page-item\"><a class=\"page-link\" href='?items=".$type."&pp={$i}'><span>{$i}</span></a></li>";
-         }
-      }
-      if ( $paged < $max_page - 3 ) echo "<li><span> ... </span></li>";
-      if($paged < $max_page) {
-         echo '<li class="page-item"><a class="page-link" href="?items='.$type.'&pp='.($paged+1).'" aria-label="Next"><i class="fa fa-angle-right"></i><span class="sr-only">Next</span></a></li>';
-      }
-      echo '</ul></div>';
-   }
+   function mobantu_paging($type, $paged, $max_page) {
+    if ($max_page <= 1) return;
+    if (empty($paged)) $paged = 1;
+    
+    echo '<nav aria-label="Page navigation example"><ul class="pagination pagination-info pagination-sm m-4">';
+    
+    // 上一页按钮
+    if ($paged > 1) {
+        echo '<li class="page-item"><a class="page-link" href="?items='.$type.'&pp='.($paged-1).'" aria-label="Previous"><i class="fa fa-angle-left"></i><span class="sr-only">Previous</span></a></li>';
+    }
+    
+    // 计算显示的页码范围
+    $start = max(1, min($paged - 2, $max_page - 4));
+    $end = min($max_page, max(5, $paged + 2));
+    
+    // 如果在开始处显示省略号
+    if ($start > 1) {
+        echo '<li class="page-item"><a class="page-link" href="?items='.$type.'&pp=1">1</a></li>';
+        if ($start > 2) {
+            echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+        }
+    }
+    
+    // 显示页码
+    for ($i = $start; $i <= $end; $i++) {
+        if ($i == $paged) {
+            echo "<li class=\"page-item active\"><a class=\"page-link\">{$i}</a></li>";
+        } else {
+            echo "<li class=\"page-item\"><a class=\"page-link\" href='?items=".$type."&pp={$i}'>{$i}</a></li>";
+        }
+    }
+    
+    // 如果在结束处显示省略号
+    if ($end < $max_page) {
+        if ($end < $max_page - 1) {
+            echo '<li class="page-item disabled"><span class="page-link">...</span></li>';
+        }
+        echo '<li class="page-item"><a class="page-link" href="?items='.$type.'&pp='.$max_page.'">'.$max_page.'</a></li>';
+    }
+    
+    // 下一页按钮
+    if ($paged < $max_page) {
+        echo '<li class="page-item"><a class="page-link" href="?items='.$type.'&pp='.($paged+1).'" aria-label="Next"><i class="fa fa-angle-right"></i><span class="sr-only">Next</span></a></li>';
+    }
+    
+    echo '</ul></nav>';
+}
 
 get_header(); 
 $items = isset($_GET["items"]) ? $_GET["items"] : 'home';
@@ -1002,7 +1032,7 @@ $items = isset($_GET["items"]) ? $_GET["items"] : 'home';
                                              echo "<tr>\n";
                                              echo "<td>$value->ice_money</td>\n";
                                              if(intval($value->ice_note)==0){
-                                                echo "<td>".__('在线充值','erphpdown')."</td>\n";
+                                                echo "<td>".__('���线充值','erphpdown')."</td>\n";
                                              }elseif(intval($value->ice_note)==1){
                                                 echo "<td>".__('后台充值','erphpdown')."</td>\n";
                                              }elseif(intval($value->ice_note)==4){

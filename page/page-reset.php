@@ -4,6 +4,9 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
 error_reporting(0);
 global $wpdb, $user_ID;
 function tg_validate_url() {   

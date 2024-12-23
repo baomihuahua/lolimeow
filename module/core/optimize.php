@@ -3,7 +3,9 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
- 
+ //=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
 //============默认开启项=============
  //隐藏管理条
 function hide_admin_bar($flag) {
@@ -20,12 +22,12 @@ function remove_open_sans() {
 add_action('init', 'remove_open_sans');
 
 //禁止加载WP自带的jquery.js
-if (!is_admin()) { // 后台不禁止
-    function my_init_method() {
-        wp_deregister_script('jquery'); // 取消原有的 jquery 定义
+function custom_deregister_jquery() {
+    if (!is_admin()) {
+        wp_deregister_script('jquery');
     }
-    add_action('init', 'my_init_method');
 }
+add_action('wp_enqueue_scripts', 'custom_deregister_jquery', 100);
 //============自定义开启项=============
 
 //使用默认编辑器 //禁用小工具区块
@@ -233,5 +235,21 @@ function my_css_attributes_filter($var) {
         'active'
     )) : ''; //删除当前菜单的四个选择器
 }
+
+//删除全局样式内联 CSS
+add_action( 'wp_enqueue_scripts', function() {
+    wp_dequeue_style( 'global-styles-inline' );
+}, 20 );
+
+add_action( 'wp_enqueue_scripts', function() {
+    wp_dequeue_style( 'classic-theme-styles' );
+}, 20 );
+
+
+//屏蔽6.71新增无用的代码加载在前端
+function boxemoe_disable_add_auto_sizes( $add_auto_sizes ) {
+    return false;
+}
+add_filter( 'wp_img_tag_add_auto_sizes', 'boxemoe_disable_add_auto_sizes' );
 
 ?>

@@ -65,7 +65,7 @@ get_header();
 
                 </div>
                 <?php endwhile; ?>
-                <?php if (get_boxmoe('comments_off')): ?>
+                <?php if (!get_boxmoe('comments_off')): ?>
                 <div class="thw-sept"></div> 
                 <?php comments_template( '', true); ?>
                 <?php endif; ?>	

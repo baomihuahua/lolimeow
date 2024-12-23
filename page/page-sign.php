@@ -4,7 +4,9 @@ Template Name: Boxmoe注册页
  * @link https://www.boxmoe.com
  * @package lolimeow
 */
-	
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
 //如果用户已经登陆那么跳转到首页
 if (is_user_logged_in()){
   wp_safe_redirect( get_option('home') );
@@ -88,8 +90,9 @@ elseif ( $sanitized_user_login == '' ) {
       'user_pass' => $user_pass , 
       'nickname' => $user_nickname,
       'display_name' => $display_name, 
-      'user_email' => $user_email, 
-      'user_url' => $user_website) ) ;
+      'user_email' => $user_email
+      //'user_url' => $user_website
+      ) ) ;
 		
     //意外情况判断，添加失败
     if ( ! $user_id ) {
@@ -107,14 +110,12 @@ elseif ( $sanitized_user_login == '' ) {
         密码：'. $_POST['user_pass'] . '<br />
         </p>
         <p>欢迎光临 <a href="'.get_option('home').'">' . get_option('blogname') . '</a>。</p>
-	<p>(此郵件由系統自動發出, 請勿回覆.)</p>
+	<p>(此邮件系统自动发出，请勿回复！.)</p>
 	</div>';
       $from = "From: \"" . get_option('blogname') . "\" <$wp_email>";
       $headers = "$from\nContent-Type: text/html; charset=" . get_option('blog_charset') . "\n";
-      wp_mail( $to, $subject, $message, $headers );
-	  if(get_boxmoe('bot_api_reguser')){
-		boxmoe_msg_reguser($sanitized_user_login,$user_email);		  
-		}  			
+      
+			
       $user = get_user_by('login', $sanitized_user_login);
       $user_id = $user->ID;
 			
@@ -123,6 +124,13 @@ elseif ( $sanitized_user_login == '' ) {
       wp_set_auth_cookie($user_id);
       do_action('wp_login', $user_login);			
       wp_safe_redirect( $redirect_to );
+
+      //发送注册信息
+      wp_mail( $to, $subject, $message, $headers );
+      //发送注册通知到机器人
+      if(get_boxmoe('bot_api_reguser')){
+        boxmoe_msg_reguser($sanitized_user_login,$user_email);		  
+        }  
     }
   }
 }	

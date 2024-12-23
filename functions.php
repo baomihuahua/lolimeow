@@ -1,4 +1,8 @@
 <?php
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
+
 defined( 'ABSPATH' ) || exit;
 $themedata = wp_get_theme();$themeversion = $themedata['Version'];define('THEME_VERSION', $themeversion);
 define( 'OPTIONS_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/module/panel/' );

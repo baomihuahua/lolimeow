@@ -3,6 +3,9 @@
  * @package lolimeow@boxmoe themes
  * @link https://www.boxmoe.com
  */
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
 get_header();
 ?>
       <section class="section-blog-breadcrumb container fadein-bottom">

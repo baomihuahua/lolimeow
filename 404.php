@@ -1,12 +1,11 @@
 <?php
 /**
- * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
- *
- * @package boxmoe
+ * @package lolimeow@boxmoe themes
+ * @link https://www.boxmoe.com
  */
-
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
 get_header();
 ?>
 <main class="w-100">

@@ -26,11 +26,14 @@ jQuery(document).ready(function($) {
 	function options_framework_tabs() {
 
 		var $group = $('.group'),
-			$navtabs = $('.nav-tab-wrapper a'),
+			$navtabs = $('.nav-tab-wrapper li a'),
 			active_tab = '';
 
 		// Hides all the .group sections to start
 		$group.hide();
+
+		// 首先移除所有active类
+		$('.nav-tab-wrapper li').removeClass('active');
 
 		// Find if a selected tab is saved in localStorage
 		if ( typeof(localStorage) != 'undefined' ) {
@@ -40,10 +43,10 @@ jQuery(document).ready(function($) {
 		// If active tab is saved and exists, load it's .group
 		if ( active_tab != '' && $(active_tab).length ) {
 			$(active_tab).fadeIn();
-			$(active_tab + '-tab').addClass('nav-tab-active');
+			$(active_tab + '-tab').parent('li').addClass('active');
 		} else {
 			$('.group:first').fadeIn();
-			$('.nav-tab-wrapper a:first').addClass('nav-tab-active');
+			$('.nav-tab-wrapper li:first').addClass('active');
 		}
 
 		// Bind tabs clicks
@@ -51,10 +54,10 @@ jQuery(document).ready(function($) {
 
 			e.preventDefault();
 
-			// Remove active class from all tabs
-			$navtabs.removeClass('nav-tab-active');
+			$('.nav-tab-wrapper li').removeClass('active');
 
-			$(this).addClass('nav-tab-active').blur();
+			$(this).parent('li').addClass('active');
+			$(this).blur();
 
 			if (typeof(localStorage) != 'undefined' ) {
 				localStorage.setItem('active_tab', $(this).attr('href') );

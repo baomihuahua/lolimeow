@@ -3,6 +3,9 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
 
 if ( ! function_exists( 'boxmoe_comments_list' ) ) :
 	function boxmoe_comments_list( $comment, $args, $depth ) {

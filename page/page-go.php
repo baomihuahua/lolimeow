@@ -2,12 +2,15 @@
 /** 
 * Template Name: Boxmoe外链直跳版
 */
-$my_urls = array(
-array('boxmoe','https://www.boxmoe.com'),
-array('jsmoe','https://www.jsmoe.com'),
-array('ggy','https://www.ggy.net/aff.php?aff=614'),
-array('kvmla','https://www.kvmla.pro/aff.php?aff=2793')
-);
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
+$my_urls = [
+	['boxmoe', 'https://www.boxmoe.com'],
+	['jsmoe', 'https://www.jsmoe.com'],
+	['ggy', 'https://www.ggy.net/aff.php?aff=614'],
+	['kvmla', 'https://www.kvmla.pro/aff.php?aff=2793']
+];
 if(strlen($_SERVER['REQUEST_URI']) > 384 || strpos($_SERVER['REQUEST_URI'], "eval(") || strpos($_SERVER['REQUEST_URI'], "base64")) {
 @header("HTTP/1.1 414 Request-URI Too Long");
 @header("Status: 414 Request-URI Too Long");
@@ -16,10 +19,10 @@ if(strlen($_SERVER['REQUEST_URI']) > 384 || strpos($_SERVER['REQUEST_URI'], "eva
 }
 $go_url=htmlspecialchars(preg_replace('/^url=(.*)$/i','$1',$_SERVER["QUERY_STRING"]));
 //自定义URL
-foreach($my_urls as $x=>$x_value)
+foreach($my_urls as $key => $url_info)
 {
-	if($go_url==$x_value[0]) {
-		echo $go_url = $x_value[1];	
+	if($go_url==$url_info[0]) {
+		echo $go_url = $url_info[1];	
 		}
 }
 if(!empty($go_url)) {

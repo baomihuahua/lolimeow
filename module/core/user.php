@@ -3,6 +3,9 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
 //链接输出
 function get_login_url() {	
 $id=get_boxmoe('users_login');
@@ -380,14 +383,38 @@ function user_comments_summary_shortcode($atts) {
 	$output .= '</div>';
 	$output .= '<div class="mt-4">';
 	$output .= '<nav>';
-	$output .= '<ul class="pagination pagination-sm">';
-	for ($i = 1; $i <= $total_pages; $i++) {
-		$current_page = max(1, get_query_var('paged', 1));
-		$class = ($i === $current_page) ? ' active' : '';
-	$output .= '<li class="page-item'.$class.'" ><a href="' . esc_url(add_query_arg('paged', $i)) . '" class="page-link">' . $i . '</a></li>';
+	$output .= '<ul class="pagination justify-content-center pagination-sm">';
+
+	$current_page = max(1, get_query_var('paged', 1));
+
+	// 计算显示的页码范围
+	$start = max(1, min($current_page - 2, $total_pages - 4));
+	$end = min($total_pages, max(5, $current_page + 2));
+
+	// 显示第一页和省略号
+	if ($start > 1) {
+		$output .= '<li class="page-item"><a href="' . esc_url(add_query_arg('paged', 1)) . '" class="page-link">1</a></li>';
+		if ($start > 2) {
+			$output .= '<li class="page-item disabled"><span class="page-link">...</span></li>';
+		}
 	}
+
+	// 显示中间的页码
+	for ($i = $start; $i <= $end; $i++) {
+		$class = ($i === $current_page) ? ' active' : '';
+		$output .= '<li class="page-item' . $class . '"><a href="' . esc_url(add_query_arg('paged', $i)) . '" class="page-link">' . $i . '</a></li>';
+	}
+
+	// 显示最后一页和省略号
+	if ($end < $total_pages) {
+		if ($end < $total_pages - 1) {
+			$output .= '<li class="page-item disabled"><span class="page-link">...</span></li>';
+		}
+		$output .= '<li class="page-item"><a href="' . esc_url(add_query_arg('paged', $total_pages)) . '" class="page-link">' . $total_pages . '</a></li>';
+	}
+
 	$output .= '</ul>';
-  	$output .= '</nav>';
+	$output .= '</nav>';
 	$output .= '</div>';	
     return $output;
 }

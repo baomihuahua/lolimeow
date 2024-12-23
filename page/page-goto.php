@@ -22,10 +22,13 @@ foreach($my_urls as $x=>$x_value)
 		}
 }
 if(!empty($go_url)) {
-if ($go_url == base64_encode(base64_decode($go_url))) {
+if (!empty($go_url) && $go_url === base64_encode(base64_decode($go_url))) {
 $go_url = base64_decode($go_url);
 }
-preg_match('/^(http|https|thunder|qqdl|ed2k|Flashget|qbrowser):\/\//i',$go_url,$matches);
+preg_match('/^(http|https|thunder|qqdl|ed2k|Flashget|qbrowser):\/\//i', $go_url, $matches);
+if (preg_match('/^(http|https|thunder|qqdl|ed2k|Flashget|qbrowser):\/\//i', $go_url, $matches) === false) {
+    // 处理错误
+}
 if($matches){
 $url=$go_url;
 $title= '安全中心 | 加载中...';

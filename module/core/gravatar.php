@@ -3,6 +3,9 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
+//=======安全设置，阻止直接访问主题文件=======
+if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=========================================
 // 处理头像
 add_action('admin_post_upload_avatar', 'boxmoe_avatar_upload');
 add_action('admin_post_nopriv_upload_avatar', 'boxmoe_avatar_upload');
