@@ -3,7 +3,8 @@
  * Template Name: Boxmoe友情链接
  * @link https://www.boxmoe.com
  * @package lolimeow
- */
+ */ 
+ error_reporting(0);
 get_header();
 ?>
       <section class="section-blog-breadcrumb container">
