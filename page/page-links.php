@@ -3,8 +3,7 @@
  * Template Name: Boxmoe友情链接
  * @link https://www.boxmoe.com
  * @package lolimeow
- */ 
- error_reporting(0);
+ */
 get_header();
 ?>
       <section class="section-blog-breadcrumb container">
@@ -32,7 +31,7 @@ get_header();
                   $webimg ='';
                         echo '<div class="thw-sept"></div><div class="link-title mt-4 mb-8" >友情链接-排名不分先后</div>';
                         echo '<div class="row">';				  
-                    $links = get_bookmarks(array('category' => $category->term_id));					  
+                    $links = get_bookmarks();					  
                     foreach ($links as $link) {
                         if (empty($link->link_description)){
                           $desc ='这站长太懒了什么也没留下';
