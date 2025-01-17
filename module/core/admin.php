@@ -4,7 +4,7 @@
  * @package lolimeow
  */
 //=======安全設定，阻止直接訪問主題檔案=======
-if (!defined('ABSPATH')) {echo'看你的姊妹';exit;}
+if (!defined('ABSPATH')) {echo'看什麼看';exit;}
 //=========================================
 
 // 自訂後台樣式
