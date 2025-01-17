@@ -3,42 +3,31 @@
  * @link https://www.boxmoe.com
  * @package lolimeow
  */
-//=======安全设置，阻止直接访问主题文件=======
-if (!defined('ABSPATH')) {echo'Look your sister';exit;}
+//=======安全設定，阻止直接訪問主題檔案=======
+if (!defined('ABSPATH')) {echo'看你的姊妹';exit;}
 //=========================================
 
+// 自訂後台樣式
 function custom_admin_styles() {
     echo '<style>
         .avatar{width: 60px;height: 60px;}
     </style>';
 }
 add_action('admin_head', 'custom_admin_styles');
+
+// 自訂主題選單過濾器
 function boxmoe_options_menu_filter($menu) {
 	$menu['mode'] = 'menu';
-	$menu['page_title'] = 'Boxmoe主题设置';
-	$menu['menu_title'] = 'Boxmoe主题设置';
+	$menu['page_title'] = 'Boxmoe 主題設定';
+	$menu['menu_title'] = 'Boxmoe 主題設定';
 	$menu['menu_slug'] = 'boxmoe-options';
 	$menu['icon_url'] = 'dashicons-admin-generic';
 	$menu['position'] = '61';
 	return $menu;
 }
 add_filter('optionsframework_menu', 'boxmoe_options_menu_filter');
-//自动给修改网站登陆页面logo
-function customize_login_logo(){         
-    echo '<style type="text/css">
-        .login{position: relative;width: 100%;background: rgba(0, 0, 0, 0) -webkit-linear-gradient(left, #ff5f6d 0%, #ffb270 100%) repeat scroll 0 0;background: rgba(0, 0, 0, 0) linear-gradient(to right, #ff5f6d 0%, #ffb270 100%) repeat scroll 0 0;overflow: hidden;background-size: cover;background-position: center center;z-index: 1;background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);}.login h1 a { background-image:url('.get_template_directory_uri() .'/assets/images/logo.png); width: 180px; max-height: 100px;margin: 20px auto 15px; background-size: contain;background-repeat: no-repeat;background-position: center center;}
-		.login form{border-radius: 10px;}
-        </style>';   
-  
-}  
-add_action('login_head', 'customize_login_logo');   
 
-add_filter( 'login_headerurl', 'custom_loginlogo_url' );
-function custom_loginlogo_url($url) {
-    return '';
-}
-
-// 后台Ctrl+Enter提交评论回复
+// 後台 Ctrl+Enter 提交評論回覆
 add_action('admin_footer', '_admin_comment_ctrlenter');
 function _admin_comment_ctrlenter() {
 	echo '<script type="text/javascript">
@@ -50,13 +39,15 @@ function _admin_comment_ctrlenter() {
             });
         });
     </script>';
-};
-//版权信息
+}
+
+// 自訂後台版權訊息
 function example_footer_admin () {
-echo '<span id="footer-thankyou">感谢使用<a target="_blank" href="https://cn.wordpress.org/">WordPress</a>进行创作。Theme by <a target="_blank" href="https://www.boxmoe.com/" style="color:red;">Lolimeow</a></span> ';
+echo '<span id="footer-thankyou">感謝使用 <a target="_blank" href="https://tw.wordpress.org/">WordPress</a> 進行創作。主題由 <a target="_blank" href="https://www.boxmoe.com/" style="color:red;">Lolimeow</a> 提供</span>';
 }
 add_filter('admin_footer_text', 'example_footer_admin');
-//编辑器TinyMCE增强
+
+// 增強 TinyMCE 編輯器功能
 function enable_more_buttons($buttons)
 {
 	$buttons[] = 'hr';
@@ -73,6 +64,4 @@ function enable_more_buttons($buttons)
 	return $buttons;
 }
 add_filter("mce_buttons_3", "enable_more_buttons");
-
-
 ?>
