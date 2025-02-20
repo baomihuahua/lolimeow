@@ -148,6 +148,7 @@ echo '<link rel="stylesheet" href="'.boxmoe_theme_url().'/assets/css/user_center
 $items = isset($_GET["items"]) ? $_GET["items"] : 'home';
 $current_user = wp_get_current_user();
 ?>
+   <?php if(function_exists( 'mobantu_erphp_menu' )  ) {?>
     <section class="py-lg-7 py-5 user_center">
          <div class="container">
             <div class="row">
@@ -236,13 +237,31 @@ $current_user = wp_get_current_user();
                   </div>
                </div>
 
-
-
-
-
             </div>
          </div>
       </section>
+      <?php }else{ ?> 
+         <section class="boxmoe_user_center fadein-bottom">
+            <div class="container">
+               <div class="row">            
+            <div class="user-info card">
+				<div class="card-header card-header-warning text-center">会员中心</div>
+                <div class="card-body">
+				<div class="row">
+				<div class="col-lg-10 col-md-10 ml-auto mx-auto">		
+				<div class="alert alert-warning d-flex align-items-center" role="alert">
+  				<span class="alert-icon"><i class="fa fa-bell"></i></span>
+   				<span class="alert-text"> 提示：会员中心必须配套Erphpdown插件使用，检测网站未启用或者未安装该插件！<a href="https://www.boxmoe.com/468.html" target="_blank" style="font-weight: bold;color: #121211;font-size: 15px;">详细点击查看说明</a> 
+               <a href="https://www.boxmoe.com/443.html" target="_blank" style="font-weight: bold;font-size: 15px;">破解版插件购买</a></span>
+				</div>
+				</div>
+				</div>				
+				</div>				
+				</div>
+            </div>
+            </div>
+         </section>
+      <?php } ?>
 <?php
 get_footer();
 ?>  
