@@ -1,0 +1,31 @@
+.user_center {background-color:var(--bs-white);}
+.fs-7 {font-size:.775rem;}
+.input-file [type = file] {position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer;}
+.login_register_page .logo {height:50px;}
+.vip-card {transition:all 0.3s ease;cursor:pointer;border:1px solid #eee !important;}
+.vip-card:hover {transform:translateY(-5px);}
+.shadow-hover:hover {box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important;}
+.price {font-size:0.95rem;font-weight:bold;color:var(--bs-dark);}
+.price small {font-size:0.9rem;font-weight:normal;}
+.vip-card ul li {margin-bottom:0.5rem;color:#666;}
+.btn-upgrade {width:80%;border-radius:20px;}
+.row .col-lg-4:nth-child(1) .btn-upgrade {color:#4e73df;border-color:#4e73df;}
+.row .col-lg-4:nth-child(1) .btn-upgrade:hover {background-color:#4e73df;color:#fff;}
+.row .col-lg-4:nth-child(2) .btn-upgrade {color:#f6c23e;border-color:#f6c23e;}
+.row .col-lg-4:nth-child(2) .btn-upgrade:hover {background-color:#f6c23e;color:#fff;}
+.row .col-lg-4:nth-child(3) .btn-upgrade {color:#e74a3b;border-color:#e74a3b;}
+.row .col-lg-4:nth-child(3) .btn-upgrade:hover {background-color:#e74a3b;color:#fff;}
+.row .col-lg-4:nth-child(4) .btn-upgrade {color:#1cc88a;border-color:#1cc88a;}
+.row .col-lg-4:nth-child(4) .btn-upgrade:hover {background-color:#1cc88a;color:#fff;}
+.row .col-lg-4:nth-child(5) .btn-upgrade {color:#36b9cc;border-color:#36b9cc;}
+.row .col-lg-4:nth-child(5) .btn-upgrade:hover {background-color:#36b9cc;color:#fff;}
+.row .col-lg-4:nth-child(6) .btn-upgrade {color:#858796;border-color:#858796;}
+.row .col-lg-4:nth-child(6) .btn-upgrade:hover {background-color:#858796;color:#fff;}
+.row .col-lg-4:nth-child(7) .btn-upgrade {color:#5a5c69;border-color:#5a5c69;}
+.row .col-lg-4:nth-child(7) .btn-upgrade:hover {background-color:#5a5c69;color:#fff;}
+.row .col-lg-4:nth-child(8) .btn-upgrade {color:#2c9faf;border-color:#2c9faf;}
+.row .col-lg-4:nth-child(8) .btn-upgrade:hover {background-color:#2c9faf;color:#fff;}
+.row .col-lg-4:nth-child(9) .btn-upgrade {color:#8b4513;border-color:#8b4513;}
+.row .col-lg-4:nth-child(9) .btn-upgrade:hover {background-color:#8b4513;color:#fff;}
+.row .col-lg-4:nth-child(10) .btn-upgrade {color:#9932cc;border-color:#9932cc;}
+.row .col-lg-4:nth-child(10) .btn-upgrade:hover {background-color:#9932cc;color:#fff;}
