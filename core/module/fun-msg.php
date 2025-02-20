@@ -160,9 +160,7 @@ function boxmoe_comment_reply_notification($comment_id) {
     </table>';
     boxmoe_smtp_mail_template($parent_comment->comment_author_email, $subject, $message);
 }
-if(get_boxmoe('boxmoe_new_comment_notice_switch')){
-    add_action('comment_post', 'boxmoe_comment_reply_notification');
-}
+
 
 //找回密码邮件
 function boxmoe_reset_password_email($user_login) {

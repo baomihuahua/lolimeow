@@ -225,6 +225,9 @@ function ajax_comment_callback() {
         }
     }
 
+    add_filter('notify_post_author', '__return_false', 1);
+    add_filter('notify_moderator', '__return_false', 1);
+
     $comment_id = wp_insert_comment($commentarr);
     if (!$comment_id) {
         wp_send_json_error('评论提交失败，请稍后再试');
@@ -238,20 +241,22 @@ function ajax_comment_callback() {
     if ('spam' !== $commentarr['comment_approved']) { 
         add_comment_meta($comment_id, '_wp_trash_meta_status', $commentarr['comment_approved']);
     }
-    
-    add_filter('notify_post_author', '__return_false');
-    add_filter('notify_moderator', '__return_false');
+    if (get_boxmoe('boxmoe_smtp_mail_switch')){
+    if ($commentarr['comment_parent'] > 0) {
+        $parent_comment = get_comment($commentarr['comment_parent']);
+        if ($parent_comment && $parent_comment->comment_author_email) {
+            boxmoe_comment_reply_notification($comment_id);
+        }
+    }
+    }
+    if (get_boxmoe('boxmoe_smtp_mail_switch') && get_boxmoe('boxmoe_new_comment_notice_switch')) {
+        boxmoe_new_comment_notice_email($comment_id);
+    }
 
-    if(get_boxmoe('boxmoe_smtp_mail_switch')){
-        if(get_boxmoe('boxmoe_new_comment_notice_switch')){
-            boxmoe_new_comment_notice_email($comment_id);
-        }
+    if (get_boxmoe('boxmoe_robot_notice_switch') && get_boxmoe('boxmoe_new_comment_notice_robot_switch')) {
+        boxmoe_robot_msg_comment($comment_id);
     }
-    if(get_boxmoe('boxmoe_robot_notice_switch')){
-        if(get_boxmoe('boxmoe_new_comment_notice_robot_switch')){
-            boxmoe_robot_msg_comment($comment_id);
-        }
-    }
+
     $comment = get_comment($comment_id);
     ob_start();
     boxmoe_comment($comment, array('max_depth' => 1), 1);
@@ -267,3 +272,19 @@ function disable_comment_flood_filter(){
     remove_filter('check_comment_flood', 'check_comment_flood_db', 10, 4);
 }
 add_action('init', 'disable_comment_flood_filter');
+
+// 全局禁用默认通知
+add_filter('notify_post_author', '__return_false', 1);
+add_filter('notify_moderator', '__return_false', 1);
+
+// 添加后台评论回复的邮件通知
+function boxmoe_admin_comment_reply($comment_id, $comment_object) {
+    if (!get_boxmoe('boxmoe_smtp_mail_switch')) {
+        return;
+    }
+    if ($comment_object->comment_parent > 0) {
+        boxmoe_comment_reply_notification($comment_id);
+    }
+}
+add_action('wp_insert_comment', 'boxmoe_admin_comment_reply', 10, 2);
+remove_action('comment_post', 'boxmoe_comment_reply_notification');
