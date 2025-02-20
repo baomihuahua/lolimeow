@@ -231,6 +231,16 @@ function video_shortcode( $attr , $content = ' ') {
     return $out;  	
 }
 
+//会员查看内容
+function login_to_read($atts, $content=null) {
+	extract(shortcode_atts(array("notice" => '
+	<div class="alerts error"><strong>该段内容只有登录才可以查看</strong></div>'), $atts));
+	if ( is_user_logged_in() && !is_null( $content ) && !is_feed() )
+					return $content;
+			return $notice;
+	}
+	add_shortcode('userreading', 'login_to_read');
+	
 
 
 // 可视化编辑器添加下拉式按钮
