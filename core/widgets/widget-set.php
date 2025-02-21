@@ -18,7 +18,8 @@ $widgets = array(
 	'category',
 	'archive',
 	'tags',
-	'userinfo'
+	'userinfo',
+	'search',
 
 );
 
