@@ -68,7 +68,10 @@ if (is_user_logged_in()){
 
                      <?php wp_nonce_field('user_login', 'login_nonce'); ?>
                      <div class="d-grid">
-                        <button class="btn btn-primary" type="submit" name="login_submit">登录</button>
+                        <button class="btn btn-primary" type="submit" name="login_submit">
+                           <span class="spinner-border spinner-border-sm me-2 d-none" role="status"></span>
+                           <span class="btn-text">登录</span>
+                        </button>
                      </div>
                      <div id="login-message"></div>
                   </form>
@@ -131,6 +134,15 @@ if (is_user_logged_in()){
       document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('loginform').addEventListener('submit', function(e) {
         e.preventDefault();
+        
+        const loginButton = this.querySelector('button[type="submit"]');
+        const spinner = loginButton.querySelector('.spinner-border');
+        const btnText = loginButton.querySelector('.btn-text');
+
+        loginButton.disabled = true;
+        spinner.classList.remove('d-none');
+        btnText.textContent = '登录中...';
+
         const formData = {
             username: document.getElementById('username').value,
             password: document.getElementById('password').value,
@@ -157,11 +169,19 @@ if (is_user_logged_in()){
                     }
                 }, 1000);
             } else {
+                loginButton.disabled = false;
+                spinner.classList.add('d-none');
+                btnText.textContent = '登录';
+                
                 document.getElementById('login-message').innerHTML = 
                     '<div class="alert alert-danger mt-3">' + response.data.message + '</div>';
             }
         })
         .catch(error => {
+            loginButton.disabled = false;
+            spinner.classList.add('d-none');
+            btnText.textContent = '登录';
+            
             document.getElementById('login-message').innerHTML = 
                 '<div class="alert alert-danger mt-3">登录请求失败，请稍后重试</div>';
         });

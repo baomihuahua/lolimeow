@@ -24,3 +24,5 @@
 <br>
 **V13.02**
 <br>添加侧栏搜索框 \core\widgets\widget-set.php  \core\widgets\widget-search.php
+**V13.03-V13.1**
+<br>修复文章形式开关问题、错别字、优化短代码、添加经典编辑器表情包、添加仪表盘评论回复表情包、添加评论内容安全防护输出、优化UI、优化注册/登录页面体验，其他bug；
