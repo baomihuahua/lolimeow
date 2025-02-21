@@ -23,4 +23,4 @@
 <br>3.V13.01 删除多余无用文件 \page\page-erphpdown-user.php 可单独删除文件
 <br>
 **V13.02**
-<br>添加侧栏搜索框 \core\widgets\widget-set.php  \core\widgets\widget-widget-search.php
+<br>添加侧栏搜索框 \core\widgets\widget-set.php  \core\widgets\widget-search.php
