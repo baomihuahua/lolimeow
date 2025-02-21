@@ -51,13 +51,13 @@ function boxmoe_comment($comment, $args = array(), $depth = 1) {
                          $current_user_id == $comment->user_id || 
                          ($comment->comment_parent > 0 && $current_user_id == get_comment($comment->comment_parent)->user_id))
                     ) {
-                        comment_text();
+                        echo esc_html(get_comment_text());
                         echo '<span class="private-comment-badge">仅作者可见</span>';
                     } else {
                         echo '<p class="private-comment-notice">此评论仅作者可见</p>';
                     }
                 } else {
-                    comment_text();
+                    echo esc_html(get_comment_text());
                 }
                 ?>   
                 <?php if ( $comment->comment_approved == '0' ) : ?>
@@ -91,7 +91,7 @@ function boxmoe_comment_add_at($comment_text, $comment) {
             $comment_text = sprintf(
                 '<span class="comment-at">@%s</span> %s',
                 esc_html($parent_author),
-                $comment_text
+                esc_html($comment_text)
             );
         }
     }
