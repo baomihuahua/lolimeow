@@ -75,7 +75,8 @@ function boxmoe_banner_image(){
         $random_images = glob(get_template_directory().'/assets/images/banner/*.{jpg,jpeg,png,gif,webp}', GLOB_BRACE);   
         if (!empty($random_images)) {
             $random_key = array_rand($random_images);
-            $src=$random_images[$random_key];
+            $relative_path = str_replace(get_template_directory(), '', $random_images[$random_key]);
+            $src = boxmoe_theme_url() . $relative_path;
         }
     }elseif(get_boxmoe('boxmoe_banner_url')){
         $src= get_boxmoe('boxmoe_banner_url');
