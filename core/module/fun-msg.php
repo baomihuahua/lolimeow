@@ -72,9 +72,6 @@ function boxmoe_new_user_register($user_id){
     $admin_email = get_option('admin_email');
     boxmoe_smtp_mail_template($admin_email, $subject, $message);
 }
-if(get_boxmoe('boxmoe_new_user_register_notice_switch')){
-    add_action('user_register', 'boxmoe_new_user_register');
-}
 
 //评论消息通知
 function boxmoe_comment_notification($comment_id){
@@ -243,7 +240,7 @@ function boxmoe_new_user_register_email($user_id){
     </table>';
     boxmoe_smtp_mail_template($user->user_email, $subject, $message);
 }
-add_action('user_register', 'boxmoe_new_user_register_email');  
+//add_action('user_register', 'boxmoe_new_user_register_email');  
 
 //验证码注册模板
 function boxmoe_verification_code_register_email($email, $verification_code = ''){

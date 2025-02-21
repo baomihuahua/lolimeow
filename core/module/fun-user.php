@@ -130,6 +130,7 @@ add_action('wp_ajax_nopriv_user_signup_action', 'handle_user_signup');
 add_action('wp_ajax_user_signup_action', 'handle_user_signup');
 
 function handle_user_signup() {
+    // 移除默认的新用户注册通知
     remove_action('register_new_user', 'wp_send_new_user_notification');
     remove_action('wp_new_user_notification', 'wp_send_new_user_notifications');
     
@@ -231,7 +232,7 @@ function handle_user_signup() {
 
     if(get_boxmoe('boxmoe_smtp_mail_switch')){   
         if(get_boxmoe('boxmoe_new_user_register_notice_switch')){
-            boxmoe_new_user_register_email($user_id);
+            boxmoe_new_user_register($user_id);
         }
     }
     if(get_boxmoe('boxmoe_robot_notice_switch')){
@@ -240,6 +241,7 @@ function handle_user_signup() {
         }
     } 
     delete_transient('verification_code_' . $formData['email']);  
+    boxmoe_new_user_register_email($user_id);
     wp_set_current_user($user_id);
     wp_set_auth_cookie($user_id, true);
     wp_send_json_success(array(
