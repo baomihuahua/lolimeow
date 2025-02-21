@@ -36,7 +36,7 @@ class widget_postlist extends WP_Widget {
 		echo '<article class="widget-post">
 		               <div class="info">
                         <a href="'. get_the_permalink() .'" '. boxmoe_article_new_window() .' class="thumb">
-                          <span class="fullimage" style="background-image: url('.boxmoe_article_thumbnail_src().');"></span>
+                          <span class="fullimage" style="background-image: url('.boxmoe_article_thumbnail_src().'?'.boxmoe_random_string(6).');"></span>
                         </a>
                         <div class="right">
                           <h4 class="title">
