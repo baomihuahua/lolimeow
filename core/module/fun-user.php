@@ -130,9 +130,12 @@ add_action('wp_ajax_nopriv_user_signup_action', 'handle_user_signup');
 add_action('wp_ajax_user_signup_action', 'handle_user_signup');
 
 function handle_user_signup() {
-    // 移除默认的新用户注册通知
-    remove_action('register_new_user', 'wp_send_new_user_notification');
-    remove_action('wp_new_user_notification', 'wp_send_new_user_notifications');
+    // 移除所有默认的新用户注册通知
+    remove_action('register_new_user', 'wp_send_new_user_notifications');
+    remove_action('edit_user_created_user', 'wp_send_new_user_notifications');
+    remove_action('network_site_new_created_user', 'wp_send_new_user_notifications');
+    remove_action('network_site_users_created_user', 'wp_send_new_user_notifications');
+    remove_action('network_user_new_created_user', 'wp_send_new_user_notifications');
     
     $formData = json_decode(stripslashes($_POST['formData']), true);
     
@@ -314,6 +317,19 @@ function handle_reset_password_request() {
     exit;
 }
 
+// 透过代理或者cdn获取访客真实IP
+function get_client_ip() {
+	if (getenv("HTTP_CLIENT_IP") && strcasecmp(getenv("HTTP_CLIENT_IP"), "unknown"))
+	        $ip = getenv("HTTP_CLIENT_IP"); else if (getenv("HTTP_X_FORWARDED_FOR") && strcasecmp(getenv("HTTP_X_FORWARDED_FOR"), 
+	"unknown"))
+	        $ip = getenv("HTTP_X_FORWARDED_FOR"); else if (getenv("REMOTE_ADDR") && strcasecmp(getenv("REMOTE_ADDR"), "unknown"))
+	        $ip = getenv("REMOTE_ADDR"); else if (isset ($_SERVER['REMOTE_ADDR']) && $_SERVER['REMOTE_ADDR'] 
+	&& strcasecmp($_SERVER['REMOTE_ADDR'], "unknown"))
+	        $ip = $_SERVER['REMOTE_ADDR']; else
+	        $ip = "unknown";
+	return ($ip);
+}
+
 // 处理用户注册时间
 add_action('user_register', 'boxmoe_user_register_time');
 function boxmoe_user_register_time($user_id){
@@ -332,6 +348,6 @@ function boxmoe_user_login_time($user_login){
 add_action('wp_login', 'boxmoe_user_login_ip');
 function boxmoe_user_login_ip($user_login){
     $user = get_user_by('login', $user_login);
-    update_user_meta($user->ID, 'last_login_ip', $_SERVER['REMOTE_ADDR']);
+    update_user_meta($user->ID, 'last_login_ip', get_client_ip());
 }
 
