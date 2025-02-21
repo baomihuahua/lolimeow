@@ -17,6 +17,10 @@
 <br>
 <br>
 **2/21更新**
+<br>
 <br>1.V13.01 添加登录可见短代码 \core\module\fun-shortcode.php 可单独替换文件
 <br>2.V13.01 优化注册邮件通知 \core\module\fun-msg.php 、\core\module\fun-user.php可单独替换文件
 <br>3.V13.01 删除多余无用文件 \page\page-erphpdown-user.php 可单独删除文件
+<br>
+**V13.02**
+<br>添加侧栏搜索框 \core\widgets\widget-set.php  \core\widgets\widget-widget-search.php
