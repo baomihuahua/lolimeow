@@ -78,7 +78,10 @@ if (is_user_logged_in()){
                            <?php wp_nonce_field('user_signup', 'signup_nonce'); ?>
                            <div id="signup-message"></div>
                            <div class="d-grid">
-                              <button class="btn btn-primary" type="submit">注册</button>
+                              <button class="btn btn-primary" type="submit">
+                                 <span class="spinner-border spinner-border-sm d-none me-2" role="status" aria-hidden="true"></span>
+                                 <span class="button-text">注册</span>
+                              </button>
                            </div>
                         </form>
                   <div class="text-center mt-7">
@@ -184,6 +187,15 @@ if (is_user_logged_in()){
 
       document.getElementById('signupform').addEventListener('submit', function(e) {
         e.preventDefault();
+        
+        const submitButton = this.querySelector('button[type="submit"]');
+        const spinner = submitButton.querySelector('.spinner-border');
+        const buttonText = submitButton.querySelector('.button-text');
+        
+        submitButton.disabled = true;
+        spinner.classList.remove('d-none');
+        buttonText.textContent = '注册中...';
+        
         const formData = {
             username: document.getElementById('signupFullnameInput').value,
             email: document.getElementById('signupEmailInput').value,
@@ -213,11 +225,19 @@ if (is_user_logged_in()){
                     }
                 }, 1000);
             } else {
+                submitButton.disabled = false;
+                spinner.classList.add('d-none');
+                buttonText.textContent = '注册';
+                
                 document.getElementById('signup-message').innerHTML = 
                     '<div class="alert alert-danger mt-3">' + response.data.message + '</div>';
             }
         })
         .catch(error => {
+            submitButton.disabled = false;
+            spinner.classList.add('d-none');
+            buttonText.textContent = '注册';
+            
             document.getElementById('signup-message').innerHTML = 
                 '<div class="alert alert-danger mt-3">注册请求失败，请稍后重试</div>';
         });
