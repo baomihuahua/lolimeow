@@ -15,7 +15,14 @@ function boxmoe_article_new_window() {
     return get_boxmoe('boxmoe_article_new_window_switch')?'target="_blank"':'';
 }
 
+// 开启所有文章形式支持--------------------------boxmoe.com--------------------------
+if(get_boxmoe('boxmoe_article_support_switch')){
+    add_theme_support('post-formats', array('image', 'video', 'audio', 'quote', 'link'));
+}
 
+//开启特色文章缩略图
+    add_theme_support('post-thumbnails');
+	
 // 开启所有文章形式支持--------------------------boxmoe.com--------------------------
 if(get_boxmoe('boxmoe_article_support_switch')){
 function boxmoe_article_support() {
