@@ -23,13 +23,6 @@ if(get_boxmoe('boxmoe_article_support_switch')){
 //开启特色文章缩略图
     add_theme_support('post-thumbnails');
 	
-// 开启所有文章形式支持--------------------------boxmoe.com--------------------------
-if(get_boxmoe('boxmoe_article_support_switch')){
-function boxmoe_article_support() {
-    return get_boxmoe('boxmoe_article_support_switch')?'post-format-link post-format-quote post-format-video post-format-audio post-format-image post-format-gallery post-format-chat post-format-status post-format-aside post-format-chat post-format-standard':'';
-}
-add_filter('post_class', 'boxmoe_article_support');
-}
 
 // 缩略图尺寸设定--------------------------boxmoe.com--------------------------
 if(get_boxmoe('boxmoe_article_thumbnail_size_switch')){
