@@ -113,8 +113,8 @@ if(!isset($user_ID)) {
                                 <div class="user-meta">
                                         <?php echo get_avatar(get_current_user_id(), 48); ?>
                                         <div class="user-info">
-                                            <span class="user-name"><?php echo get_the_author_meta('display_name'); ?></span>
-                                            <span class="user-email"><?php echo get_the_author_meta('user_email'); ?></span>
+                                            <span class="user-name"><?php echo esc_attr(wp_get_current_user()->display_name); ?></span>
+                                            <span class="user-email"><?php echo esc_attr(wp_get_current_user()->user_email); ?></span>
                                             <input type="hidden" name="author" value="<?php echo esc_attr(wp_get_current_user()->display_name); ?>">
                                             <input type="hidden" name="email" value="<?php echo esc_attr(wp_get_current_user()->user_email); ?>">
                                         </div>
