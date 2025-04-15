@@ -111,7 +111,7 @@ function boxmoe_body_grey(){
 }
 // 欢迎语--------------------------boxmoe.com--------------------------
 function boxmoe_banner_welcome(){
-    echo get_boxmoe('boxmoe_banner_font')?:'Hello! 欢迎来到盒子萌！';
+    echo get_boxmoe('boxmoe_banner_font')?:'';
 }
 
 
